@@ -1,0 +1,22 @@
+<table class="table">
+    <tr>
+        <th class="alert-info">Name</th>
+        <th class="alert-info">Email-Id</th>
+        <th class="alert-info">Amount</th>
+        <th class="alert-info">Duration</th>
+        <th class="alert-info">Aadhar Card</th>
+        <th class="alert-info">Pan Card</th>
+        <th class="alert-info">Emi Completed</th>
+    </tr>
+    <tbody class="table-light">
+    <tr *ngFor = "let loan of Loans">
+        <td>{{ loan.name }}</td>
+        <td>{{ loan.email }}</td>
+        <td>{{ loan.amount }}</td>
+        <td>{{ loan.duration }}</td>
+        <td>{{ loan.aadhar }}</td>
+        <td>{{ loan.panCard }}</td>
+        <td>{{ loan.emiCompleted }}</td>
+    </tr>
+</tbody>
+</table>

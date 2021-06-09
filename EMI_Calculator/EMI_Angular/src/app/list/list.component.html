@@ -1,0 +1,24 @@
+<table class="table table-info">
+    <thead>
+    <tr>
+        <th class="alert-info">year</th>
+        <th class="alert-info">openingBal</th>
+        <th class="alert-info">emi</th>
+        <th class="alert-info">InterestPaidYearly</th>
+        <th class="alert-info">PrinciplePaidYearly</th>
+        <th class="alert-info">Closingbal</th>
+      
+    </tr>
+</thead>
+<tbody class="table-light">
+    <tr *ngFor = "let f of EMIList">
+        <td>{{ f.year }}</td>
+        <td>{{ f.openingBal }}</td>
+        <td>{{ f.emi }}</td>
+        <td>{{ f.interestPaidYearly }}</td>
+        <td>{{ f.principlePaidYearly }}</td>
+        <td>{{ f.closingbal }}</td>
+    </tr>
+</tbody>
+
+</table>
