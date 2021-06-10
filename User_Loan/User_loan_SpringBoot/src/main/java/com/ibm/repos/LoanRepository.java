@@ -2,7 +2,10 @@ package com.ibm.repos;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -22,5 +25,17 @@ public interface LoanRepository extends JpaRepository<Loan, Integer> {
 
 	@Query("FROM Loan b where b.emiCompleted=('No')")
 	List<Loan> findAllLoan();
+	
+	@Transactional
+	@Modifying
+	@Query("update Loan b set b.status = ('Approved') where b.loanId = (?1) ")
+	 void approveLoan(@Param("loanId") int loanId);
+	
+	@Transactional
+	@Modifying
+	@Query("update Loan b set b.status = ('Rejected') where b.loanId = (?1) ")
+	void rejectLoan(@Param("loanId") int loanId);
+	
+	
 
 }

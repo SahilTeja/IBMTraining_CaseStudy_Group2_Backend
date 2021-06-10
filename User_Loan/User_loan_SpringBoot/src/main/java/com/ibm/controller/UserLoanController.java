@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,10 +30,10 @@ public class UserLoanController {
 	@Autowired
 	private UserLoanService Service;
 	
-//	@PostMapping(path = "/admin/save",consumes = "application/json")
-//	public boolean saveAdmin(@RequestBody Admin admin) {
-//		return Service.addAdmin(admin);
-//	}
+	@PostMapping(path = "/admin/save",consumes = "application/json")
+	public boolean saveAdmin(@RequestBody Admin admin) {
+		return Service.addAdmin(admin);
+	}
 	@GetMapping(path = "/admin/find", produces = "application/json")
 	public List<Admin> findAllAdmin(){
 		return Service.findAllAdmin();
@@ -73,6 +74,17 @@ public class UserLoanController {
 	@GetMapping(path = "/findallloan", produces = "application/json")
 	public List<Loan> findAllLoan(){
 		return Service.findAllLoan();
+	}
+	
+
+	@PutMapping(path = "/approve/{id}", produces = "application/json")
+	public void approveLoan(@RequestBody Loan loan,@PathVariable("id") int id) {
+		 Service.approveLoan(id);
+	}
+	
+	@PutMapping(path = "/reject/{id}", produces = "application/json")
+	public void rejectLoan(@RequestBody Loan loan,@PathVariable("id") int id) {
+		 Service.rejectLoan(id);
 	}
 
 }

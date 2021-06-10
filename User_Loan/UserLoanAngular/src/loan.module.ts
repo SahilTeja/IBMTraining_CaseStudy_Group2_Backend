@@ -11,4 +11,7 @@ export class LoanModule {
     public amount : number = 0;
     public duration : number = 0;
     public emiCompleted : string = 'No';
+    public status : string = 'Pending';
+    public user_id : number = 0;
+    public loanId : number = 0;
 }

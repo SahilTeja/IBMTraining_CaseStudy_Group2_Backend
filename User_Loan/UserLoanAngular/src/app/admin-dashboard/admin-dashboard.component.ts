@@ -14,13 +14,30 @@ import { HomeLoanService } from '../services/home-loan.service';
 export class AdminDashboardComponent implements OnInit {
 
   Loans : LoanModule[] = [];
-
-  constructor(private service:HomeLoanService) { }
+ 
+  constructor(private service:HomeLoanService) { } 
 
   ngOnInit(): void {
     if(localStorage.getItem('Admin')!=null){
       this.service.getAllLoan().then(data => this.Loans = data);
     }
   }
+  yes(loanId: number) {
+    var ans = confirm("Are u sure to Approve Loan?"); 
+    if (ans) {
+      this.service.approvedLoan(loanId);
+      location.reload();
+    }
+
+  }
+
+  no(loanId: number) {
+    var ans = confirm("Are u sure to Reject?");
+    if (ans) {
+      this.service.rejectLoan(loanId);
+      location.reload();
+    }
+  }
+
 
 }

@@ -26,6 +26,7 @@ public class Loan {
 	private int amount;
 	private int duration;
 	private String emiCompleted="No";
+	private String status = "Pending";
 
 	@JsonBackReference
 	@ManyToOne
@@ -103,5 +104,15 @@ public class Loan {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+	
 	
 }

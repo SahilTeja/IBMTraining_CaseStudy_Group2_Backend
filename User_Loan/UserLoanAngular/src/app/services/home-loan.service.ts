@@ -45,4 +45,14 @@ export class HomeLoanService {
   addUser(user : AddUserModel){
     this.http.post(this.baseUrl+"/adduser/",user).subscribe(data => data = user);
   } 
+
+  approvedLoan(loanId:number){  
+    const body = {}
+    this.http.put(this.baseUrl+"/approve/"+loanId,body).subscribe();
+  }
+
+  rejectLoan(loanId:number){
+    const body = {}
+    this.http.put(this.baseUrl+"/reject/"+loanId,body).subscribe();
+  }
 }

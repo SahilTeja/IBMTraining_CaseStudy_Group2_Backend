@@ -7,6 +7,8 @@
         <th class="alert-info">Aadhar Card</th>
         <th class="alert-info">Pan Card</th>
         <th class="alert-info">Emi Completed</th>
+        <th class="alert-info">Status</th>
+        <th style="padding-left: 35px"  class="alert-info" colspan="2">Action</th> 
     </tr>
     <tbody class="table-light">
     <tr *ngFor = "let loan of Loans">
@@ -16,7 +18,10 @@
         <td>{{ loan.duration }}</td>
         <td>{{ loan.aadhar }}</td>
         <td>{{ loan.panCard }}</td>
-        <td>{{ loan.emiCompleted }}</td>
+        <td>{{ loan.emiCompleted }}</td> 
+        <td>{{loan.status}}</td>
+        <td><button  style= "margin: 5px" class="btn btn-outline-success" (click)="yes(loan.loanId)">Yes</button>
+            <button style="margin: 5px" class="btn btn-outline-danger" (click)="no(loan.loanId)">No</button></td>
     </tr>
-</tbody>
+</tbody> 
 </table>
