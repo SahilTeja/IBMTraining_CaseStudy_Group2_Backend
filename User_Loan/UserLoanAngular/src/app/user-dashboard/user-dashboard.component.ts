@@ -16,10 +16,11 @@ import { HomeLoanService } from '../services/home-loan.service';
 export class UserDashboardComponent implements OnInit {
 
   userid : number = 0;
+  loanID : number = 0;
   LoansById : LoanModule[] = [];
-  loggedin : boolean = false;
+  PaymentStatus : boolean = false;
 
-  constructor(private service:HomeLoanService, private router:Router) { }
+  constructor(private service:HomeLoanService, private router:Router, private aroute : ActivatedRoute) { }
 
   ngOnInit(): void {
     if(localStorage.getItem('UserId')!=null){
@@ -27,10 +28,18 @@ export class UserDashboardComponent implements OnInit {
       
       this.service.getAllLoanbyUserId(this.userid).then(data => this.LoansById = data);
     }
+    this.aroute.queryParams.pipe(filter(params => params.Payment))
+      .subscribe(params => {
+        this.loanID = params.Loanid;
+        this.PaymentStatus = params.Payment;
+        console.log("pay status :"+this.PaymentStatus);
+        this.service.EMICompleted(this.loanID);
+      });
   }
 
-  payment(name : String, amount : number){
-    this.router.navigate(['payment'], {queryParams: {Uname:name, Eamount:amount}});
+  payment(loanid:number, name : String, amount : number){
+    this.loanID = loanid;
+    this.router.navigate(['payment'], {queryParams: {Loanid: this.loanID, Uname:name, Eamount:amount}});
   }
 
 }

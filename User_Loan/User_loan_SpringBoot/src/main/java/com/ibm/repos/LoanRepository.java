@@ -23,7 +23,7 @@ public interface LoanRepository extends JpaRepository<Loan, Integer> {
 	@Query("FROM Loan b where b.name=(?1)")
 	List<Loan> findLoanByName(@Param("name") String name);
 
-	@Query("FROM Loan b where b.emiCompleted=('No')")
+	@Query("FROM Loan b where b.emiCompleted=('No') and b.status=('Pending')")
 	List<Loan> findAllLoan();
 	
 	@Transactional
@@ -35,5 +35,10 @@ public interface LoanRepository extends JpaRepository<Loan, Integer> {
 	@Modifying
 	@Query("update Loan b set b.status = ('Rejected') where b.loanId = (?1) ")
 	void rejectLoan(@Param("loanId") int loanId);
+	
+	@Transactional
+	@Modifying
+	@Query("update Loan b set b.emiCompleted = ('Yes') where b.loanId = (?1) ")
+	void EMIpayment(@Param("loanId") int loanId);
 
 }

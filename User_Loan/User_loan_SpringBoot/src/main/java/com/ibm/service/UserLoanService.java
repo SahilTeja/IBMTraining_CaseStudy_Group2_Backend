@@ -87,7 +87,7 @@ public class UserLoanService {
 		return userRepo.findAll();
 	}
 	
-	public List<Loan> findAllLoan() {   //whose Emi not completed
+	public List<Loan> findAllLoan() {   //whose Emi not completed & status is pending
 		return loanRepo.findAllLoan();
 	}
 	
@@ -97,6 +97,10 @@ public class UserLoanService {
 
 	public void rejectLoan(int id) {
 		loanRepo.rejectLoan(id);
+	}
+	
+	public void EMIpayment(int id) {
+		loanRepo.EMIpayment(id);
 	}
 
 }

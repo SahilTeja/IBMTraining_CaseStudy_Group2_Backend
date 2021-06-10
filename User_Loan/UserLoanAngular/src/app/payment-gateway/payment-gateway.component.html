@@ -78,7 +78,27 @@
                                                 </div><br>
                                                 <div class="row text-center">
                                                     <div class="col-xs-12">
-                                                        <button class="btn btn-primary" [disabled]=!frm.valid type="submit">Make a payment!</button>
+                                                        <button class="btn btn-primary" [disabled]=!frm.valid type="submit">Submit Details for Payment!</button>
+                                                    </div>
+                                                </div><br>
+                                            </form>
+                                            <form (ngSubmit)="OTPpayment()">
+                                                <div class="row" [hidden]=!submit>
+                                                    <div class="col-xs-12">
+                                                        <div class="form-group">
+                                                            <label>Enter OTP</label>
+                                                            <input type="text" class="form-control" name="otp" placeholder="Enter OTP" [(ngModel)]="EnteredOTP"><br>
+                                                            <div class="text-center"><button class="btn btn-primary text-center" type="submit">Make a payment!</button></div><br>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <form (ngSubmit)="cancelPayment()">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="form-group">
+                                                            <div class="text-center"><button class="btn btn-primary text-center" type="submit">Cancel Payment</button></div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </form>

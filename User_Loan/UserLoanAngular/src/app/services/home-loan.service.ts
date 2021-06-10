@@ -55,5 +55,9 @@ export class HomeLoanService {
     const body = {}
     this.http.put(this.baseUrl+"/reject/"+loanId,body).subscribe();
   }
+  EMICompleted(loanId:number){
+    const body = {}
+    this.http.put(this.baseUrl+"/emiPay/"+loanId,body).subscribe();
+  }
   
 }
