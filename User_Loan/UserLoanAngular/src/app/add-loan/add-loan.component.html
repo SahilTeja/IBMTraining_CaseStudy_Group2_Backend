@@ -17,6 +17,12 @@
         <span *ngIf = "email.dirty && email.invalid" class="alert alert-warning">Invalid EmailId</span>
         </tr>
         <tr>
+            <td>Enter Salary</td>
+            <td><input name="salary" required pattern="[0-9]{5,}" 
+                #salary=ngModel [(ngModel)]="loan.salary" class="form-control"></td>
+        <span *ngIf = "salary.dirty && salary.invalid" class="alert alert-warning">Invalid Salary</span>
+        </tr>
+        <tr>
             <td>Applicant AadharCard </td>
             <td><input name="aadhar" required pattern="[A-Za-z0-9]{5,}" 
                 #aadhar=ngModel [(ngModel)]="loan.aadhar" class="form-control"></td>
@@ -30,21 +36,19 @@
         </tr>
         
         <tr>
-            <td>Enter Amount</td>
+            <td>Enter Loan Amount</td>
             <td><input name="salary" required pattern="[0-9]{4,}"
                 #amnt=ngModel [(ngModel)]="loan.amount"  class="form-control"></td>
             <span *ngIf = "amnt.dirty && amnt.invalid"  class="alert alert-warning">invalid amount</span>
         </tr>
         <tr>
-            <td>Enter duration</td>
+            <td>Enter Duration(Year)</td>
             <td><input name="duration" required pattern="[0-9]{1,}"
                 #duration=ngModel [(ngModel)]="loan.duration"  class="form-control"></td>
             <span *ngIf = "duration.dirty && duration.invalid"  class="alert alert-warning">invalid duration</span>
         </tr>
         <tr>
             <td><button type="submit" [disabled]=!frm.valid class="btn btn-primary">Save</button></td>
-<!-- after clicking on save data moves in add.ts->save()->employee.service.ts->addEmp()
-// after clicking on save button it store the details and navigate to list.html as code written in save() -->
 
             <td><button type="reset" class="btn btn-warnings">Reset</button></td>
         </tr>

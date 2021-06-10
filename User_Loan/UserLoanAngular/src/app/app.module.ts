@@ -12,6 +12,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { HomePageComponent } from './home-page/home-page.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     UserDashboardComponent,
     HomePageComponent,
     LoginAdminComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    PaymentGatewayComponent
   ],
   imports: [
     BrowserModule,

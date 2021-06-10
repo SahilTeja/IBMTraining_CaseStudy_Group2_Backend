@@ -6,6 +6,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { HomePageComponent } from './home-page/home-page.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
 import { LoginUserComponent } from './login-user/login-user.component';
+import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:'adduser', component: AddUserComponent},
   {path:'user', component: UserDashboardComponent},
   {path:'admin', component: AdminDashboardComponent},
+  {path:'payment', component: PaymentGatewayComponent},
   {path:'**', redirectTo: '/home', pathMatch: 'full'}
 ];
 

@@ -23,6 +23,7 @@ public class Loan {
 	private String email;
 	private String aadhar;
 	private String panCard;
+	private int salary;
 	private int amount;
 	private int duration;
 	private String emiCompleted="No";
@@ -112,7 +113,13 @@ public class Loan {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-	
+
+	public int getSalary() {
+		return salary;
+	}
+
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
 	
 }

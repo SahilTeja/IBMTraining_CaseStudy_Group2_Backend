@@ -32,9 +32,9 @@ public class UserLoanService {
 	private AdminRepository adminRepo;
 	
 	
-	public boolean addAdmin(Admin admin) {
-		return adminRepo.save(admin)!=null?true:false;
-	}
+//	public boolean addAdmin(Admin admin) {
+//		return adminRepo.save(admin)!=null?true:false;
+//	}
 	public List<Admin> findAllAdmin(){
 		return adminRepo.findAll();
 	}
@@ -90,7 +90,7 @@ public class UserLoanService {
 	public List<Loan> findAllLoan() {   //whose Emi not completed
 		return loanRepo.findAllLoan();
 	}
-
+	
 	public void approveLoan(int id) {
 		 loanRepo.approveLoan(id);
 	}
@@ -98,6 +98,5 @@ public class UserLoanService {
 	public void rejectLoan(int id) {
 		loanRepo.rejectLoan(id);
 	}
-
 
 }

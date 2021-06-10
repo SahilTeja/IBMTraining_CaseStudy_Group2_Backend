@@ -17,8 +17,9 @@ export class UserDashboardComponent implements OnInit {
 
   userid : number = 0;
   LoansById : LoanModule[] = [];
+  loggedin : boolean = false;
 
-  constructor(private service:HomeLoanService) { }
+  constructor(private service:HomeLoanService, private router:Router) { }
 
   ngOnInit(): void {
     if(localStorage.getItem('UserId')!=null){
@@ -26,6 +27,10 @@ export class UserDashboardComponent implements OnInit {
       
       this.service.getAllLoanbyUserId(this.userid).then(data => this.LoansById = data);
     }
+  }
+
+  payment(name : String, amount : number){
+    this.router.navigate(['payment'], {queryParams: {Uname:name, Eamount:amount}});
   }
 
 }

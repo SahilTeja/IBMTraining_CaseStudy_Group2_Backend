@@ -55,4 +55,5 @@ export class HomeLoanService {
     const body = {}
     this.http.put(this.baseUrl+"/reject/"+loanId,body).subscribe();
   }
+  
 }

@@ -1,0 +1,159 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+<div class="wrapper wrapper-content animated fadeInRight">
+    
+    <div class="row">
+
+        <div class="col-lg-12">
+
+            <div class="ibox">
+                <div class="ibox-title">
+                    Payment method
+                </div>
+                <div class="ibox-content">
+
+                    <div class="panel-group payments-method" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="pull-right">
+                                    <i class="fa fa-cc-amex text-success"></i>
+                                    <i class="fa fa-cc-mastercard text-warning"></i>
+                                    <i class="fa fa-cc-discover text-danger"></i>
+                                </div>
+                                <h1 class="panel-title text-center">
+                                    <a>Credit Card / Debit Card</a>
+                                </h1><hr>
+                            </div>
+                            <div>
+                                <div class="panel-body">
+
+                                    <div class="row" style="border: 2px solid bisque; padding: 20px;">
+                                        <div class="col-md-4">
+                                            <h2>Summary</h2><hr>
+                                            <h4>Name: <strong><span class="text-navy">{{Username}} </span></strong></h4>
+                                            <h5>Payment Amount:   <strong> <span class="text-navy">{{EmiAmount}}</span></strong></h5>
+                                            <br><br>
+                                            <p class="m-t">
+                                                Thanks for Selecting us for applying Loan from us.
+
+                                            </p>
+                                            
+                                        </div>
+                                        <div class="col-md-8">
+
+                                            <form role="form" id="payment-form" (ngSubmit)="payment()" #frm=ngForm>
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="form-group">
+                                                            <label>CARD NUMBER</label>
+                                                            <div class="input-group">
+                                                                <input type="number" class="form-control" name="Number" required pattern="[0-9]{16,}" placeholder="Valid Card Number (16 digit)">
+                                                                <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-7 col-md-7">
+                                                        <div class="form-group">
+                                                            <label>EXPIRATION DATE</label>
+                                                            <input type="text" class="form-control" name="Expiry" placeholder="MM / YY" required="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-5 col-md-5 pull-right">
+                                                        <div class="form-group">
+                                                            <label>CV CODE</label>
+                                                            <input type="text" class="form-control" name="CVC" placeholder="CVC" required="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="form-group">
+                                                            <label>NAME OF CARD</label>
+                                                            <input type="text" class="form-control" name="nameCard" placeholder="NAME AND SURNAME">
+                                                        </div>
+                                                    </div>
+                                                </div><br>
+                                                <div class="row text-center">
+                                                    <div class="col-xs-12">
+                                                        <button class="btn btn-primary" [disabled]=!frm.valid type="submit">Make a payment!</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="payment-card">
+                <i class="fa fa-cc-visa payment-icon-big text-success"></i>
+                <h2>
+                    **** **** **** 1060
+                </h2>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <small>
+                            <strong>Expiry date:</strong> 10/16
+                        </small>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <small>
+                            <strong>Name:</strong> David
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="payment-card">
+                <i class="fa fa-cc-mastercard payment-icon-big text-warning"></i>
+                <h2>
+                    **** **** **** 7002
+                </h2>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <small>
+                            <strong>Expiry date:</strong> 10/16
+                        </small>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <small>
+                            <strong>Name:</strong> Anna Smith
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="payment-card">
+                <i class="fa fa-cc-discover payment-icon-big text-danger"></i>
+                <h2>
+                    **** **** **** 3466
+                </h2>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <small>
+                            <strong>Expiry date:</strong> 10/16
+                        </small>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <small>
+                            <strong>Name:</strong> Morgan
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
