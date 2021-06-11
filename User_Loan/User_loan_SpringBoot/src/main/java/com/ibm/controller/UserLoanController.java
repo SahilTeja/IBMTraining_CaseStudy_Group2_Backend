@@ -30,10 +30,10 @@ public class UserLoanController {
 	@Autowired
 	private UserLoanService Service;
 	
-	@PostMapping(path = "/admin/save",consumes = "application/json")
-	public boolean saveAdmin(@RequestBody Admin admin) {
-		return Service.addAdmin(admin);
-	}
+//	@PostMapping(path = "/admin/save",consumes = "application/json")
+//	public boolean saveAdmin(@RequestBody Admin admin) {
+//		return Service.addAdmin(admin);
+//	}
 	@GetMapping(path = "/admin/find", produces = "application/json")
 	public List<Admin> findAllAdmin(){
 		return Service.findAllAdmin();
@@ -76,7 +76,6 @@ public class UserLoanController {
 		return Service.findAllLoan();
 	}
 	
-
 	@PutMapping(path = "/approve/{id}", produces = "application/json")
 	public void approveLoan(@RequestBody Loan loan,@PathVariable("id") int id) {
 		 Service.approveLoan(id);
@@ -86,11 +85,18 @@ public class UserLoanController {
 	public void rejectLoan(@RequestBody Loan loan,@PathVariable("id") int id) {
 		 Service.rejectLoan(id);
 	}
+<<<<<<< HEAD
 	
 	@PutMapping(path = "/edit", produces = "application/json")
 	public void editLoan(@RequestBody Loan loan) {
 		 Service.editLoan(loan);
 	}
 	
+=======
+	@PutMapping(path = "/emiPay/{id}", produces = "application/json")
+	public void EMIpayment(@RequestBody Loan loan,@PathVariable("id") int id) {
+		 Service.EMIpayment(id);
+	}
+>>>>>>> 339eae746b37e9c9acbad0a433ddfd8f1f1b417a
 
 }

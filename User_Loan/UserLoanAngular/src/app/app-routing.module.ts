@@ -7,6 +7,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
 import { LoginUserComponent } from './login-user/login-user.component';
+import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
 const routes: Routes = [
@@ -18,7 +19,11 @@ const routes: Routes = [
   {path:'adduser', component: AddUserComponent},
   {path:'user', component: UserDashboardComponent},
   {path:'admin', component: AdminDashboardComponent},
+<<<<<<< HEAD
   {path:'edit', component: EditUserComponent},
+=======
+  {path:'payment', component: PaymentGatewayComponent},
+>>>>>>> 339eae746b37e9c9acbad0a433ddfd8f1f1b417a
   {path:'**', redirectTo: '/home', pathMatch: 'full'}
 ];
 

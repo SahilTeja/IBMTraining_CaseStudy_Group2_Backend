@@ -14,8 +14,8 @@ import { HomeLoanService } from '../services/home-loan.service';
 export class AdminDashboardComponent implements OnInit {
 
   Loans : LoanModule[] = [];
- 
-  constructor(private service:HomeLoanService) { } 
+
+  constructor(private service:HomeLoanService) { }
 
   ngOnInit(): void {
     if(localStorage.getItem('Admin')!=null){
@@ -38,6 +38,5 @@ export class AdminDashboardComponent implements OnInit {
       location.reload();
     }
   }
-
 
 }

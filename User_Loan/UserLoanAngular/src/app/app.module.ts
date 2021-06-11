@@ -12,8 +12,12 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { HomePageComponent } from './home-page/home-page.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+<<<<<<< HEAD
 import { EditUserComponent } from './edit-user/edit-user.component';
 
+=======
+import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
+>>>>>>> 339eae746b37e9c9acbad0a433ddfd8f1f1b417a
 
 @NgModule({
   declarations: [
@@ -25,8 +29,12 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     HomePageComponent,
     LoginAdminComponent,
     AdminDashboardComponent,
+<<<<<<< HEAD
     EditUserComponent,
   
+=======
+    PaymentGatewayComponent
+>>>>>>> 339eae746b37e9c9acbad0a433ddfd8f1f1b417a
   ],
   imports: [
     BrowserModule,

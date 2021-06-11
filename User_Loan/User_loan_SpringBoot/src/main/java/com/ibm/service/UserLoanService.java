@@ -30,12 +30,21 @@ public class UserLoanService {
 
 	@Autowired
 	private AdminRepository adminRepo;
+<<<<<<< HEAD
 
 	public boolean addAdmin(Admin admin) {
 		return adminRepo.save(admin) != null ? true : false;
 	}
 
 	public List<Admin> findAllAdmin() {
+=======
+	
+	
+//	public boolean addAdmin(Admin admin) {
+//		return adminRepo.save(admin)!=null?true:false;
+//	}
+	public List<Admin> findAllAdmin(){
+>>>>>>> 339eae746b37e9c9acbad0a433ddfd8f1f1b417a
 		return adminRepo.findAll();
 	}
 
@@ -85,11 +94,16 @@ public class UserLoanService {
 	public List<User> findAllUser() {
 		return userRepo.findAll();
 	}
+<<<<<<< HEAD
 
 	public List<Loan> findAllLoan() { // whose Emi not completed
+=======
+	
+	public List<Loan> findAllLoan() {   //whose Emi not completed & status is pending
+>>>>>>> 339eae746b37e9c9acbad0a433ddfd8f1f1b417a
 		return loanRepo.findAllLoan();
 	}
-
+	
 	public void approveLoan(int id) {
 		loanRepo.approveLoan(id);
 	}
@@ -97,10 +111,16 @@ public class UserLoanService {
 	public void rejectLoan(int id) {
 		loanRepo.rejectLoan(id);
 	}
+<<<<<<< HEAD
 
 	public void editLoan(Loan loan) {
 		loanRepo.editLoan(loan.getName(),loan.getAadhar(),loan.getEmail(),loan.getAmount(),loan.getDuration(),loan.getPanCard(),loan.getLoanId());
 
+=======
+	
+	public void EMIpayment(int id) {
+		loanRepo.EMIpayment(id);
+>>>>>>> 339eae746b37e9c9acbad0a433ddfd8f1f1b417a
 	}
 
 }

@@ -55,6 +55,7 @@ export class HomeLoanService {
     const body = {}
     this.http.put(this.baseUrl+"/reject/"+loanId,body).subscribe();
   }
+<<<<<<< HEAD
 
   getLoanById(loanId:number){
     return this.http.get<LoanModule>(this.baseUrl+"/loanbyid/"+loanId);
@@ -63,4 +64,11 @@ export class HomeLoanService {
   editLoan(loan:LoanModule){
     this.http.put(this.baseUrl+"/edit",loan).subscribe();
   }
+=======
+  EMICompleted(loanId:number){
+    const body = {}
+    this.http.put(this.baseUrl+"/emiPay/"+loanId,body).subscribe();
+  }
+  
+>>>>>>> 339eae746b37e9c9acbad0a433ddfd8f1f1b417a
 }

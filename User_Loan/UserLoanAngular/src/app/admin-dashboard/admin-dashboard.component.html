@@ -1,27 +1,29 @@
 <table class="table">
     <tr>
-        <th class="alert-info">Name</th>
-        <th class="alert-info">Email-Id</th>
-        <th class="alert-info">Amount</th>
-        <th class="alert-info">Duration</th>
-        <th class="alert-info">Aadhar Card</th>
-        <th class="alert-info">Pan Card</th>
-        <th class="alert-info">Emi Completed</th>
-        <th class="alert-info">Status</th>
+        <th class="alert-info text-center">Name</th>
+        <th class="alert-info text-center">Email-Id</th>
+        <th class="alert-info text-center">Salary</th>
+        <th class="alert-info text-center">Loan Amnt</th>
+        <th class="alert-info text-center">Duration(Yr)</th>
+        <th class="alert-info text-center">Aadhar Card</th>
+        <th class="alert-info text-center">Pan Card</th>
+        <th class="alert-info text-center">EMI Completed</th>
+        <th class="alert-info text-center">Approval</th>
         <th style="padding-left: 35px"  class="alert-info" colspan="2">Action</th> 
     </tr>
-    <tbody class="table-light">
+    <tbody class="table-light text-center">
     <tr *ngFor = "let loan of Loans">
         <td>{{ loan.name }}</td>
         <td>{{ loan.email }}</td>
+        <td>{{ loan.salary }}</td>
         <td>{{ loan.amount }}</td>
         <td>{{ loan.duration }}</td>
         <td>{{ loan.aadhar }}</td>
         <td>{{ loan.panCard }}</td>
         <td>{{ loan.emiCompleted }}</td> 
         <td>{{loan.status}}</td>
-        <td><button  style= "margin: 5px" class="btn btn-outline-success" (click)="yes(loan.loanId)">Yes</button>
-            <button style="margin: 5px" class="btn btn-outline-danger" (click)="no(loan.loanId)">No</button></td>
+        <td><button  style= "margin: 5px" class="btn btn-outline-success" (click)="yes(loan.loanId)">Accept</button>
+            <button style="margin: 5px" class="btn btn-outline-danger" (click)="no(loan.loanId)">Reject</button></td>
     </tr>
 </tbody> 
 </table>
