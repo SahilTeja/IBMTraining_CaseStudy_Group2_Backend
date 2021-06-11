@@ -55,7 +55,7 @@ public class UserLoanService {
 		}
 		System.out.println("======="+emiCompleted+"========="+status);
 		LoanStatus loanstatus = new LoanStatus();
-		if((emiCompleted.equals("Yes") && status.equals("Approved")) || status.equals("Rejected")) {
+		if((emiCompleted.equals("Yes")) || status.equals("Rejected")) {
 			User user = getUserbyID(userId);
 			loan.setUser(user);
 				

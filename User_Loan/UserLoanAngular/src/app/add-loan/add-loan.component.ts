@@ -19,7 +19,7 @@ export class AddLoanComponent implements OnInit {
   userid : number = 0;
   loan : LoanModule = new LoanModule();
   LoansById : LoanModule[] = [];
-  isEmiCompleted : String = '';
+  isEmiCompleted : String = 'Yes';
   loanStatus : String = '';
   // loanStatus : LoanStatus = new LoanStatus();
 
@@ -42,7 +42,7 @@ export class AddLoanComponent implements OnInit {
 
   applyLoan() {
     this.CheckloanStatus(this.userid);
-    if((this.isEmiCompleted=="Yes" && this.loanStatus=="Approved") || this.loanStatus=="Rejected"){
+    if((this.isEmiCompleted=="Yes") || this.loanStatus=="Rejected"){
       this.service.addloan(this.loan,this.userid);
       alert("Loan Applied");
       this.router.navigate(['user']);
