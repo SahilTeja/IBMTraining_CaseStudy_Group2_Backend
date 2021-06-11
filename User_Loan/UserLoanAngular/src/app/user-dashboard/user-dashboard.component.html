@@ -1,0 +1,36 @@
+<table class="table">
+    <tr>
+        <th class="alert-info text-center">Name</th>
+        <th class="alert-info text-center">Email-Id</th>
+        <th class="alert-info text-center">Salary</th>
+        <th class="alert-info text-center">Loan Amount</th>
+        <th class="alert-info text-center">Duration(Year)</th>
+        <th class="alert-info text-center">EMI Completed</th>
+        <th class="alert-info text-center">Loan Approval Status</th>
+        <th class="alert-info text-center">EMI Payment</th>
+        <th class="alert-info text-center">Edit Application</th>
+    </tr>
+    <tbody class="table-light text-center">
+    <tr *ngFor = "let loan of LoansById">
+        <td>{{ loan.name }}</td>
+        <td>{{ loan.email }}</td>
+        <td>{{ loan.salary }}</td>
+        <td>{{ loan.amount }}</td>
+        <td>{{ loan.duration }}</td>
+        <td>{{ loan.emiCompleted }}</td>
+        <td>{{loan.status}}</td>
+        <td>
+            <span *ngIf="loan.emiCompleted == 'Yes'" style="font-weight: bold;text-shadow: 2px 2px 8px #FF0000;">Completed</span>
+            <button *ngIf="loan.emiCompleted == 'No' && loan.status=='Approved'" class="btn btn-info" (click)="payment(loan.loanId,loan.name,loan.amount)">Pay</button>
+            <span *ngIf="loan.emiCompleted == 'No' && loan.status=='Rejected'" style="font-weight: bold;text-shadow: 2px 2px 8px #FF0000;">Loan Rejected</span>
+            <span *ngIf="loan.emiCompleted == 'No' && loan.status=='Pending'" style="font-weight: bold;text-shadow: 2px 2px 8px #FF0000;">Loan Approval Pending</span>
+        </td>
+        <td>
+            <button *ngIf="loan.status=='Pending'" class="btn btn-info" (click)="edit(loan.loanId)">Edit</button>
+            <span *ngIf="loan.status=='Approved'" style="font-weight: bold;text-shadow: 2px 2px 8px #FF0000;">Loan Approved</span>
+            <span *ngIf="loan.status=='Rejected'" style="font-weight: bold;text-shadow: 2px 2px 8px #FF0000;">Loan Rejected</span>
+        </td>
+        
+    </tr>
+</tbody>
+</table>

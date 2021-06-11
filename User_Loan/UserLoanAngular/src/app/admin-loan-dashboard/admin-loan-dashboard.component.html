@@ -1,0 +1,44 @@
+
+<form (ngSubmit) = "search()">
+    <br>
+    <h2><strong><label>Search By</label></strong></h2> 
+        <label *ngFor="let r of selectType"> &nbsp;&nbsp;&nbsp;&nbsp;
+        <input id type="radio" name="radioButton"  [value]="r" [(ngModel)] = "check"> {{r}}
+        </label>
+   
+    <input name="query" [(ngModel)] = "query" class="form-control">
+    <button type="submit" class="btn btn-info">Search Loan Details</button>
+    
+</form><br>
+<form (ngSubmit) = "reload()">
+    <button type="submit" class="btn btn-info">Load All Loan Details</button>
+</form>
+
+<table class="table">
+    <tr>
+        <th class="alert-info text-center" (click)="orderByName()">Name</th>
+        <th class="alert-info text-center">Email-Id</th>
+        <th class="alert-info text-center">Salary</th>
+        <th class="alert-info text-center">Loan Amount</th>
+        <th class="alert-info text-center">Duration(Yr)</th>
+        <th class="alert-info text-center">Aadhar Card</th>
+        <th class="alert-info text-center">Pan Card</th>
+        <th class="alert-info text-center">EMI Completed</th>
+        <th class="alert-info text-center" (click)="orderByApproval()">Approval</th>
+        
+    </tr>
+    <tbody class="table-light text-center">
+    <tr *ngFor = "let loan of Loans">
+        <td>{{ loan.name }}</td>
+        <td>{{ loan.email }}</td>
+        <td>{{ loan.salary }}</td>
+        <td>{{ loan.amount }}</td>
+        <td>{{ loan.duration }}</td>
+        <td>{{ loan.aadhar }}</td>
+        <td>{{ loan.panCard }}</td>
+        <td>{{ loan.emiCompleted }}</td> 
+        <td>{{loan.status}}</td>
+        
+    </tr>
+</tbody> 
+</table>
