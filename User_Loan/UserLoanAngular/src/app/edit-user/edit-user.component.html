@@ -7,25 +7,25 @@
         <tr>
             <td>Applicant Name</td>
             <td><input name="lname" required pattern="[A-Za-z]{3,}" 
-                #lname=ngModel [(ngModel)]="loan.name" class="form-control"></td>
+                #lname=ngModel [(ngModel)]="loan.name" class="form-control" readonly></td>
         <span *ngIf = "lname.dirty && lname.invalid" class="alert alert-warning">Invalid Applicant Name</span>
         </tr>
         <tr>
             <td>Applicant EmailId</td>
             <td><input name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
-                #email=ngModel [(ngModel)]="loan.email" class="form-control"></td>
+                #email=ngModel [(ngModel)]="loan.email" class="form-control" readonly></td>
         <span *ngIf = "email.dirty && email.invalid" class="alert alert-warning">Invalid EmailId</span>
         </tr>
         <tr>
             <td>Applicant AadharCard </td>
             <td><input name="aadhar" required pattern="[A-Za-z0-9]{5,}" 
-                #aadhar=ngModel [(ngModel)]="loan.aadhar" class="form-control"></td>
+                #aadhar=ngModel [(ngModel)]="loan.aadhar" class="form-control" readonly></td>
         <span *ngIf = "aadhar.dirty && aadhar.invalid" class="alert alert-warning">Invalid Aadhar Details</span>
         </tr>
         <tr>
             <td>Applicant Pancard</td>
             <td><input name="Pancard" required pattern="[A-Za-z0-9]{5,}" 
-                #Pancard=ngModel [(ngModel)]="loan.panCard" class="form-control"></td>
+                #Pancard=ngModel [(ngModel)]="loan.panCard" class="form-control" readonly></td>
         <span *ngIf = "Pancard.dirty && Pancard.invalid" class="alert alert-warning">Invalid Pancard</span>
         </tr>
         

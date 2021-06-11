@@ -4,10 +4,10 @@
             <th colspan="4" class="alert-success text-center">Login Enrollement Form</th>
         </tr>
         <tr>
-            <td>User ID</td>
-            <td><input name="userid" [(ngModel)]="username" required #uid=ngModel    
-                 pattern="[A-Za-z0-9]{4,}" class="form-control"></td>
-                 <span *ngIf = "uid.dirty && uid.invalid">invalid user</span>
+            <td>Email ID</td>
+            <td><input name="userid" [(ngModel)]="email" required #uid=ngModel    
+                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control"></td>
+                 <span *ngIf = "uid.dirty && uid.invalid">invalid Email</span>
         </tr>
         <tr>
             <td>Password</td>

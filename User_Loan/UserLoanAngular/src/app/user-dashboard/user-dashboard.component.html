@@ -1,8 +1,6 @@
 <table class="table">
     <tr>
-        <th class="alert-info text-center">Name</th>
-        <th class="alert-info text-center">Email</th>
-        <th class="alert-info text-center">Salary</th>
+        <th class="alert-info text-center">LoanId</th>
         <th class="alert-info text-center">Loan Amount</th>
         <th class="alert-info text-center">Duration(Year)</th>
         <th class="alert-info text-center">EMI Completed</th>
@@ -12,9 +10,7 @@
     </tr>
     <tbody class="table-light text-center">
     <tr *ngFor = "let loan of LoansById">
-        <td>{{ loan.name }}</td>
-        <td>{{ loan.email }}</td>
-        <td>{{ loan.salary }}</td>
+        <td>{{ loan.loanId }}</td>
         <td>{{ loan.amount }}</td>
         <td>{{ loan.duration }}</td>
         <td>{{ loan.emiCompleted }}</td>

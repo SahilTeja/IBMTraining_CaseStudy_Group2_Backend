@@ -115,5 +115,9 @@ public class UserLoanService {
 	public void editLoan(Loan loan) {
 		loanRepo.editLoan(loan.getName(),loan.getAadhar(),loan.getEmail(),loan.getAmount(),loan.getDuration(),loan.getPanCard(),loan.getLoanId());
 	}
+	
+	public void updateProfile(User user) {
+		userRepo.updateProfile(user.getName(),user.getMobilenumber(),user.getAadress(),user.getEmail(),user.getAadhar(),user.getPanCard(),user.getSalary(),user.getState(),user.getCountry(),user.getUserId());
+	}
 
 }

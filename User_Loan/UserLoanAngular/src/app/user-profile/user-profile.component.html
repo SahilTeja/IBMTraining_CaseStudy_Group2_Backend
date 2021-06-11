@@ -1,0 +1,36 @@
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="https://png.pngtree.com/png-vector/20190321/ourmid/pngtree-vector-users-icon-png-image_856952.jpg"><br><span class="font-weight-bold">{{userbyId.name}}</span><span class="text-black-50">{{userbyId.email}}</span><span> </span></div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12"><label class="labels">Name</label><input type="text" [(ngModel)]="userbyId.name" class="form-control" placeholder="Enter name" value=""></div>
+                    
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">PhoneNumber</label><input type="text" [(ngModel)]="userbyId.mobilenumber" class="form-control" placeholder="enter phone number" value=""></div>
+                    <div class="col-md-12"><label class="labels">Address</label><input type="text" [(ngModel)]="userbyId.aadress" class="form-control" placeholder="enter address" value=""></div>
+                    <div class="col-md-12"><label class="labels">Email ID</label><input type="text" [(ngModel)]="userbyId.email" class="form-control" placeholder="enter email id" value=""></div>
+                
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 py-5"><br><br>
+                <div class="col-md-12"><label class="labels">Aadhar Card</label><input type="text" [(ngModel)]="userbyId.aadhar" class="form-control" placeholder="enter Aadhar Card" value=""></div>
+                <div class="col-md-12"><label class="labels">Pan Card</label><input type="text" [(ngModel)]="userbyId.panCard" class="form-control" placeholder="enter Pan Card" value=""></div>
+                <div class="col-md-12"><label class="labels">Salary</label><input type="number" [(ngModel)]="userbyId.salary" class="form-control" placeholder="enter Salary" value=""></div>
+                <div class="row mt-3">
+                    <div class="col-md-6"><label class="labels">Country</label><input type="text" [(ngModel)]="userbyId.country" class="form-control" placeholder="country" value=""></div>
+                    <div class="col-md-6"><label class="labels">State</label><input type="text" [(ngModel)]="userbyId.state" class="form-control" value="" placeholder="state"></div>
+                </div>
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit" (click)="updateProfile()">Save Profile</button></div>
+            </div>
+        </div>
+    </div>
+</div>

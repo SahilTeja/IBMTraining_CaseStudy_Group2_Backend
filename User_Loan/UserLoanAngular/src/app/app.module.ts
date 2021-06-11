@@ -15,6 +15,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
 import { AdminLoanDashboardComponent } from './admin-loan-dashboard/admin-loan-dashboard.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     AdminDashboardComponent,
     PaymentGatewayComponent,
     AdminLoanDashboardComponent,
-    EditUserComponent
+    EditUserComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

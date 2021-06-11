@@ -103,5 +103,10 @@ public class UserLoanController {
 		 Service.editLoan(loan);
 	}
 	
+	@PutMapping(path = "/updateProfile", produces = "application/json")
+	public void updateProfile(@RequestBody User user) {
+		 Service.updateProfile(user);
+	}
+	
 
 }

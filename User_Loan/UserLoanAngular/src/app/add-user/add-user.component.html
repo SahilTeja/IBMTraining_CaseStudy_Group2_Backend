@@ -16,12 +16,6 @@
         <span *ngIf = "email.dirty && email.invalid" class="alert alert-warning">Invalid EmailId</span>
         </tr>
         <tr>
-            <td>UserName</td>
-            <td><input name="UserName" required pattern="[A-Za-z0-9]{3,}" 
-                #UserName=ngModel [(ngModel)]="user.username" class="form-control"></td>
-        <span *ngIf = "UserName.dirty && UserName.invalid" class="alert alert-warning">Invalid UserName</span>
-        </tr>
-        <tr>
             <td>Password</td>
             <td><input name="password" required pattern="[A-Za-z0-9]{3,}" 
                 #password=ngModel [(ngModel)]="user.password" class="form-control"></td>
@@ -30,9 +24,6 @@
         
         <tr>
             <td><button type="submit" [disabled]=!frm.valid class="btn btn-primary">Save</button></td>
-<!-- after clicking on save data moves in add.ts->save()->employee.service.ts->addEmp()
-// after clicking on save button it store the details and navigate to list.html as code written in save() -->
-
             <td><button type="reset" class="btn btn-warnings">Reset</button></td>
         </tr>
     </table>

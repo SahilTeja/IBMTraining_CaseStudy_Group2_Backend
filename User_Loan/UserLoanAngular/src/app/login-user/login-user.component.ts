@@ -15,7 +15,7 @@ import { HomeLoanService } from '../services/home-loan.service';
 export class LoginUserComponent implements OnInit {
 
   auth:UserLoginModel[] = [];
-  username : string = '';
+  email : string = '';
   password : string = '';
   userid : number = 0;
 
@@ -29,7 +29,7 @@ export class LoginUserComponent implements OnInit {
     var status = false;
     //console.log("==="+this.auth);
     for(var index in this.auth){
-      if(this.auth[index].username==this.username && this.auth[index].password==this.password){
+      if(this.auth[index].email==this.email && this.auth[index].password==this.password){
         alert("User login Successful");
         status = true;
         this.userid = this.auth[index].userId;

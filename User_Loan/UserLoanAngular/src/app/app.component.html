@@ -5,6 +5,9 @@
           <a class="nav-link" [hidden]=Adminloggedin||loggedin [routerLink] = "['adduser']">Register User</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" [hidden]=!loggedin [routerLink] = "['profile']">Profile</a>
+      </li>
+      <li class="nav-item">
           <a class="nav-link" [hidden]=!loggedin [routerLink] = "['addloan']">Apply Loan</a>
       </li>
       <li class="nav-item">

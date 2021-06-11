@@ -20,11 +20,17 @@ public class User {
 	@GeneratedValue
 	private int userId;
 	
-	private String username;
 	private String password;
 	private String name;
 	private String email;
-	
+	private String aadhar;
+	private String panCard;
+	private int salary;
+	private String mobilenumber;
+	private String aadress;
+	private String country="India";
+	private String state;
+
 	@JsonManagedReference
 	@OneToMany(mappedBy = "user")
 	private List<Loan> loans;
@@ -37,13 +43,6 @@ public class User {
 		this.userId = userId;
 	}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
 
 	public String getPassword() {
 		return password;
@@ -52,7 +51,7 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+	
 	public String getName() {
 		return name;
 	}
@@ -67,6 +66,61 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getAadhar() {
+		return aadhar;
+	}
+
+	public void setAadhar(String aadhar) {
+		this.aadhar = aadhar;
+	}
+
+	public String getPanCard() {
+		return panCard;
+	}
+
+	public void setPanCard(String panCard) {
+		this.panCard = panCard;
+	}
+
+	public int getSalary() {
+		return salary;
+	}
+
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+	
+	public String getMobilenumber() {
+		return mobilenumber;
+	}
+
+	public void setMobilenumber(String mobilenumber) {
+		this.mobilenumber = mobilenumber;
+	}
+
+	public String getAadress() {
+		return aadress;
+	}
+
+	public void setAadress(String aadress) {
+		this.aadress = aadress;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
 	}
 
 	public List<Loan> getLoans() {

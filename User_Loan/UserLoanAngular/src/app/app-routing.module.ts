@@ -10,6 +10,7 @@ import { LoginAdminComponent } from './login-admin/login-admin.component';
 import { LoginUserComponent } from './login-user/login-user.component';
 import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
   {path:'', component: HomePageComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path:'user', component: UserDashboardComponent},
   {path:'admin', component: AdminDashboardComponent},
   {path:'adminloan', component: AdminLoanDashboardComponent},
+  {path:'profile', component: UserProfileComponent},
   {path:'payment', component: PaymentGatewayComponent},
   {path:'edit', component: EditUserComponent},
   {path:'**', redirectTo: '/home', pathMatch: 'full'}

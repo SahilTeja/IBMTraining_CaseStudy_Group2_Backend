@@ -74,4 +74,12 @@ export class HomeLoanService {
   getLoanById(loanId:number){
     return this.http.get<LoanModule>(this.baseUrl+"/loanbyid/"+loanId);
   }
+
+  getUserById(userid:number) {
+    return this.http.get<AddUserModel>(this.baseUrl+"/userbyid/"+userid);
+  }
+
+  upadateProfile(userProfile : AddUserModel){
+    this.http.put(this.baseUrl+"/updateProfile",userProfile).subscribe();
+  }
 }
