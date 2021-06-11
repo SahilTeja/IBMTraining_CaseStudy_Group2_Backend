@@ -36,6 +36,13 @@ public interface LoanRepository extends JpaRepository<Loan, Integer> {
 	@Query("update Loan b set b.status = ('Rejected') where b.loanId = (?1) ")
 	void rejectLoan(@Param("loanId") int loanId);
 	
+	@Transactional
+	@Modifying
+	@Query("update Loan b set b.name = (?1),b.aadhar=(?2),b.email = (?3),b.amount =(?4),b.duration = (?5),b.panCard = (?6) where b.loanId = (?7)")
+	void editLoan(@Param("name")String name,@Param("aadhar")String aadhar,@Param("email")String email,@Param("amount")int amount,@Param("duration")int duration,@Param("panCard")String panCard,@Param("loanId") int loanId);
+
+	
+	
 	
 
 }

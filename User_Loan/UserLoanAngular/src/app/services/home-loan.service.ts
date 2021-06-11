@@ -55,4 +55,12 @@ export class HomeLoanService {
     const body = {}
     this.http.put(this.baseUrl+"/reject/"+loanId,body).subscribe();
   }
+
+  getLoanById(loanId:number){
+    return this.http.get<LoanModule>(this.baseUrl+"/loanbyid/"+loanId);
+
+  }
+  editLoan(loan:LoanModule){
+    this.http.put(this.baseUrl+"/edit",loan).subscribe();
+  }
 }

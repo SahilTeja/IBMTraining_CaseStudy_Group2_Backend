@@ -86,5 +86,11 @@ public class UserLoanController {
 	public void rejectLoan(@RequestBody Loan loan,@PathVariable("id") int id) {
 		 Service.rejectLoan(id);
 	}
+	
+	@PutMapping(path = "/edit", produces = "application/json")
+	public void editLoan(@RequestBody Loan loan) {
+		 Service.editLoan(loan);
+	}
+	
 
 }

@@ -5,6 +5,8 @@
         <th class="alert-info">Amount</th>
         <th class="alert-info">Duration</th>
         <th class="alert-info">Emi Completed</th>
+        <th class="alert-info">Edit Profile</th>
+
     </tr>
     <tbody class="table-light">
     <tr *ngFor = "let loan of LoansById">
@@ -13,6 +15,7 @@
         <td>{{ loan.amount }}</td>
         <td>{{ loan.duration }}</td>
         <td>{{ loan.emiCompleted }}</td>
+        <td><button class="btn btn-info" (click)="edit(loan.loanId)">Yes</button></td>
     </tr>
 </tbody>
 </table>

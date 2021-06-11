@@ -12,6 +12,8 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { HomePageComponent } from './home-page/home-page.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     UserDashboardComponent,
     HomePageComponent,
     LoginAdminComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    EditUserComponent,
+  
   ],
   imports: [
     BrowserModule,

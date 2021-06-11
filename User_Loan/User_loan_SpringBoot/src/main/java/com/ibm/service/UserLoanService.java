@@ -21,64 +21,63 @@ import com.ibm.repos.LoanRepository;
 
 @Service
 public class UserLoanService {
-	
+
 	@Autowired
 	private LoanRepository loanRepo;
-	
+
 	@Autowired
 	private UserRepository userRepo;
-	
+
 	@Autowired
 	private AdminRepository adminRepo;
-	
-	
+
 	public boolean addAdmin(Admin admin) {
-		return adminRepo.save(admin)!=null?true:false;
+		return adminRepo.save(admin) != null ? true : false;
 	}
-	public List<Admin> findAllAdmin(){
+
+	public List<Admin> findAllAdmin() {
 		return adminRepo.findAll();
 	}
-	
-	
+
 	public int saveUser(User user) {
 		userRepo.save(user);
 		return user.getUserId();
 	}
-	
-	public LoanStatus saveLoan(Loan loan,int userId) {
+
+	public LoanStatus saveLoan(Loan loan, int userId) {
 		List<Loan> list = getallLoanbyuserId(userId);
 		String emiCompleted = "Yes";
-		for(Loan loan1:list) {
-			 emiCompleted = loan1.getEmiCompleted();
-			 System.out.println("======="+emiCompleted);
+		for (Loan loan1 : list) {
+			emiCompleted = loan1.getEmiCompleted();
+			System.out.println("=======" + emiCompleted);
 		}
-		System.out.println("*******"+emiCompleted);
+		System.out.println("*******" + emiCompleted);
 		LoanStatus loanstatus = new LoanStatus();
-		if(emiCompleted.equals("Yes")) {
+		if (emiCompleted.equals("Yes")) {
 			User user = getUserbyID(userId);
 			loan.setUser(user);
-				
+
 			loanRepo.save(loan);
 			loanstatus.setStatus(loan.getLoanId());
 			return loanstatus;
-		}
-		else {
+		} else {
 			loanstatus.setStatus(0);
 			return loanstatus;
-		}		
+		}
 	}
-	
+
 	public Loan getLoanbyID(int loanId) {
 		return loanRepo.findById(loanId).get();
 	}
-	
+
 	public User getUserbyID(int userId) {
 		return userRepo.findById(userId).get();
 	}
-	
+
 	public List<Loan> getallLoanbyuserId(int userId) {
 		return loanRepo.findByUserId(userId);
 	}
+
 	public List<Loan> getallLoanbyName(String name) {
 		return loanRepo.findLoanByName(name);
 	}
@@ -86,18 +85,22 @@ public class UserLoanService {
 	public List<User> findAllUser() {
 		return userRepo.findAll();
 	}
-	
-	public List<Loan> findAllLoan() {   //whose Emi not completed
+
+	public List<Loan> findAllLoan() { // whose Emi not completed
 		return loanRepo.findAllLoan();
 	}
 
 	public void approveLoan(int id) {
-		 loanRepo.approveLoan(id);
+		loanRepo.approveLoan(id);
 	}
 
 	public void rejectLoan(int id) {
 		loanRepo.rejectLoan(id);
 	}
 
+	public void editLoan(Loan loan) {
+		loanRepo.editLoan(loan.getName(),loan.getAadhar(),loan.getEmail(),loan.getAmount(),loan.getDuration(),loan.getPanCard(),loan.getLoanId());
+
+	}
 
 }
