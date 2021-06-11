@@ -93,9 +93,18 @@ public class UserLoanController {
 	public void rejectLoan(@RequestBody Loan loan,@PathVariable("id") int id) {
 		 Service.rejectLoan(id);
 	}
+<<<<<<< HEAD
+	
+	@PutMapping(path = "/edit", produces = "application/json")
+	public void editLoan(@RequestBody Loan loan) {
+		 Service.editLoan(loan);
+	}
+	
+=======
 	@PutMapping(path = "/emiPay/{id}", produces = "application/json")
 	public void EMIpayment(@RequestBody Loan loan,@PathVariable("id") int id) {
 		 Service.EMIpayment(id);
 	}
+>>>>>>> 339eae746b37e9c9acbad0a433ddfd8f1f1b417a
 
 }

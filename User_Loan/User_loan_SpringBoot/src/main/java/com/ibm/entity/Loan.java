@@ -17,7 +17,7 @@ public class Loan {
 	
 	@Id
 	@GeneratedValue
-	private int loanId;
+	private int loanId; 
 	
 	private String name;
 	private String email;

@@ -20,7 +20,12 @@ export class UserDashboardComponent implements OnInit {
   LoansById : LoanModule[] = [];
   PaymentStatus : boolean = false;
 
+<<<<<<< HEAD
+  constructor(private service:HomeLoanService,
+    private router: Router) { }
+=======
   constructor(private service:HomeLoanService, private router:Router, private aroute : ActivatedRoute) { }
+>>>>>>> 339eae746b37e9c9acbad0a433ddfd8f1f1b417a
 
   ngOnInit(): void {
     if(localStorage.getItem('UserId')!=null){
@@ -40,6 +45,11 @@ export class UserDashboardComponent implements OnInit {
   payment(loanid:number, name : String, amount : number){
     this.loanID = loanid;
     this.router.navigate(['payment'], {queryParams: {Loanid: this.loanID, Uname:name, Eamount:amount}});
+  }
+
+  
+  edit(loanId:number){
+    this.router.navigate(['edit'],{queryParams : {loanId: loanId }});
   }
 
 }

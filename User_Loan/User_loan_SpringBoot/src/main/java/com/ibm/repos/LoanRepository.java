@@ -42,7 +42,16 @@ public interface LoanRepository extends JpaRepository<Loan, Integer> {
 	
 	@Transactional
 	@Modifying
+<<<<<<< HEAD
+	@Query("update Loan b set b.name = (?1),b.aadhar=(?2),b.email = (?3),b.amount =(?4),b.duration = (?5),b.panCard = (?6) where b.loanId = (?7)")
+	void editLoan(@Param("name")String name,@Param("aadhar")String aadhar,@Param("email")String email,@Param("amount")int amount,@Param("duration")int duration,@Param("panCard")String panCard,@Param("loanId") int loanId);
+
+	
+	
+	
+=======
 	@Query("update Loan b set b.emiCompleted = ('Yes') where b.loanId = (?1) ")
 	void EMIpayment(@Param("loanId") int loanId);
+>>>>>>> 339eae746b37e9c9acbad0a433ddfd8f1f1b417a
 
 }
