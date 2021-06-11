@@ -67,13 +67,21 @@ public class UserLoanController {
 	public List<Loan> getallLoanbyuserId(@PathVariable("userId")int userId) {
 		return Service.getallLoanbyuserId(userId);
 	}
+	@GetMapping(value = "/loanbyloanId/{loanId}", produces = "application/json")
+	public List<Loan> getallLoanbyloanId(@PathVariable("loanId")int loanId) {
+		return Service.getallLoanbyloanId(loanId);
+	}
 	@GetMapping(value = "/loanbyname/{name}", produces = "application/json")
 	public List<Loan> getallLoanbyName(@PathVariable("name")String name) {
 		return Service.getallLoanbyName(name);
 	}
+	@GetMapping(path = "/findloanbyPending", produces = "application/json")
+	public List<Loan> findLoanbyPendingApproval(){
+		return Service.findLoanbyPendingApproval();
+	}
 	@GetMapping(path = "/findallloan", produces = "application/json")
-	public List<Loan> findAllLoan(){
-		return Service.findAllLoan();
+	public List<Loan> findallloan(){
+		return Service.findallloan();
 	}
 	
 	@PutMapping(path = "/approve/{id}", produces = "application/json")

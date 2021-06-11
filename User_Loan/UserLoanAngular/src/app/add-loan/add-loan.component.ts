@@ -20,6 +20,7 @@ export class AddLoanComponent implements OnInit {
   loan : LoanModule = new LoanModule();
   LoansById : LoanModule[] = [];
   isEmiCompleted : String = '';
+  loanStatus : String = '';
   // loanStatus : LoanStatus = new LoanStatus();
 
   constructor(private service:HomeLoanService, private router:Router) { }
@@ -35,12 +36,13 @@ export class AddLoanComponent implements OnInit {
   CheckloanStatus(userid : number) {
     for(var index in this.LoansById) {
       this.isEmiCompleted = this.LoansById[index].emiCompleted;
+      this.loanStatus = this.LoansById[index].status;
     }
   }
 
   applyLoan() {
     this.CheckloanStatus(this.userid);
-    if(this.isEmiCompleted!="No"){
+    if((this.isEmiCompleted=="Yes" && this.loanStatus=="Approved") || this.loanStatus=="Rejected"){
       this.service.addloan(this.loan,this.userid);
       alert("Loan Applied");
       this.router.navigate(['user']);

@@ -48,13 +48,14 @@ public class UserLoanService {
 	public LoanStatus saveLoan(Loan loan,int userId) {
 		List<Loan> list = getallLoanbyuserId(userId);
 		String emiCompleted = "Yes";
+		String status = "Pending";
 		for(Loan loan1:list) {
 			 emiCompleted = loan1.getEmiCompleted();
-			 System.out.println("======="+emiCompleted);
+			 status = loan1.getStatus();		 
 		}
-		System.out.println("*******"+emiCompleted);
+		System.out.println("======="+emiCompleted+"========="+status);
 		LoanStatus loanstatus = new LoanStatus();
-		if(emiCompleted.equals("Yes")) {
+		if((emiCompleted.equals("Yes") && status.equals("Approved")) || status.equals("Rejected")) {
 			User user = getUserbyID(userId);
 			loan.setUser(user);
 				
@@ -62,10 +63,12 @@ public class UserLoanService {
 			loanstatus.setStatus(loan.getLoanId());
 			return loanstatus;
 		}
+		
 		else {
 			loanstatus.setStatus(0);
 			return loanstatus;
-		}		
+		}	
+			
 	}
 	
 	public Loan getLoanbyID(int loanId) {
@@ -79,6 +82,9 @@ public class UserLoanService {
 	public List<Loan> getallLoanbyuserId(int userId) {
 		return loanRepo.findByUserId(userId);
 	}
+	public List<Loan> getallLoanbyloanId(int loanId) {
+		return loanRepo.findByLoanId(loanId);
+	}
 	public List<Loan> getallLoanbyName(String name) {
 		return loanRepo.findLoanByName(name);
 	}
@@ -87,8 +93,11 @@ public class UserLoanService {
 		return userRepo.findAll();
 	}
 	
-	public List<Loan> findAllLoan() {   //whose Emi not completed & status is pending
-		return loanRepo.findAllLoan();
+	public List<Loan> findLoanbyPendingApproval() {   //whose Emi not completed & status is pending
+		return loanRepo.findLoanbyPendingApproval();
+	}
+	public List<Loan> findallloan() {   
+		return loanRepo.findAll();
 	}
 	
 	public void approveLoan(int id) {

@@ -20,11 +20,15 @@ public interface LoanRepository extends JpaRepository<Loan, Integer> {
 	@Query("FROM Loan b where b.user.userId=(?1)")
 	List<Loan> findByUserId(@Param("userId") int userId);
 	
+	@Query("FROM Loan b where b.loanId=(?1)")
+	List<Loan> findByLoanId(@Param("loanId") int loanId);
+	
 	@Query("FROM Loan b where b.name=(?1)")
 	List<Loan> findLoanByName(@Param("name") String name);
 
 	@Query("FROM Loan b where b.emiCompleted=('No') and b.status=('Pending')")
-	List<Loan> findAllLoan();
+	List<Loan> findLoanbyPendingApproval();
+	
 	
 	@Transactional
 	@Modifying

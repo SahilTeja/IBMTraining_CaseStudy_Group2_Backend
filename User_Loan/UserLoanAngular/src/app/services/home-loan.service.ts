@@ -37,7 +37,16 @@ export class HomeLoanService {
   async getAllLoanbyUserId(userid:number){
     return await this.http.get<LoanModule[]>(this.baseUrl + "/loanbyuserId/"+userid).pipe(retry(1)).toPromise();
   } 
+  async findLoanById(loanId:number){
+    return await this.http.get<LoanModule[]>(this.baseUrl + "/loanbyloanId/"+loanId).pipe(retry(1)).toPromise();
+  } 
+  async findLoanByName(name:String){
+    return await this.http.get<LoanModule[]>(this.baseUrl + "/loanbyname/"+name).pipe(retry(1)).toPromise();
+  }
 
+  async getLoanbyPendingApproval(){
+    return await this.http.get<LoanModule[]>(this.baseUrl + "/findloanbyPending/").pipe(retry(1)).toPromise();
+  } 
   async getAllLoan(){
     return await this.http.get<LoanModule[]>(this.baseUrl + "/findallloan/").pipe(retry(1)).toPromise();
   } 
@@ -58,6 +67,6 @@ export class HomeLoanService {
   EMICompleted(loanId:number){
     const body = {}
     this.http.put(this.baseUrl+"/emiPay/"+loanId,body).subscribe();
-  }
-  
+  } 
+
 }

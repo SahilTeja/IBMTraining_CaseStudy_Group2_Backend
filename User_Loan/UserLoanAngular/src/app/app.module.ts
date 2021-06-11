@@ -13,6 +13,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
+import { AdminLoanDashboardComponent } from './admin-loan-dashboard/admin-loan-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.compo
     HomePageComponent,
     LoginAdminComponent,
     AdminDashboardComponent,
-    PaymentGatewayComponent
+    PaymentGatewayComponent,
+    AdminLoanDashboardComponent
   ],
   imports: [
     BrowserModule,
