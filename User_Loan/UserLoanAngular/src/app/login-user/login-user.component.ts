@@ -19,6 +19,9 @@ export class LoginUserComponent implements OnInit {
   password : string = '';
   userid : number = 0;
 
+  forgetEmail : String = '';
+  forgetPass : String = '';
+
   constructor(private service : HomeLoanService, private router:Router) { }
 
   ngOnInit(): void {
@@ -44,6 +47,16 @@ export class LoginUserComponent implements OnInit {
       alert("Invalid Creditintials");
       location.reload();
     }
+  }
+
+  forgetPassword() {
+    this.forgetEmail = String(prompt('Enter EmailId', ''));
+    for(var index in this.auth){
+      if(this.auth[index].email==this.forgetEmail){
+        this.forgetPass=this.auth[index].password;
+      }
+    }
+    alert("your password is :"+this.forgetPass);
   }
 
 
