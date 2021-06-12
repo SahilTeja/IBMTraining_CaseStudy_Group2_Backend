@@ -16,14 +16,38 @@ export class AddUserComponent implements OnInit {
 
   user : AddUserModel = new AddUserModel();
 
+  allUser : AddUserModel[] = [];
+  allEmail : String[] = [];
+  statusEmail : Boolean = false;
+
   constructor(private service:HomeLoanService, private router:Router) { }
 
   ngOnInit(): void {
+    this.service.getAllUser().then(data=>this.allUser=data);
   }
 
-  addUser(){
-    this.service.addUser(this.user);
-    alert(this.user.name+"is successfully registered");
-    this.router.navigate(['home']);
+  checkProfileEmail() {
+    for(var index in this.allUser) {
+      this.allEmail.push(this.allUser[index].email);
+    }
+    this.allEmail = this.allEmail.filter(function (e) {return e != null;});
+
+    if(this.allEmail.includes(this.user.email)){
+      alert("Email already registered");
+      this.statusEmail=true;
+      location.reload();
+    }
   }
+
+
+  addUser(){
+    this.checkProfileEmail();
+    if(this.statusEmail==false){
+      this.service.addUser(this.user);
+      alert(this.user.name+" is successfully registered");
+      this.router.navigate(['home']);
+      }
+  }
+
+
 }

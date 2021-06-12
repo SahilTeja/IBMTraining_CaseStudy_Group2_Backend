@@ -14,6 +14,7 @@ import { HomeLoanService } from '../services/home-loan.service';
 export class AdminDashboardComponent implements OnInit {
 
   LoanApproval : LoanModule[] = [];
+  AdminComment : String = '';
 
   constructor(private service:HomeLoanService) { }
 
@@ -25,7 +26,9 @@ export class AdminDashboardComponent implements OnInit {
   yes(loanId: number) {
     var ans = confirm("Are u sure to Approve Loan?"); 
     if (ans) {
-      this.service.approvedLoan(loanId);
+      this.AdminComment = "Loan Accepted";
+      console.log(this.AdminComment);
+      this.service.approvedLoan(loanId,this.AdminComment);
       location.reload();
     }
 
@@ -34,7 +37,9 @@ export class AdminDashboardComponent implements OnInit {
   no(loanId: number) {
     var ans = confirm("Are u sure to Reject?");
     if (ans) {
-      this.service.rejectLoan(loanId);
+      this.AdminComment = String(prompt('Enter Comments', ''));
+      console.log(this.AdminComment);
+      this.service.rejectLoan(loanId,this.AdminComment);
       location.reload();
     }
   }

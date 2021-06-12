@@ -15,4 +15,5 @@
     public status : string = 'Pending';
     public user_id : number = 0;
     public loanId : number = 0;
+    public comment : string = '';
 }

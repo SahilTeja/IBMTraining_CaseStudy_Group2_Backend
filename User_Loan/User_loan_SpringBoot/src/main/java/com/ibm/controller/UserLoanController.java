@@ -84,14 +84,14 @@ public class UserLoanController {
 		return Service.findallloan();
 	}
 	
-	@PutMapping(path = "/approve/{id}", produces = "application/json")
-	public void approveLoan(@RequestBody Loan loan,@PathVariable("id") int id) {
-		 Service.approveLoan(id);
+	@PutMapping(path = "/approve/{id}/{comment}", produces = "application/json")
+	public void approveLoan(@RequestBody Loan loan,@PathVariable("id") int id,@PathVariable("comment") String comment) {
+		 Service.approveLoan(id,comment);
 	}
 	
-	@PutMapping(path = "/reject/{id}", produces = "application/json")
-	public void rejectLoan(@RequestBody Loan loan,@PathVariable("id") int id) {
-		 Service.rejectLoan(id);
+	@PutMapping(path = "/reject/{id}/{comment}", produces = "application/json")
+	public void rejectLoan(@RequestBody Loan loan,@PathVariable("id") int id,@PathVariable("comment") String comment) {
+		 Service.rejectLoan(id,comment);
 	}
 	@PutMapping(path = "/emiPay/{id}", produces = "application/json")
 	public void EMIpayment(@RequestBody Loan loan,@PathVariable("id") int id) {

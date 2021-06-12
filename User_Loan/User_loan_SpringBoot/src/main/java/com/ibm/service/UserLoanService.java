@@ -100,12 +100,12 @@ public class UserLoanService {
 		return loanRepo.findAll();
 	}
 	
-	public void approveLoan(int id) {
-		 loanRepo.approveLoan(id);
+	public void approveLoan(int id, String comment) {
+		 loanRepo.approveLoan(comment,id);
 	}
 
-	public void rejectLoan(int id) {
-		loanRepo.rejectLoan(id);
+	public void rejectLoan(int id, String comment) {
+		loanRepo.rejectLoan(comment,id);
 	}
 	
 	public void EMIpayment(int id) {

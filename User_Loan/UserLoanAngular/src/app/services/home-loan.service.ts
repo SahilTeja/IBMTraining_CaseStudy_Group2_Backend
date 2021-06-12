@@ -27,6 +27,9 @@ export class HomeLoanService {
   async getUserLogin(){
     return await this.http.get<UserLoginModel[]>(this.baseUrl + "/finduser/").pipe(retry(1)).toPromise();
   }
+  async getAllUser(){
+    return await this.http.get<AddUserModel[]>(this.baseUrl + "/finduser/").pipe(retry(1)).toPromise();
+  }
 
   // addloan(loan : LoanModule, userid:number){
   //   return this.http.post<LoanStatus>(this.baseUrl+"/addloan/"+userid,loan);
@@ -55,14 +58,14 @@ export class HomeLoanService {
     this.http.post(this.baseUrl+"/adduser/",user).subscribe(data => data = user);
   } 
 
-  approvedLoan(loanId:number){  
+  approvedLoan(loanId:number, AdminComment : String){  
     const body = {}
-    this.http.put(this.baseUrl+"/approve/"+loanId,body).subscribe();
+    this.http.put(this.baseUrl+"/approve/"+loanId+"/"+AdminComment,body).subscribe();
   }
 
-  rejectLoan(loanId:number){
+  rejectLoan(loanId:number, AdminComment : String){
     const body = {}
-    this.http.put(this.baseUrl+"/reject/"+loanId,body).subscribe();
+    this.http.put(this.baseUrl+"/reject/"+loanId+"/"+AdminComment,body).subscribe();
   }
   EMICompleted(loanId:number){
     const body = {}

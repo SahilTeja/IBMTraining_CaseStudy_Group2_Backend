@@ -28,6 +28,7 @@ public class Loan {
 	private int duration;
 	private String emiCompleted="No";
 	private String status = "Pending";
+	private String comment="Loan Applied";
 
 	@JsonBackReference
 	@ManyToOne
@@ -121,5 +122,14 @@ public class Loan {
 	public void setSalary(int salary) {
 		this.salary = salary;
 	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+	
 	
 }

@@ -2,6 +2,7 @@ package com.ibm.entity;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,14 +22,27 @@ public class User {
 	private int userId;
 	
 	private String password;
+	
 	private String name;
+	
+//	@Column(unique = true)
 	private String email;
+	
+	@Column(unique = true)
 	private String aadhar;
+	
+	@Column(unique = true)
 	private String panCard;
+	
 	private int salary;
+	
+	@Column(unique = true)
 	private String mobilenumber;
+	
 	private String aadress;
+	
 	private String country="India";
+	
 	private String state;
 
 	@JsonManagedReference

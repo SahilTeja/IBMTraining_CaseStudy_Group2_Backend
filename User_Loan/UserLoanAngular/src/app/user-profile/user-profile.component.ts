@@ -13,20 +13,73 @@ export class UserProfileComponent implements OnInit {
   userid : number = 0;
   userbyId : AddUserModel = new AddUserModel();
 
+  allUser : AddUserModel[] = [];
+  allAadhar : String[] = [];
+  statusAadhar : Boolean = false;
+  allPancard : String[] = [];
+  statusPan : Boolean = false;
+  allEmail : String[] = [];
+  statusEmail : Boolean = false;
+  tempUserbyId : AddUserModel = new AddUserModel();
+
   constructor(private service:HomeLoanService, private router:Router) { }
 
   ngOnInit(): void {
     if(localStorage.getItem('UserId')!=null){
       this.userid = JSON.parse(localStorage.getItem("UserId") || '{}');
-      
+      this.service.getAllUser().then(data=>this.allUser=data);
       this.service.getUserById(this.userid).subscribe(data => this.userbyId = data);
+      this.service.getUserById(this.userid).subscribe(data => this.tempUserbyId = data);
     }
+    
+  }
+
+  deletedetailsofCurrentUser(aadhar:String[], removeElement:string) {
+    const index: number = aadhar.indexOf(removeElement);
+    if (index !== -1) {
+      aadhar.splice(index, 1);
+    }        
+  }
+
+  checkProfile() {
+    for(var index in this.allUser) {
+      this.allAadhar.push(this.allUser[index].aadhar);
+      this.allPancard.push(this.allUser[index].panCard);
+      this.allEmail.push(this.allUser[index].email);
+    }
+    this.allAadhar = this.allAadhar.filter(function (e) {return e != null;});
+    this.allPancard = this.allPancard.filter(function (e) {return e != null;});
+    this.allEmail = this.allEmail.filter(function (e) {return e != null;});
+
+    this.deletedetailsofCurrentUser(this.allAadhar,this.tempUserbyId.aadhar);
+    this.deletedetailsofCurrentUser(this.allPancard,this.tempUserbyId.panCard);
+    this.deletedetailsofCurrentUser(this.allEmail,this.tempUserbyId.email);
+
+    if(this.allAadhar.includes(this.userbyId.aadhar)){
+      alert("Aadhar card already registered");
+      this.statusAadhar=true;
+      location.reload();
+    }
+    if(this.allPancard.includes(this.userbyId.panCard)){
+      alert("Pan card already registered");
+      this.statusPan=true;
+      location.reload();
+    }
+    if(this.allEmail.includes(this.userbyId.email)){
+      alert("Email already registered");
+      this.statusEmail=true;
+      location.reload();
+    }
+    
   }
 
   updateProfile() {
-    alert("Profile is Updated");
-    this.service.upadateProfile(this.userbyId);
-    this.router.navigate(['user']);
+    this.checkProfile();
+    if(this.statusAadhar==false && this.statusPan==false && this.statusEmail==false){
+      alert("Profile is Updated");
+      this.service.upadateProfile(this.userbyId);
+      this.router.navigate(['user']);
+    }
   }
 
 }

@@ -1,5 +1,8 @@
 <table class="table">
-    <tr>
+    <tr *ngIf="!LoanApproval?.length">
+        <h3>No Loan Details are available</h3>
+    </tr>
+    <tr *ngIf="LoanApproval?.length">
         <th class="alert-info text-center">Name</th>
         <th class="alert-info text-center">Email</th>
         <th class="alert-info text-center">Salary</th>
