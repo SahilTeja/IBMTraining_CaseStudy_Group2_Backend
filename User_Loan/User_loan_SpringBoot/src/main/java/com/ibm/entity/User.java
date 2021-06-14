@@ -26,20 +26,16 @@ public class User {
 	
 	private String name;
 	
-//	@Column(unique = true)
 	private String email;
-	
-	@Column(unique = true)
+
 	private String aadhar;
 	
-	@Column(unique = true)
 	private String panCard;
 	
 	private LocalDate dateofbirth;
 	
 	private double salary;
 	
-	@Column(unique = true)
 	private String mobilenumber;
 	
 	private String aadress;

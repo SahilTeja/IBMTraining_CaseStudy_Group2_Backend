@@ -99,9 +99,9 @@ export class HomeLoanService {
     this.http.post(this.baseUrl+"/loanComplete/"+loanId,body).subscribe();
   }
 
-  forgetPassword(UserId:number){
+  forgetPassword(UserId:number, password:String){
     const body = {}
-    this.http.post(this.baseUrl+"/forgetPassword/"+UserId,body).subscribe();
+    this.http.post(this.baseUrl+"/forgetPassword/"+UserId+"/"+password,body).subscribe();
   }
 
   async getEmiChart(amount:number, duration:number, interest:number) {

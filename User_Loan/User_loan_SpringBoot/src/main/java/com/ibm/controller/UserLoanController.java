@@ -123,10 +123,10 @@ public class UserLoanController {
 		System.out.println("============================================================="+loanId);
 		Service.sendOtpMail(otp,loanId);
 	}
-	@PostMapping(path = "/forgetPassword/{userid}",produces = "application/json")
-	public void forgetPassword(@PathVariable("userid") int userid, @RequestBody Loan loan) {
+	@PostMapping(path = "/forgetPassword/{userid}/{password}",produces = "application/json")
+	public void forgetPassword(@PathVariable("userid") int userid,@PathVariable("password") String password, @RequestBody Loan loan) {
 		System.out.println("============================================================="+userid);
-		Service.forgetPassword(userid);
+		Service.forgetPassword(userid,password);
 	}
 	@PostMapping(path = "/loanComplete/{loanid}",produces = "application/json")
 	public void LoanCompletition(@PathVariable("loanid") int loanid, @RequestBody Loan loan) {

@@ -39,6 +39,12 @@ export class AddLoanComponent implements OnInit {
   }
 
   formValidate() {
+    
+    // console.log(this.userbyId.aadhar+"......"+this.userbyId.panCard+"......."+this.userbyId.salary);
+    if(this.userbyId.aadhar==""||this.userbyId.panCard==""||this.userbyId.salary==0){
+      alert("Please Complete Profile first, then apply the Loan");
+      this.router.navigate(['profile']);
+    }
     var yearDOB = +this.userbyId.dateofbirth.split("-",1);
     this.AgeTillRetairment = yearDOB+60-(new Date()).getFullYear();
     
@@ -46,11 +52,6 @@ export class AddLoanComponent implements OnInit {
       if(this.userbyId.panCard==this.allcibilScore[index].panCard) {
         this.cibilScore = this.allcibilScore[index].cibilscore;
       }
-    }
-    // console.log(this.userbyId.aadhar+"......"+this.userbyId.panCard+"......."+this.userbyId.salary);
-    if(this.userbyId.aadhar==""||this.userbyId.panCard==""||this.userbyId.salary==0){
-      alert("Please Complete Profile first, then apply the Loan");
-      this.router.navigate(['profile']);
     }
   }
 

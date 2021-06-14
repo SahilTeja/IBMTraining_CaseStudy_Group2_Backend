@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Base64 } from 'js-base64';
 import { AddUserModel } from 'src/adduser.module';
 import { HomeLoanService } from '../services/home-loan.service';
 /**
@@ -43,6 +44,7 @@ export class AddUserComponent implements OnInit {
   addUser(){
     this.checkProfileEmail();
     if(this.statusEmail==false){
+      this.user.password = Base64.btoa(this.user.password).toString();
       this.service.addUser(this.user);
       alert(this.user.name+" is successfully registered");
       this.router.navigate(['home']);

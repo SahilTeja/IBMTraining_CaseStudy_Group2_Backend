@@ -313,10 +313,9 @@ public class UserLoanService {
 		
 	}
 	
-	public void forgetPassword(int userid) {
+	public void forgetPassword(int userid, String passwd) {
 		User user = getUserbyID(userid);
 		String userName = user.getName();
-		String passwd = user.getPassword();
 		String to = user.getEmail();
 		String subject = "Recover Password";
 		String body = "Hello, " +userName +" Your Password is --- " + passwd
@@ -360,6 +359,9 @@ public class UserLoanService {
 			principlePaidYearly = FinalEMI-interestPaidYearly;
 			closingBal = openingBal - principlePaidYearly;
 			if(i==time) {
+				FinalEMI = openingBal;
+				interestPaidYearly = (int) (openingBal *(interest/100.0));
+				principlePaidYearly = FinalEMI-interestPaidYearly;
 				closingBal=0;
 			}
 			System.out.println(String.format("|  %-4s|  %-10s|  %-8s|  %-18s|  %-19s|  %-10s|",i,openingBal,FinalEMI,interestPaidYearly,principlePaidYearly,closingBal));
