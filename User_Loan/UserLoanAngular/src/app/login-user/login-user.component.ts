@@ -20,7 +20,7 @@ export class LoginUserComponent implements OnInit {
   userid : number = 0;
 
   forgetEmail : String = '';
-  forgetPass : String = '';
+  // forgetPass : String = '';
 
   constructor(private service : HomeLoanService, private router:Router) { }
 
@@ -53,10 +53,15 @@ export class LoginUserComponent implements OnInit {
     this.forgetEmail = String(prompt('Enter EmailId', ''));
     for(var index in this.auth){
       if(this.auth[index].email==this.forgetEmail){
-        this.forgetPass=this.auth[index].password;
+        // this.forgetPass=this.auth[index].password;
+        this.service.forgetPassword(this.auth[index].userId);
+        alert("Your password is Sent on Registered MailID");
+      }
+      else {
+        alert("You have Entered Wrong EmailID");
       }
     }
-    alert("your password is :"+this.forgetPass);
+    // alert("your password is :"+this.forgetPass);
   }
 
 

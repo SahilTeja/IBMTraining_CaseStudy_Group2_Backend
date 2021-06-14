@@ -22,12 +22,18 @@
         </div>
         <div class="col-md-4">
             <div class="p-3 py-5"><br><br>
-                <div class="col-md-12"><label class="labels">Aadhar Card</label><input type="text" [(ngModel)]="userbyId.aadhar" class="form-control" placeholder="enter Aadhar Card" value=""></div>
-                <div class="col-md-12"><label class="labels">Pan Card</label><input type="text" [(ngModel)]="userbyId.panCard" class="form-control" placeholder="enter Pan Card" value=""></div>
-                <div class="col-md-12"><label class="labels">Salary</label><input type="number" [(ngModel)]="userbyId.salary" class="form-control" placeholder="enter Salary" value=""></div>
+                <div class="col-md-12" *ngIf="tempUserbyId.aadhar"><label class="labels">Aadhar Card</label><input type="text" [(ngModel)]="userbyId.aadhar" class="form-control" placeholder="enter Aadhar Card" value="" readonly></div>
+                <div class="col-md-12" *ngIf="!tempUserbyId.aadhar"><label class="labels">Aadhar Card</label><input type="text" [(ngModel)]="userbyId.aadhar" class="form-control" placeholder="enter Aadhar Card" value=""></div>
+                <div class="col-md-12" *ngIf="tempUserbyId.panCard"><label class="labels">Pan Card</label><input type="text" [(ngModel)]="userbyId.panCard" class="form-control" placeholder="enter Pan Card" style="text-transform:uppercase" value="" readonly></div>
+                <div class="col-md-12" *ngIf="!tempUserbyId.panCard"><label class="labels">Pan Card</label><input type="text" [(ngModel)]="userbyId.panCard" class="form-control" placeholder="enter Pan Card" style="text-transform:uppercase" value=""></div>
                 <div class="row mt-3">
-                    <div class="col-md-6"><label class="labels">Country</label><input type="text" [(ngModel)]="userbyId.country" class="form-control" placeholder="country" value=""></div>
-                    <div class="col-md-6"><label class="labels">State</label><input type="text" [(ngModel)]="userbyId.state" class="form-control" value="" placeholder="state"></div>
+                    <div class="col-md-7" *ngIf="tempUserbyId.dateofbirth"><label class="labels">Date of Birth</label><input type="date" [(ngModel)]="userbyId.dateofbirth" pattern="\d{1,2}/\d{1,2}/\d{4}" class="form-control" value="" readonly></div>
+                    <div class="col-md-7" *ngIf="!tempUserbyId.dateofbirth"><label class="labels">Date of Birth</label><input type="date" [(ngModel)]="userbyId.dateofbirth" pattern="\d{1,2}/\d{1,2}/\d{4}" class="form-control" value=""></div>
+                    <div class="col-md-5"><label class="labels">Salary</label><input type="text" [(ngModel)]="userbyId.salary" class="form-control" value="" placeholder="enter Salary"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-7"><label class="labels">State</label><input type="text" [(ngModel)]="userbyId.state" class="form-control" value="" placeholder="state"></div>
+                    <div class="col-md-5"><label class="labels">Country</label><input type="text" [(ngModel)]="userbyId.country" class="form-control" placeholder="country" value=""></div>
                 </div>
                 <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit" (click)="updateProfile()">Save Profile</button></div>
             </div>

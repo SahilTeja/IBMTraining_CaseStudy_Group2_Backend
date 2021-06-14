@@ -1,5 +1,6 @@
 package com.ibm.entity;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -34,7 +35,9 @@ public class User {
 	@Column(unique = true)
 	private String panCard;
 	
-	private int salary;
+	private LocalDate dateofbirth;
+	
+	private double salary;
 	
 	@Column(unique = true)
 	private String mobilenumber;
@@ -81,6 +84,15 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public LocalDate getDateofbirth() {
+		return dateofbirth;
+	}
+
+	public void setDateofbirth(LocalDate dateofbirth) {
+		this.dateofbirth = dateofbirth;
+	}
+
 	public String getAadhar() {
 		return aadhar;
 	}
@@ -97,11 +109,11 @@ public class User {
 		this.panCard = panCard;
 	}
 
-	public int getSalary() {
+	public double getSalary() {
 		return salary;
 	}
 
-	public void setSalary(int salary) {
+	public void setSalary(double salary) {
 		this.salary = salary;
 	}
 	

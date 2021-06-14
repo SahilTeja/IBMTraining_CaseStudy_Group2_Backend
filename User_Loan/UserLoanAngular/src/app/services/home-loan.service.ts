@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { retry } from 'rxjs/operators';
 import { AddUserModel } from 'src/adduser.module';
 import { AdminLoginModel } from 'src/adminlogin.module';
+import { CibilScoreModule } from 'src/cibilScore.module';
 import { LoanModule } from 'src/loan.module';
-import { LoanStatus } from 'src/loanStatus.module';
 import { UserLoginModel } from 'src/userlogin.module';
 /**
  * 
@@ -23,6 +23,9 @@ export class HomeLoanService {
 
   async getAdminLogin(){
     return await this.http.get<AdminLoginModel[]>(this.baseUrl + "/admin/find/").pipe(retry(1)).toPromise();
+  }
+  async getAllCibil(){
+    return await this.http.get<CibilScoreModule[]>(this.baseUrl + "/cibil/find/").pipe(retry(1)).toPromise();
   }
   async getUserLogin(){
     return await this.http.get<UserLoginModel[]>(this.baseUrl + "/finduser/").pipe(retry(1)).toPromise();
@@ -90,5 +93,13 @@ export class HomeLoanService {
     const body = {}
     this.http.post(this.baseUrl+"/OTP/"+loanId+"/"+otp,body).subscribe();
   }
+  LoanCompletition(loanId:number){
+    const body = {}
+    this.http.post(this.baseUrl+"/loanComplete/"+loanId,body).subscribe();
+  }
 
+  forgetPassword(UserId:number){
+    const body = {}
+    this.http.post(this.baseUrl+"/forgetPassword/"+UserId,body).subscribe();
+  }
 }
