@@ -85,4 +85,10 @@ export class HomeLoanService {
   upadateProfile(userProfile : AddUserModel){
     this.http.put(this.baseUrl+"/updateProfile",userProfile).subscribe();
   }
+
+  sendOtp(otp: number,loanId:number){
+    const body = {}
+    this.http.post(this.baseUrl+"/OTP/"+loanId+"/"+otp,body).subscribe();
+  }
+
 }

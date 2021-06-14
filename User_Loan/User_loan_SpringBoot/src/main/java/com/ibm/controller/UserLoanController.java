@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ibm.entity.User;
 import com.ibm.entity.Admin;
 import com.ibm.entity.Loan;
 import com.ibm.entity.LoanStatus;
+import com.ibm.entity.User;
 import com.ibm.service.UserLoanService;
 
 /**
@@ -106,6 +106,12 @@ public class UserLoanController {
 	@PutMapping(path = "/updateProfile", produces = "application/json")
 	public void updateProfile(@RequestBody User user) {
 		 Service.updateProfile(user);
+	}
+	
+	@PostMapping(path = "/OTP/{loanId}/{otp}",produces = "application/json")
+	public void sendOtp(@PathVariable("loanId") int loanId, @PathVariable("otp") int otp,@RequestBody Loan loan) {
+		System.out.println("============================================================="+loanId);
+		Service.sendOtpMail(otp,loanId);
 	}
 	
 

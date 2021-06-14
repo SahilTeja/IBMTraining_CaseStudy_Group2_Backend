@@ -45,7 +45,7 @@ public class UserLoanService {
 
 	public int saveUser(User user) {
 		userRepo.save(user);
-		sendMailUser(user);
+//		sendMailUser(user);
 		return user.getUserId();
 	}
 
@@ -54,7 +54,7 @@ public class UserLoanService {
 		String passwd = user.getPassword();
 		String to = user.getEmail();
 		String subject = "Home Loan";
-		String body = "your password is " + passwd
+		String body = "You have successfully registered and Your Password is " + passwd
 				+ "\nDO NOT share your password with anyone.";
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setTo(to);
@@ -96,7 +96,7 @@ public class UserLoanService {
 			loan.setUser(user);
 
 			loanRepo.save(loan);
-			sendMailLoan(loan);
+//			sendMailLoan(loan);
 			loanstatus.setStatus(loan.getLoanId());
 			return loanstatus;
 		}
@@ -142,10 +142,40 @@ public class UserLoanService {
 
 	public void approveLoan(int id, String comment) {
 		loanRepo.approveLoan(comment, id);
+//		approveLoanMail(comment,id);
+	}
+
+	private void approveLoanMail(String comment, int id) {
+		Loan loan = getLoanbyID(id);
+		String to = loan.getEmail();
+		String subject = "Home Loan";
+		String body = "Your Home Loan status is Accepted"
+				+ "\nDO NOT share this mail with anyone.";
+		SimpleMailMessage message = new SimpleMailMessage();
+		message.setTo(to);
+		message.setSubject(subject);
+		message.setText(body);
+		mailSender.send(message);
+		
 	}
 
 	public void rejectLoan(int id, String comment) {
 		loanRepo.rejectLoan(comment, id);
+//		rejectLoanMail(comment,id);
+	}
+
+	private void rejectLoanMail(String comment, int id) {
+		Loan loan = getLoanbyID(id);
+		String to = loan.getEmail();
+		String subject = "Home Loan";
+		String body = "Your Home Loan status is Rejected."+"\n Reason : "+ comment 
+				+ "\nDO NOT share this mail with anyone.";
+		SimpleMailMessage message = new SimpleMailMessage();
+		message.setTo(to);
+		message.setSubject(subject);
+		message.setText(body);
+		mailSender.send(message);
+		
 	}
 
 	public void EMIpayment(int id) {
@@ -161,6 +191,21 @@ public class UserLoanService {
 		userRepo.updateProfile(user.getName(), user.getMobilenumber(), user.getAadress(), user.getEmail(),
 				user.getAadhar(), user.getPanCard(), user.getSalary(), user.getState(), user.getCountry(),
 				user.getUserId());
+	}
+
+	public void sendOtpMail(int otp,int loanId) {
+		int OTP = otp;
+		Loan loan = getLoanbyID(loanId);
+		String to = loan.getEmail();
+		String subject = "Home Loan";
+		String body = "your One Time Password is "+ OTP
+				+ "\nDO NOT share your OTP with anyone.";
+		SimpleMailMessage message = new SimpleMailMessage();
+		message.setTo(to);
+		message.setSubject(subject);
+		message.setText(body);
+		mailSender.send(message);
+		
 	}
 
 }
