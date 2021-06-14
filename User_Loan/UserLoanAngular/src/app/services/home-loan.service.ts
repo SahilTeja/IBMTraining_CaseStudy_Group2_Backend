@@ -4,6 +4,7 @@ import { retry } from 'rxjs/operators';
 import { AddUserModel } from 'src/adduser.module';
 import { AdminLoginModel } from 'src/adminlogin.module';
 import { CibilScoreModule } from 'src/cibilScore.module';
+import { EMIChart } from 'src/emiChart.module';
 import { LoanModule } from 'src/loan.module';
 import { UserLoginModel } from 'src/userlogin.module';
 /**
@@ -101,5 +102,9 @@ export class HomeLoanService {
   forgetPassword(UserId:number){
     const body = {}
     this.http.post(this.baseUrl+"/forgetPassword/"+UserId,body).subscribe();
+  }
+
+  async getEmiChart(amount:number, duration:number, interest:number) {
+    return await this.http.get<EMIChart[]>(this.baseUrl + "/emichart/"+amount+"/"+duration+"/"+interest).pipe(retry(1)).toPromise();
   }
 }

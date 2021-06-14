@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ibm.entity.User;
 import com.ibm.entity.Admin;
 import com.ibm.entity.Cibil;
+import com.ibm.entity.EMIChart;
 import com.ibm.entity.Loan;
 import com.ibm.service.UserLoanService;
 
@@ -131,6 +132,11 @@ public class UserLoanController {
 	public void LoanCompletition(@PathVariable("loanid") int loanid, @RequestBody Loan loan) {
 		System.out.println("============================================================="+loanid);
 		Service.LoanCompletition(loanid);
+	}
+	
+	@GetMapping(value = "/emichart/{principal}/{rate}/{interest}", produces = "application/json")
+	public List<EMIChart> getEmi(@PathVariable("principal")double principal, @PathVariable("rate")double rate, @PathVariable("interest")double interest) {
+		return Service.getEmichart(principal,rate,interest);
 	}
 
 }

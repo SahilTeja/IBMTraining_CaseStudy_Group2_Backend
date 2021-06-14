@@ -28,10 +28,38 @@
         </td>
         <td>
             <button *ngIf="loan.status=='Pending'" class="btn btn-info" (click)="edit(loan.loanId)">Edit</button>
-            <span *ngIf="loan.status=='Approved'" style="font-weight: bold;text-shadow: 2px 2px 8px #FF0000;">Loan Approved</span>
+            <span *ngIf="loan.status=='Approved'" style="font-weight: bold;text-shadow: 2px 2px 8px #FF0000;">Loan Approved
+               <br> <button *ngIf="loan.status=='Approved' && loan.emiCompleted=='No'" class="btn btn-info" (click)="EmiChart(loan)">Show EMI Chart</button></span>
             <span *ngIf="loan.status=='Rejected'" style="font-weight: bold;text-shadow: 2px 2px 8px #FF0000;">Loan Rejected</span>
         </td>
         
     </tr>
 </tbody>
+</table>
+
+
+
+<table class="table table-info"  *ngIf="EMIList?.length">
+    <thead>
+    <tr>
+        <th class="alert-info">year</th>
+        <th class="alert-info">openingBal</th>
+        <th class="alert-info">emi</th>
+        <th class="alert-info">InterestPaidYearly</th>
+        <th class="alert-info">PrinciplePaidYearly</th>
+        <th class="alert-info">Closingbal</th>
+      
+    </tr>
+</thead>
+<tbody class="table-light">
+    <tr *ngFor = "let f of EMIList">
+        <td>{{ f.year }}</td>
+        <td>{{ f.openingBal }}</td>
+        <td>{{ f.emi }}</td>
+        <td>{{ f.interestPaidYearly }}</td>
+        <td>{{ f.principlePaidYearly }}</td>
+        <td>{{ f.closingbal }}</td>
+    </tr>
+</tbody>
+
 </table>

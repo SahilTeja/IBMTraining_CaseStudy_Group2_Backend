@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { EMIChart } from 'src/emiChart.module';
 import { LoanModule } from 'src/loan.module';
 import { HomeLoanService } from '../services/home-loan.service';
 /**
@@ -20,6 +21,9 @@ export class UserDashboardComponent implements OnInit {
   LoansById : LoanModule[] = [];
   PaymentStatus : boolean = false;
 
+  EMIList : EMIChart[] = [];
+  
+
   constructor(private service:HomeLoanService, private router:Router, private aroute : ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -27,6 +31,7 @@ export class UserDashboardComponent implements OnInit {
       this.userid = JSON.parse(localStorage.getItem("UserId") || '{}');
       
       this.service.getAllLoanbyUserId(this.userid).then(data => this.LoansById = data);
+      
     }
     this.aroute.queryParams.pipe(filter(params => params.Payment))
       .subscribe(params => {
@@ -44,6 +49,10 @@ export class UserDashboardComponent implements OnInit {
 
   edit(loanId:number){
     this.router.navigate(['edit'],{queryParams : {loanId: loanId }});
+  }
+
+  EmiChart(loan:LoanModule) {
+    this.service.getEmiChart(loan.amount, loan.duration, loan.interest).then(data => this.EMIList = data);
   }
 
 }

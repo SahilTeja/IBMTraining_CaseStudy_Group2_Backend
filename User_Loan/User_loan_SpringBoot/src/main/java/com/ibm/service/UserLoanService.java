@@ -1,5 +1,6 @@
 package com.ibm.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,6 +18,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import com.ibm.entity.User;
 import com.ibm.entity.Admin;
 import com.ibm.entity.Cibil;
+import com.ibm.entity.EMIChart;
 import com.ibm.entity.Loan;
 import com.ibm.repos.UserRepository;
 import com.ibm.repos.AdminRepository;
@@ -325,6 +327,52 @@ public class UserLoanService {
 		message.setText(body);
 		mailSender.send(message);
 
+	}
+	
+	//---------------------------EMICHART-------------------------------------------
+	
+	public List<EMIChart> getEmichart(double principal, double time, double interest) {
+		List<EMIChart> charttest = new ArrayList<EMIChart>();
+		EMIChart(charttest,principal,time,interest);
+		System.out.println("++++++++==================="+charttest);
+		return charttest;
+	}
+	int calculateEMI(double principal,double time,double interest) {
+		double rate = interest/100;
+		double emi = principal*rate*Math.pow((1+rate), time)/(Math.pow((1+rate), time)-1);
+//		System.out.println("EMI is :"+(int)Math.ceil(emi) +"--"+ principal +"--"+ time +"--"+ rate);
+		return (int)Math.ceil(emi);
+	}
+	public List<EMIChart> EMIChart(List<EMIChart> charttest,double principal,double time,double interest) {
+		
+		double openingBal = principal;
+		double closingBal;
+		double interestPaidYearly;
+		double principlePaidYearly;
+		double FinalEMI = 0;
+		FinalEMI = calculateEMI(principal,time,interest);
+		System.out.println(String.format("| %-4s | %-10s | %-8s | %-18s | %-19s | %-10s |","Year","OpeningBal","EMI","InterestPaidYearly","PrinciplePaidYearly","ClosingBal"));
+		System.out.println(String.format("|%-6s|%-12s|%-10s|%-20s|%-21s|%-11s|","------","------------","----------","--------------------","---------------------","------------"));
+
+		for(int i=1; i<=time; i++) {
+			EMIChart temp = new EMIChart();
+			interestPaidYearly = (int) (openingBal *(interest/100.0));
+			principlePaidYearly = FinalEMI-interestPaidYearly;
+			closingBal = openingBal - principlePaidYearly;
+			if(i==time) {
+				closingBal=0;
+			}
+			System.out.println(String.format("|  %-4s|  %-10s|  %-8s|  %-18s|  %-19s|  %-10s|",i,openingBal,FinalEMI,interestPaidYearly,principlePaidYearly,closingBal));
+			temp.setOpeningBal(openingBal);
+			openingBal=closingBal;
+			temp.setYear(i);
+			temp.setEmi(FinalEMI);
+			temp.setInterestPaidYearly(interestPaidYearly);
+			temp.setPrinciplePaidYearly(principlePaidYearly);
+			temp.setClosingbal(closingBal);
+			charttest.add(temp);
+		}
+		return charttest;
 	}
 
 }
