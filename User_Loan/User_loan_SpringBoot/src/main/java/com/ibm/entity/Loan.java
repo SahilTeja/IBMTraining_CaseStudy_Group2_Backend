@@ -1,5 +1,7 @@
 package com.ibm.entity;
 
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -23,9 +25,11 @@ public class Loan {
 	private String email;
 	private String aadhar;
 	private String panCard;
-	private int salary;
-	private int amount;
-	private int duration;
+	private LocalDate dateofbirth;
+	private double salary;
+	private double amount;
+	private double duration;
+	private double interest;
 	private String emiCompleted="No";
 	private String status = "Pending";
 	private String comment="Loan Applied";
@@ -59,6 +63,14 @@ public class Loan {
 		this.email = email;
 	}
 
+	public LocalDate getDateofbirth() {
+		return dateofbirth;
+	}
+
+	public void setDateofbirth(LocalDate dateofbirth) {
+		this.dateofbirth = dateofbirth;
+	}
+
 	public String getAadhar() {
 		return aadhar;
 	}
@@ -75,19 +87,19 @@ public class Loan {
 		this.panCard = panCard;
 	}
 
-	public int getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(int amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 
-	public int getDuration() {
+	public double getDuration() {
 		return duration;
 	}
 
-	public void setDuration(int duration) {
+	public void setDuration(double duration) {
 		this.duration = duration;
 	}
 
@@ -115,12 +127,20 @@ public class Loan {
 		this.status = status;
 	}
 
-	public int getSalary() {
+	public double getSalary() {
 		return salary;
 	}
 
-	public void setSalary(int salary) {
+	public void setSalary(double salary) {
 		this.salary = salary;
+	}
+
+	public double getInterest() {
+		return interest;
+	}
+
+	public void setInterest(double interest) {
+		this.interest = interest;
 	}
 
 	public String getComment() {

@@ -40,10 +40,11 @@ export class PaymentGatewayComponent implements OnInit {
   OTPpayment(){
     if(this.EnteredOTP==this.ReceivedOTP){
       alert("Payment Successful");
+      this.service.LoanCompletition(this.loanID);
       this.router.navigate(['user'], {queryParams: {Loanid: this.loanID, Payment:true}}).then(()=>location.reload());
     }
     else{
-      alert("You have Entered wrong details");
+      alert("You have Entered Incorrect OTP");
     }
   }
   cancelPayment() {

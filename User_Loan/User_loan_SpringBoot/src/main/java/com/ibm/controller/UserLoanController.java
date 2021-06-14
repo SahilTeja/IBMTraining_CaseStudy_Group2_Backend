@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ibm.entity.Admin;
-import com.ibm.entity.Loan;
-import com.ibm.entity.LoanStatus;
 import com.ibm.entity.User;
+import com.ibm.entity.Admin;
+import com.ibm.entity.Cibil;
+import com.ibm.entity.Loan;
 import com.ibm.service.UserLoanService;
 
 /**
@@ -38,6 +38,15 @@ public class UserLoanController {
 	public List<Admin> findAllAdmin(){
 		return Service.findAllAdmin();
 	}
+	@PostMapping(path = "/cibil/save",consumes = "application/json")
+	public boolean saveCibil(@RequestBody Cibil cibil) {
+		return Service.addCibilScore(cibil);
+	}
+	@GetMapping(path = "/cibil/find", produces = "application/json")
+	public List<Cibil> findallCibil(){
+		return Service.findAllCibil();
+	}
+	
 
 	@PostMapping(path = "/adduser", consumes = "application/json")
 	public int addUser(@RequestBody User user) {
@@ -49,7 +58,7 @@ public class UserLoanController {
 	}
 	
 	@PostMapping(path = "/addloan/{userId}", consumes = "application/json")
-	public LoanStatus addLoan(@RequestBody Loan loan, @PathVariable("userId")int userId) {
+	public int addLoan(@RequestBody Loan loan, @PathVariable("userId")int userId) {
 		return Service.saveLoan(loan, userId);
 	}
 	
@@ -113,6 +122,15 @@ public class UserLoanController {
 		System.out.println("============================================================="+loanId);
 		Service.sendOtpMail(otp,loanId);
 	}
-	
+	@PostMapping(path = "/forgetPassword/{userid}",produces = "application/json")
+	public void forgetPassword(@PathVariable("userid") int userid, @RequestBody Loan loan) {
+		System.out.println("============================================================="+userid);
+		Service.forgetPassword(userid);
+	}
+	@PostMapping(path = "/loanComplete/{loanid}",produces = "application/json")
+	public void LoanCompletition(@PathVariable("loanid") int loanid, @RequestBody Loan loan) {
+		System.out.println("============================================================="+loanid);
+		Service.LoanCompletition(loanid);
+	}
 
 }

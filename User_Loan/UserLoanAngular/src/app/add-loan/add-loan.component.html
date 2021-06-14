@@ -1,56 +1,74 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card bg-info text-white" style="width: 18rem; margin-top: 20px;">
+                <div class="card-body">
+                  <h2 class="card-title text-center" style="font-weight: bold; color: black;"><u>Cibil Score</u></h2>
+                  
+                  <h4 class="card-title text-center" style="font-size: 100px; font-weight: bold;"> {{cibilScore}} </h4>
+                  <br><p> Note* <br>
+                     <strong> Cibil Score </strong>is decided based on your profile & previous payment history.
+                     </p>
+                </div>
+              </div>
+        </div>
 
-<form (ngSubmit)="applyLoan()" (mouseenter) ="formValidate()" #frm=ngForm>
-    <table class="table table-bordered text-center">
-        <tr>
-            <th colspan="4" class="alert-success text-center">Apply Loan</th>
-        </tr>
-        <tr>
-            <td>Applicant Name</td>
-            <td><input name="lname" required pattern="[A-Za-z]{3,}" 
-                #lname=ngModel [(ngModel)]="loan.name" class="form-control" value="{{userbyId.name}}" readonly></td>
-        <span *ngIf = "lname.dirty && lname.invalid" class="alert alert-warning">Invalid Applicant Name</span>
-        </tr>
-        <tr>
-            <td>Applicant EmailId</td>
-            <td><input name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
-                #email=ngModel [(ngModel)]="loan.email" class="form-control" value="{{userbyId.email}}" readonly></td>
-        <span *ngIf = "email.dirty && email.invalid" class="alert alert-warning">Invalid EmailId</span>
-        </tr>
-        <tr>
-            <td>Enter Salary</td>
-            <td><input name="salary" required pattern="[0-9]{5,}" 
-                #salary=ngModel [(ngModel)]="loan.salary" class="form-control" value="{{userbyId.salary}}" readonly></td>
-        <span *ngIf = "salary.dirty && salary.invalid" class="alert alert-warning">Invalid Salary</span>
-        </tr>
-        <tr>
-            <td>Applicant AadharCard </td>
-            <td><input name="aadhar" required pattern="[A-Za-z0-9]{5,}" 
-                #aadhar=ngModel [(ngModel)]="loan.aadhar" class="form-control" value="{{userbyId.aadhar}}" readonly></td>
-        <span *ngIf = "aadhar.dirty && aadhar.invalid" class="alert alert-warning">Invalid Aadhar Details</span>
-        </tr>
-        <tr>
-            <td>Applicant Pancard</td>
-            <td><input name="Pancard" required pattern="[A-Za-z0-9]{5,}" 
-                #Pancard=ngModel [(ngModel)]="loan.panCard" class="form-control" value="{{userbyId.panCard}}" readonly></td>
-        <span *ngIf = "Pancard.dirty && Pancard.invalid" class="alert alert-warning">Invalid Pancard</span>
-        </tr>
-        
-        <tr>
-            <td>Enter Loan Amount</td>
-            <td><input name="salary" required pattern="[0-9]{4,}"
-                #amnt=ngModel [(ngModel)]="loan.amount"  class="form-control"></td>
-            <span *ngIf = "amnt.dirty && amnt.invalid"  class="alert alert-warning">invalid amount</span>
-        </tr>
-        <tr>
-            <td>Enter Duration(Year)</td>
-            <td><input name="duration" required pattern="[0-9]{1,}"
-                #duration=ngModel [(ngModel)]="loan.duration"  class="form-control"></td>
-            <span *ngIf = "duration.dirty && duration.invalid"  class="alert alert-warning">invalid duration</span>
-        </tr>
-        <tr>
-            <td><button type="submit" class="btn btn-primary">Save</button></td>
+    <div class="col-md-8">
+        <form (ngSubmit)="applyLoan()" (mouseenter) ="formValidate()" #frm=ngForm>
+            <table class="table table-bordered text-center">
+                <tr>
+                    <th colspan="4" class="alert-success text-center">Apply Loan</th>
+                </tr>
+                <tr>
+                    <td>Applicant Name</td>
+                    <td><input name="lname" required pattern="[A-Za-z]{3,}" 
+                        #lname=ngModel [(ngModel)]="loan.name" class="form-control" value="{{userbyId.name}}" readonly></td>
+                <span *ngIf = "lname.dirty && lname.invalid" class="alert alert-warning">Invalid Applicant Name</span>
+                </tr>
+                <tr>
+                    <td>Applicant EmailId</td>
+                    <td><input name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+                        #email=ngModel [(ngModel)]="loan.email" class="form-control" value="{{userbyId.email}}" readonly></td>
+                <span *ngIf = "email.dirty && email.invalid" class="alert alert-warning">Invalid EmailId</span>
+                </tr>
+                <tr>
+                    <td>Enter Salary</td>
+                    <td><input name="salary" required pattern="[0-9]{5,}" 
+                        #salary=ngModel [(ngModel)]="loan.salary" class="form-control" value="{{userbyId.salary}}" readonly></td>
+                <span *ngIf = "salary.dirty && salary.invalid" class="alert alert-warning">Invalid Salary</span>
+                </tr>
+                <tr>
+                    <td>Applicant AadharCard </td>
+                    <td><input name="aadhar" required pattern="[A-Za-z0-9]{5,}" 
+                        #aadhar=ngModel [(ngModel)]="loan.aadhar" class="form-control" value="{{userbyId.aadhar}}" readonly></td>
+                <span *ngIf = "aadhar.dirty && aadhar.invalid" class="alert alert-warning">Invalid Aadhar Details</span>
+                </tr>
+                <tr>
+                    <td>Applicant Pancard</td>
+                    <td><input name="Pancard" required pattern="[A-Za-z0-9]{5,}" 
+                        #Pancard=ngModel [(ngModel)]="loan.panCard" class="form-control" value="{{userbyId.panCard}}" readonly></td>
+                <span *ngIf = "Pancard.dirty && Pancard.invalid" class="alert alert-warning">Invalid Pancard</span>
+                </tr>
+                
+                <tr>
+                    <td>Enter Loan Amount</td>
+                    <td><input name="salary" required pattern="[0-9]{4,}"
+                        #amnt=ngModel [(ngModel)]="loan.amount"  class="form-control"></td>
+                    <span *ngIf = "amnt.dirty && amnt.invalid"  class="alert alert-warning">invalid amount</span>
+                </tr>
+                <tr>
+                    <td>Enter Duration(Year)</td>
+                    <td><input name="duration" required pattern="[0-9]{1,}"
+                        #duration=ngModel [(ngModel)]="loan.duration"  class="form-control"></td>
+                    <span *ngIf = "duration.dirty && duration.invalid"  class="alert alert-warning">invalid duration</span>
+                </tr>
+                <tr>
+                    <td><button type="submit" class="btn btn-primary">Save</button></td>
 
-            <td><button type="reset" class="btn btn-warnings">Reset</button></td>
-        </tr>
-    </table>
-</form>
+                    <td><button type="reset" class="btn btn-warnings">Reset</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</div>
