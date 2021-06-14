@@ -42,16 +42,16 @@
 <table class="table table-info"  *ngIf="EMIList?.length">
     <thead>
     <tr>
-        <th class="alert-info">year</th>
-        <th class="alert-info">openingBal</th>
-        <th class="alert-info">emi</th>
-        <th class="alert-info">InterestPaidYearly</th>
-        <th class="alert-info">PrinciplePaidYearly</th>
-        <th class="alert-info">Closingbal</th>
+        <th class="alert-info text-center">Year</th>
+        <th class="alert-info text-center">OpeningBal</th>
+        <th class="alert-info text-center">EMI</th>
+        <th class="alert-info text-center">InterestPaidYearly</th>
+        <th class="alert-info text-center">PrinciplePaidYearly</th>
+        <th class="alert-info text-center">Closingbal</th>
       
     </tr>
 </thead>
-<tbody class="table-light">
+<tbody class="table-light text-center">
     <tr *ngFor = "let f of EMIList">
         <td>{{ f.year }}</td>
         <td>{{ f.openingBal }}</td>
