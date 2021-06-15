@@ -70,5 +70,9 @@ export class LoginUserComponent implements OnInit {
     // alert("your password is :"+this.forgetPass);
   }
 
+  Register() {
+    this.router.navigate(['adduser']);
+  }
+
 
 }

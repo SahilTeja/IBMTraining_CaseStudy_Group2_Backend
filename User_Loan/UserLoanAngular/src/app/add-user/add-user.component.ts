@@ -51,5 +51,9 @@ export class AddUserComponent implements OnInit {
       }
   }
 
+  Login() {
+    this.router.navigate(['loginuser']);
+  }
+
 
 }
