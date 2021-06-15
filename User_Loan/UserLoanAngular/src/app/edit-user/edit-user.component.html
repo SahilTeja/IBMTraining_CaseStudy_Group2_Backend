@@ -1,4 +1,4 @@
-
+<!-- 
 <form (ngSubmit)="edit()" #frm=ngForm>
     <table class="table table-bordered text-center">
         <tr>
@@ -43,10 +43,91 @@
         </tr>
         <tr>
             <td><button type="submit" [disabled]=!frm.valid class="btn btn-primary">Save</button></td>
-<!-- after clicking on save data moves in add.ts->save()->employee.service.ts->addEmp()
-// after clicking on save button it store the details and navigate to list.html as code written in save() -->
+
 
             <td><button type="reset" class="btn btn-warnings">Reset</button></td>
         </tr>
     </table>
-</form>
+</form> -->
+
+
+<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+    <div class="card card0 border-0">
+        <h1 class="text-center" style="margin-top: 30px;">Apply Loan</h1>
+        <form (ngSubmit)="edit()" (mouseenter) ="formValidate()" #frm=ngForm>
+        <div class="row d-flex">
+            <div class="col-md-4">
+                <div class="card2 card border-0 px-4 py-5">
+                    
+                    <div class="row px-3"> <label class="mb-1"><h6 class="mb-0 text-sm">Applicant Name</h6></label> 
+                        <input type="text" name="name" [(ngModel)]="loan.name" class="form-control" readonly>
+                    </div>
+                    <div class="row px-3 mb-4"></div>
+                    <div class="row px-3"> <label class="mb-1"><h6 class="mb-0 text-sm">Applicant Date of Birth</h6></label> 
+                        <input type="date" name="dob" [(ngModel)]="loan.dateofbirth" class="form-control" readonly>
+                    </div>
+                    <div class="row px-3 mb-4"></div>
+                    <div class="row px-3"> 
+                        <label class="mb-1"><h6 class="mb-0 text-sm">Applicant Email Address</h6></label>
+                        <input class="mb-4" type="text" name="email" [(ngModel)]="loan.email" class="form-control" readonly>
+                    </div>
+                    <div class="row px-3 mb-4"></div>
+                
+                    <div class="row px-3"> <label class="mb-1"><h6 class="mb-0 text-sm">Enter Loan Amount</h6></label> 
+                        <input type="text" name="Amount" required pattern="[1-9][0-9]{4,}"
+                            #amnt=ngModel [(ngModel)]="loan.amount" class="form-control" placeholder="Enter Loan Amount" min="10000" max="8000000">
+                        <label style="text-shadow: 2px 2px 8px #FF0000;"  *ngIf = "amnt.dirty && amnt.invalid">Loan Amount Should not start with 0 nor Alphabet & Amount should be greater than 9999</label>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card2 card border-0 px-4 py-5">
+                    
+                    <div class="row px-3"> <label class="mb-1"><h6 class="mb-0 text-sm">Applicant Salary</h6></label> 
+                        <input type="text" name="salary" [(ngModel)]="loan.salary" class="form-control" readonly>
+                    </div>
+                    <div class="row px-3 mb-4"></div>
+                    <div class="row px-3"> 
+                        <label class="mb-1"><h6 class="mb-0 text-sm">Applicant Aadhar Number</h6></label>
+                        <input class="mb-4" type="text" name="aadhar" [(ngModel)]="loan.aadhar" class="form-control" readonly>
+                    </div>
+                    <div class="row px-3 mb-4"></div>
+                    <div class="row px-3"> 
+                        <label class="mb-1"><h6 class="mb-0 text-sm">Applicant PanCard</h6></label>
+                        <input class="mb-4" type="text" name="panCard" [(ngModel)]="loan.panCard" class="form-control" readonly>
+                    </div>
+                   
+                    <div class="row px-3 mb-4"></div>
+                    <div class="row px-3"> 
+                        <label class="mb-1"><h6 class="mb-0 text-sm">Enter Loan Duration (Year)</h6></label>
+                        <input class="mb-4" type="number" name="duration" required pattern="^[1-9][0-9]*$"
+                            #duration=ngModel [(ngModel)]="loan.duration"  class="form-control" placeholder="Enter Loan Duration" min="1">
+                            <label style="text-shadow: 2px 2px 8px #FF0000;"  *ngIf = "duration.invalid">Loan Duration(Yr) Should be greater than 0</label>
+                    </div>
+                    
+                    <div class="row px-3 mb-4"></div>
+                    <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center" [disabled]=!frm.valid>Save Loan Details</button> </div>
+                    
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card bg-info text-white" style="width: 18rem; margin-top: 80px;">
+                    <div class="card-body">
+                      <h2 class="card-title text-center" style="font-weight: bold; color: black;"><u>Cibil Score</u></h2>
+                      
+                      <h4 class="card-title text-center" style="font-size: 100px; font-weight: bold;"> {{cibilScore}} </h4>
+                      <br><p> Note* <br>
+                         <strong> Cibil Score </strong>is decided based on your profile & previous payment history.
+                         </p>
+                    </div>
+                  </div>
+            </div>
+        </div></form>
+        <div class="bg-blue py-4">
+            <div class="row px-3"> <small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2021. All rights reserved.</small>
+                <div class="social-contact ml-4 ml-sm-auto"> <span class="fa fa-facebook mr-4 text-sm"></span> <span class="fa fa-google-plus mr-4 text-sm"></span> <span class="fa fa-linkedin mr-4 text-sm"></span> <span class="fa fa-twitter mr-4 mr-sm-5 text-sm"></span> </div>
+            </div>
+        </div>
+    </div>
+</div>

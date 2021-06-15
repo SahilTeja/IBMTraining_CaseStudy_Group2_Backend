@@ -89,15 +89,6 @@ export class AddLoanComponent implements OnInit {
     }
     
   }
-  // applyLoan() {
-  //   this.service.addloan(this.loan,this.userid).subscribe(data => this.loanStatus = data);
-  //   if(this.loanStatus.status==0) {
-  //     alert("You have already active Loan");
-  //   }
-  //   else{
-  //     alert("Loan Applied");
-  //   }
-  // }
   
 
 }

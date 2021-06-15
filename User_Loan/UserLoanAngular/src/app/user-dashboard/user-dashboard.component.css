@@ -1,0 +1,32 @@
+.table tbody td.status span {
+    position: relative;
+    border-radius: 30px;
+    padding: 4px 10px 4px 25px; }
+.table tbody td.status span:after {
+    position: absolute;
+    top: 9px;
+    left: 10px;
+    width: 10px;
+    height: 10px;
+    content: '';
+    border-radius: 50%; }
+.table tbody td.status .active {
+    background: #11e05d;
+    color: #0a0a0a; }
+.table tbody td.status .active:after {
+    background: #121312; }
+.table tbody td.status .waiting {
+    background: #f5f1b4;
+    color: #1f1c12; }
+.table tbody td.status .waiting:after {
+    background: #f2be1d; }
+.table tbody td.status .reject {
+    background: #ec5417;
+    color: #eee7e6; }
+.table tbody td.status .reject:after {
+    background: #1d1c1c; }
+.table tbody td.status .complete {
+    background: #9fccf1;
+    color: #0e12e2; }
+.table tbody td.status .complete:after {
+    background: #2e00f8; }

@@ -1,32 +1,124 @@
+
 <table class="table">
     <tr *ngIf="!LoanApproval?.length">
         <h3>No Loan Details are available</h3>
     </tr>
     <tr *ngIf="LoanApproval?.length">
-        <th class="alert-info text-center">Name</th>
-        <th class="alert-info text-center">Email</th>
-        <th class="alert-info text-center">Salary</th>
-        <th class="alert-info text-center">Loan Amnt</th>
-        <th class="alert-info text-center">Duration(Yr)</th>
-        <th class="alert-info text-center">Aadhar Card</th>
-        <th class="alert-info text-center">Pan Card</th>
+        <th class="alert-info text-center">Loan Id</th>
+        <th class="alert-info text-center">Applicant Name</th>
+        <th class="alert-info text-center">Loan Amount</th>
+        <th class="alert-info text-center">Loan Duration(Yr)</th>
         <th class="alert-info text-center">ForClosure Pay</th>
-        <th class="alert-info text-center">Approval</th>
-        <th style="padding-left: 35px"  class="alert-info" colspan="2">Action</th> 
+        <th class="alert-info text-center">Approval Status</th>
+        <th class="alert-info text-center">Loan Details</th>
+        <th style="padding-left: 75px"  class="alert-info" colspan="2">Action</th> 
     </tr>
     <tbody class="table-light text-center">
     <tr *ngFor = "let loan of LoanApproval">
+        <td>{{ loan.loanId }}</td>
         <td>{{ loan.name }}</td>
-        <td>{{ loan.email }}</td>
-        <td>{{ loan.salary }}</td>
         <td>{{ loan.amount }}</td>
         <td>{{ loan.duration }}</td>
-        <td>{{ loan.aadhar }}</td>
-        <td>{{ loan.panCard }}</td>
         <td>{{ loan.emiCompleted }}</td> 
         <td>{{loan.status}}</td>
+        <td>
+            <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#detailsField" (click)="viewDetails(loan.loanId)">
+                View Details
+              </button>
+        </td>
         <td><button  style= "margin: 5px" class="btn btn-outline-success" (click)="yes(loan.loanId)">Accept</button>
-            <button style="margin: 5px" class="btn btn-outline-danger" (click)="no(loan.loanId)">Reject</button></td>
+            <button style="margin: 5px" class="btn btn-outline-danger" (click)="no(loan.loanId)">Reject</button>
+        </td>
+        
     </tr>
 </tbody> 
 </table>
+
+
+<div class="portfolio-modal modal fade" id="detailsField" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content" style="background-color: azure;">
+        <div class="modal-header">
+            <h1 style="margin-left: 280px;">Loan Details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body"> 
+            <div class="container-fluid">
+                <div class="card card0 border-0">
+                    <form>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card2 card border-0 px-4 py-5">
+                                
+                                <div class="row px-3"> <label class="mb-1"><h6 class="mb-0 text-sm">Loan ID</h6></label> 
+                                    <input type="text" name="loanId" [(ngModel)]="loanbyID.loanId" class="form-control" readonly>
+                                </div>
+                                <div class="row px-3 mb-4"></div>
+                                <div class="row px-3"> <label class="mb-1"><h6 class="mb-0 text-sm">Applicant Name</h6></label> 
+                                    <input type="text" name="name" [(ngModel)]="loanbyID.name" class="form-control" readonly>
+                                </div>
+                                <div class="row px-3 mb-4"></div>
+                                <div class="row px-3"> <label class="mb-1"><h6 class="mb-0 text-sm">Applicant Date of Birth</h6></label> 
+                                    <input type="date" name="dob" [(ngModel)]="loanbyID.dateofbirth" class="form-control" readonly>
+                                </div>
+                                <div class="row px-3 mb-4"></div>
+                                <div class="row px-3"> 
+                                    <label class="mb-1"><h6 class="mb-0 text-sm">Applicant Email Address</h6></label>
+                                    <input class="mb-4" type="text" name="email" [(ngModel)]="loanbyID.email" class="form-control" readonly>
+                                </div>
+                                <div class="row px-3 mb-4"></div>
+                                <div class="row px-3"> <label class="mb-1"><h6 class="mb-0 text-sm">Loan Amount</h6></label> 
+                                    <input type="text" name="Amount" [(ngModel)]="loanbyID.amount" class="form-control" readonly>
+                                </div>
+                                <div class="row px-3 mb-4"></div>
+                                <div class="row px-3"> <label class="mb-1"><h6 class="mb-0 text-sm">Loan Approval Status</h6></label> 
+                                    <input type="text" name="approval" [(ngModel)]="loanbyID.status" class="form-control" readonly>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card2 card border-0 px-4 py-5">
+                                <div class="row px-3"> <label class="mb-1"><h6 class="mb-0 text-sm">Loan Interest Rate</h6></label> 
+                                    <input type="text" name="Interest" [(ngModel)]="loanbyID.interest" class="form-control" readonly>
+                                </div>
+                                <div class="row px-3 mb-4"></div>
+                                <div class="row px-3"> <label class="mb-1"><h6 class="mb-0 text-sm">Applicant Salary</h6></label> 
+                                    <input type="text" name="salary" [(ngModel)]="loanbyID.salary" class="form-control" value="{{loanbyID.salary}}" readonly>
+                                </div>
+                                <div class="row px-3 mb-4"></div>
+                                <div class="row px-3"> 
+                                    <label class="mb-1"><h6 class="mb-0 text-sm">Applicant Aadhar Number</h6></label>
+                                    <input class="mb-4" type="text" name="aadhar" [(ngModel)]="loanbyID.aadhar" class="form-control" value="{{loanbyID.aadhar}}" readonly>
+                                </div>
+                                <div class="row px-3 mb-4"></div>
+                                <div class="row px-3"> 
+                                    <label class="mb-1"><h6 class="mb-0 text-sm">Applicant PanCard</h6></label>
+                                    <input class="mb-4" type="text" name="panCard" [(ngModel)]="loanbyID.panCard" class="form-control" value="{{loanbyID.panCard}}" readonly>
+                                </div>
+                               
+                                <div class="row px-3 mb-4"></div>
+                                <div class="row px-3"> 
+                                    <label class="mb-1"><h6 class="mb-0 text-sm">Loan Duration (Year)</h6></label>
+                                    <input class="mb-4" type="number" name="duration" [(ngModel)]="loanbyID.duration"  class="form-control" readonly>
+                                </div>
+                                <div class="row px-3 mb-4"></div>
+                                <div class="row px-3"> <label class="mb-1"><h6 class="mb-0 text-sm">Notification</h6></label> 
+                                    <input type="text" name="comment" [(ngModel)]="loanbyID.comment" class="form-control" readonly>
+                                </div>
+                            
+                            </div>
+                        </div>
+                        
+                    </div></form>
+                    <div class="bg-blue py-4">
+                        <div class="row px-3"> <small class="ml-4 ml-sm-5 mb-2"></small>
+                            <div class="social-contact ml-4 ml-sm-auto"> <span class="fa fa-facebook mr-4 text-sm"></span> <span class="fa fa-google-plus mr-4 text-sm"></span> <span class="fa fa-linkedin mr-4 text-sm"></span> <span class="fa fa-twitter mr-4 mr-sm-5 text-sm"></span> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  </div>

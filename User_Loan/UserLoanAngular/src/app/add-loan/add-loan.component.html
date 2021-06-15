@@ -94,50 +94,18 @@
                         <input class="mb-4" type="text" name="email" [(ngModel)]="loan.email" class="form-control" value="{{userbyId.email}}" readonly>
                     </div>
                     <div class="row px-3 mb-4"></div>
-                    <!-- <div class="row px-3"> <label class="mb-1"><h6 class="mb-0 text-sm">Applicant Salary</h6></label> 
-                        <input type="text" name="salary" [(ngModel)]="loan.salary" class="form-control" value="{{userbyId.salary}}" readonly>
-                    </div>
-                    <div class="row px-3 mb-4"></div>
-                    <div class="row px-3"> 
-                        <label class="mb-1"><h6 class="mb-0 text-sm">Applicant Aadhar Number</h6></label>
-                        <input class="mb-4" type="text" name="aadhar" [(ngModel)]="loan.aadhar" class="form-control" value="{{userbyId.aadhar}}" readonly>
-                    </div>
-                    <div class="row px-3 mb-4"></div>
-                    <div class="row px-3"> 
-                        <label class="mb-1"><h6 class="mb-0 text-sm">Applicant PanCard</h6></label>
-                        <input class="mb-4" type="text" name="panCard" [(ngModel)]="loan.panCard" class="form-control" value="{{userbyId.panCard}}" readonly>
-                    </div>
-                    <div class="row px-3 mb-4"></div> -->
+                
                     <div class="row px-3"> <label class="mb-1"><h6 class="mb-0 text-sm">Enter Loan Amount</h6></label> 
                         <input type="text" name="Amount" required pattern="[1-9][0-9]{4,}"
                             #amnt=ngModel [(ngModel)]="loan.amount" class="form-control" placeholder="Enter Loan Amount" min="10000" max="8000000">
                         <label style="text-shadow: 2px 2px 8px #FF0000;"  *ngIf = "amnt.dirty && amnt.invalid">Loan Amount Should not start with 0 nor Alphabet & Amount should be greater than 9999</label>
                     </div>
-                    <!-- <div class="row px-3 mb-4"></div>
-                    <div class="row px-3"> 
-                        <label class="mb-1"><h6 class="mb-0 text-sm">Enter Loan Duration (Year)</h6></label>
-                        <input class="mb-4" type="number" name="duration" required pattern="^[1-9][0-9]*$"
-                            #duration=ngModel [(ngModel)]="loan.duration"  class="form-control" placeholder="Enter Loan Duration" min="1">
-                            <label style="margin-left: 110px; text-shadow: 2px 2px 8px #FF0000;"  *ngIf = "duration.invalid">Loan Duration(Yr) Should be greater than 0</label>
-                    </div> -->
-<!--                     
-                    <div class="row px-3 mb-4"></div>
-                    <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center" [disabled]=!frm.valid>Apply Loan</button> </div>
-                     -->
+                   
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card2 card border-0 px-4 py-5">
                     
-                    <!-- <div class="row px-3"> <label class="mb-1"><h6 class="mb-0 text-sm">Applicant Name</h6></label> 
-                        <input type="text" name="name" [(ngModel)]="loan.name" class="form-control" value="{{userbyId.name}}" readonly>
-                    </div>
-                    <div class="row px-3 mb-4"></div>
-                    <div class="row px-3"> 
-                        <label class="mb-1"><h6 class="mb-0 text-sm">Applicant Email Address</h6></label>
-                        <input class="mb-4" type="text" name="email" [(ngModel)]="loan.email" class="form-control" value="{{userbyId.email}}" readonly>
-                    </div>
-                    <div class="row px-3 mb-4"></div> -->
                     <div class="row px-3"> <label class="mb-1"><h6 class="mb-0 text-sm">Applicant Salary</h6></label> 
                         <input type="text" name="salary" [(ngModel)]="loan.salary" class="form-control" value="{{userbyId.salary}}" readonly>
                     </div>
@@ -151,12 +119,7 @@
                         <label class="mb-1"><h6 class="mb-0 text-sm">Applicant PanCard</h6></label>
                         <input class="mb-4" type="text" name="panCard" [(ngModel)]="loan.panCard" class="form-control" value="{{userbyId.panCard}}" readonly>
                     </div>
-                    <!-- <div class="row px-3 mb-4"></div>
-                    <div class="row px-3"> <label class="mb-1"><h6 class="mb-0 text-sm">Enter Loan Amount</h6></label> 
-                        <input type="number" name="Amount" required pattern="[1-9][0-9]{5,}"
-                            #amnt=ngModel [(ngModel)]="loan.amount" class="form-control" placeholder="Enter Loan Amount" min="10000" max="8000000">
-                        <label style="text-shadow: 2px 2px 8px #FF0000;"  *ngIf = "amnt.dirty && amnt.invalid">Loan Amount Should not start with 0 & Amount should be greater than 9999</label>
-                    </div> -->
+                   
                     <div class="row px-3 mb-4"></div>
                     <div class="row px-3"> 
                         <label class="mb-1"><h6 class="mb-0 text-sm">Enter Loan Duration (Year)</h6></label>

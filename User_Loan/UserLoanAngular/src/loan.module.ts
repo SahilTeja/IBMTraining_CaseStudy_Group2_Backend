@@ -3,7 +3,8 @@
  * @author Harsh Anand
  *
  */
- export class LoanModule {                
+ export class LoanModule {  
+    public loanId : number = 0;             
     public name : string = '';
     public email : string = '';
     public dateofbirth : string = '';
@@ -16,6 +17,5 @@
     public emiCompleted : string = 'No';
     public status : string = 'Pending';
     public user_id : number = 0;
-    public loanId : number = 0;
     public comment : string = '';
 }

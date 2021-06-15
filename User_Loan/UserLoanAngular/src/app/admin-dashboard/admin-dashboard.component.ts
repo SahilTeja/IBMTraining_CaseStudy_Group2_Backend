@@ -15,6 +15,7 @@ export class AdminDashboardComponent implements OnInit {
 
   LoanApproval : LoanModule[] = [];
   AdminComment : String = '';
+  loanbyID : LoanModule = new LoanModule();
 
   constructor(private service:HomeLoanService) { }
 
@@ -42,6 +43,10 @@ export class AdminDashboardComponent implements OnInit {
       this.service.rejectLoan(loanId,this.AdminComment);
       location.reload();
     }
+  }
+
+  viewDetails(loanId:number) {
+    this.service.getLoanById(loanId).subscribe(data=>this.loanbyID=data);
   }
 
 }

@@ -16,6 +16,7 @@ import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.compo
 import { AdminLoanDashboardComponent } from './admin-loan-dashboard/admin-loan-dashboard.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

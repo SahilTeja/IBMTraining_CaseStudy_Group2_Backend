@@ -13,6 +13,7 @@ export class AdminLoanDashboardComponent implements OnInit {
   selectType : String[] = ["LoanId","UserId","Name"];
   check : String = "";
   query : string = '';
+  loanbyID : LoanModule = new LoanModule();
 
   constructor(private service:HomeLoanService) { }
 
@@ -39,6 +40,10 @@ export class AdminLoanDashboardComponent implements OnInit {
   }
   reload() {
     location.reload();
+  }
+
+  viewDetails(loanId:number) {
+    this.service.getLoanById(loanId).subscribe(data=>this.loanbyID=data);
   }
 
 }
