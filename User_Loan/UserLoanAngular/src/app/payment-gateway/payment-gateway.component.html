@@ -47,7 +47,7 @@
                                                         <div class="form-group">
                                                             <label>CARD NUMBER</label>
                                                             <div class="input-group">
-                                                                <input type="number" class="form-control" name="Number" required pattern="[0-9]{16,}" placeholder="Valid Card Number (16 digit)">
+                                                                <input type="number" class="form-control" name="Number" ngModel required pattern="[0-9]{16}" onKeyPress="if(this.value.length==16) return false;" placeholder="Valid Card Number (16 digit)">
                                                                 <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
                                                                 
                                                             </div>
@@ -58,21 +58,21 @@
                                                     <div class="col-xs-7 col-md-7">
                                                         <div class="form-group">
                                                             <label>EXPIRATION DATE</label>
-                                                            <input type="text" class="form-control" name="Expiry" placeholder="MM / YY" required="">
+                                                            <input type="text" class="form-control" ngModel required pattern="[0-9//]{5}" onKeyPress="if(this.value.length==5) return false;" name="Expiry" placeholder="MM / YY">
                                                         </div>
                                                     </div>
                                                     <div class="col-xs-5 col-md-5 pull-right">
                                                         <div class="form-group">
                                                             <label>CV CODE</label>
-                                                            <input type="text" class="form-control" name="CVC" placeholder="CVC" required="">
+                                                            <input type="text" class="form-control" ngModel required pattern="[0-9]{3}" onKeyPress="if(this.value.length==3) return false;" name="CVC" placeholder="CVC" required="">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-xs-12">
                                                         <div class="form-group">
-                                                            <label>NAME OF CARD</label>
-                                                            <input type="text" class="form-control" name="nameCard" placeholder="NAME AND SURNAME">
+                                                            <label>NAME ON CARD</label>
+                                                            <input type="text" class="form-control" ngModel required pattern="[a-zA-Z\s]+" name="nameCard" placeholder="NAME AND SURNAME">
                                                         </div>
                                                     </div>
                                                 </div><br>
