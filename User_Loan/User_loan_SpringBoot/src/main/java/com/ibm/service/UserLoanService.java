@@ -138,10 +138,9 @@ public class UserLoanService {
 	}
 	
 	public void sendMailUser(User user) {
-		String passwd = user.getPassword();
 		String to = user.getEmail();
 		String subject = "User Registered Successfully";
-		String body = "You have successfully registered and Your Password is " + passwd
+		String body ="Congratulations, " + user.getName() +" You have successfully registered on our Website."
 				+ "\nDO NOT share your password with anyone.";
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setTo(to);
