@@ -1,0 +1,91 @@
+nav{
+  background-image: url("../assets/navBackground.jpg");
+  background-size: 100% 500px;
+}
+.car1{
+
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    font-size: 100px;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    
+    color: rgb(0, 0, 0) ;
+    letter-spacing: .05em;
+    text-shadow: 
+      4px 4px 0px #d5d5d5, 
+      7px 7px 0px rgba(0, 0, 0, 0.2);
+  }
+    
+p{
+    font-style: italic;
+    color: black;
+}
+
+.navbar-nav{
+  transition: all .35s ease;
+}
+
+.navbar-nav li {
+  display: inline-block;
+  list-style: outside none none;
+  padding: 0;
+}
+
+.navbar-nav a {
+  padding: .5em .8em;
+  color: black;
+  position: relative;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.navbar-nav a::before,
+.navbar-nav a::after {
+  content: '';
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  transition: all .35s ease;
+  opacity: 0;
+}
+
+.navbar-nav a::before {
+  content: '';
+  right: 0;
+  top: 0;
+  border-top: 3px solid #3E8914;
+  border-right: 3px solid #2E640F;
+  transform: translate(-100%, 50%);
+}
+
+.navbar-nav a:after {
+  content: '';
+  left: 0;
+  bottom: 0;
+  border-bottom: 3px solid #2E640F;
+  border-left: 3px solid #3E8914;
+  transform: translate(100%, -50%)
+}
+
+.navbar-nav a:hover:before,
+.navbar-nav a:hover:after{
+  transform: translate(0,0);
+  opacity: 1;
+}
+
+.navbar-nav a:hover {
+  color: #3DA35D;
+}
+
+
+#col1{
+  position: relative;
+  left: 200px;
+}
+
+#col3{
+  position: relative;
+  left: 350px;
+}
+
+  

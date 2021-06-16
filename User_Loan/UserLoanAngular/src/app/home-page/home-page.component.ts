@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EMIChart } from 'src/emiChart.module';
+import { HomeLoanService } from '../services/home-loan.service';
 /**
  * 
  * @author Harsh Anand
@@ -11,9 +13,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  amount : number = 0;
+  duration : number = 0;
+  interest : number = 0;
+  EMIList : EMIChart[] = [];
+
+  constructor(private service:HomeLoanService) { }
 
   ngOnInit(): void {
+  }
+
+  generateEMI() {
+    this.service.getEmiChart(this.amount, this.duration, this.interest).then(data => this.EMIList = data);
   }
 
 }

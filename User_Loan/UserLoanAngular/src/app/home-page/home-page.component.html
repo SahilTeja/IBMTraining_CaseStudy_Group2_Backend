@@ -1,1 +1,125 @@
-<p>home-page works!</p>
+<div class="container-fluid text-center">  
+    <div class="row" id="EmiChart">
+        <div class="d-none d-lg-block col-lg-5  header-img-section">
+            <img src="../../assets/backgroundImage.svg" class="img-fluid" alt="banner">
+        </div>
+        <div class="col-lg-5 offset-lg-1 col-sm-12 header-title-section">
+            <p class="header-subtitle">Loan EMI Calculator</p>
+            <h1 class="header-title">A personal Home loan for multiple purposes!</h1>
+            <p class="header-title-text">One of the major home loan loans benefits is that it comes with a lower interest rate than
+                 other forms of borrowing like a personal loan or a gold loan. This is because the lender uses the property that
+                  you wish to purchase as a security against the amount you borrow.</p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row" id="emicalculator">
+        <p class="header-subtitle text-center"><u>Loan EMI Calculator</u></p><br>
+
+        <div class="col-lg-4">
+            <div class="card" style="background-color: rgb(245, 240, 234);border: none; margin: 20px;">
+        <form (ngSubmit)="generateEMI()" #frm=ngForm>
+            <div class="form-group">
+            <label for="amount">Loan Amount:</label>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                <div class="input-group-text">Rs</div>
+                </div>
+                <input type="number" class="form-control" name="amount" [(ngModel)]="amount">
+            </div>
+            </div>
+
+            <div class="form-group">
+            <label for="amount">Interest Rate :</label>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                <div class="input-group-text">%</div>
+                </div>
+                <input type="number" class="form-control" name="interest" [(ngModel)]="interest">
+            </div>
+            </div>
+
+            <div class="form-group">
+            <label for="amount">Loan Tenure :</label>
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                <div class="input-group-text">Year</div>
+                </div>
+                <input type="number" class="form-control" name="duration" [(ngModel)]="duration">
+            </div>
+            </div>
+            <button type="submit" class="btn btn-info">Generate EMI Chart</button>
+
+        </form></div>
+        </div>
+        <div class="col-lg-4" style="margin-left: 70px; margin-top: 30px;">
+        <div class="emi-details">
+            <div class="emi-details-head">
+            <h3>Your EMI Details</h3>
+            </div>
+            <div class="emi-details-box">
+            <p>Loan EMI</p>
+            <h5>$5247</h5>
+            </div>
+            <div class="emi-details-box">
+            <p>Total Interest Payable</p>
+            <h5>$52470</h5>
+            </div>
+            <div class="emi-details-box no-bottom-border">
+            <p>Total Payment</p>
+            <h5>$152470</h5>
+            </div>
+        </div>
+        </div>
+        <div class="col-lg-3" style="margin-top: 100px;">
+            <button style="margin-top: 20px;" *ngIf="EMIList?.length" class="btn btn-primary header-subtitle" type="button" data-bs-toggle="modal" data-bs-target="#detailsField">
+                View EMI Chart
+            </button>
+            <p *ngIf="!EMIList?.length" class="header-subtitle text-center">Enter Loan Amount, Loan Duration &<br> Loan Tenure to view <strong> EMI Chart </strong></p><br>
+        </div>
+        
+    </div>
+</div>
+<div style="height: 300px;"></div>
+
+
+
+
+<div class="portfolio-modal modal fade" id="detailsField" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content" style="background-color: azure;">
+        <div class="modal-header">
+            <h1 style="margin-left: 280px;">Loan Details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body"> 
+            <div class="container-fluid">
+                <table class="table table-info">
+                    <thead>
+                    <tr>
+                        <th class="alert-info text-center">Year</th>
+                        <th class="alert-info text-center">OpeningBal</th>
+                        <th class="alert-info text-center">EMI</th>
+                        <th class="alert-info text-center">InterestPaidYearly</th>
+                        <th class="alert-info text-center">PrinciplePaidYearly</th>
+                        <th class="alert-info text-center">Closingbal</th>
+                      
+                    </tr>
+                </thead>
+                <tbody class="table-light text-center">
+                    <tr *ngFor = "let f of EMIList">
+                        <td>{{ f.year }}</td>
+                        <td>{{ f.openingBal }}</td>
+                        <td>{{ f.emi }}</td>
+                        <td>{{ f.interestPaidYearly }}</td>
+                        <td>{{ f.principlePaidYearly }}</td>
+                        <td>{{ f.closingbal }}</td>
+                    </tr>
+                </tbody>
+                
+                </table>
+                
+        </div>
+    </div>
+    
+  </div>
