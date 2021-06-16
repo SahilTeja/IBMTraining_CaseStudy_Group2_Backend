@@ -9,13 +9,22 @@
                     <h4 class="text-right">Profile Settings</h4>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-12"><label class="labels">Name</label><input type="text" [(ngModel)]="userbyId.name" class="form-control" placeholder="Enter name" value=""></div>
+                    <div class="col-md-12"><label class="labels">Name</label><input type="text" [(ngModel)]="userbyId.name" class="form-control" required #name=ngModel
+                        pattern="[A-Za-z ]{3,}" placeholder="Enter name" value=""></div>
+                    <label style="margin-left: 160px; text-shadow: 2px 2px 8px #FF0000;"  *ngIf = "name.dirty && name.invalid">Name should be atleast 3 Character</label>
                     
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">PhoneNumber</label><input type="number" [(ngModel)]="userbyId.mobilenumber" required pattern="[0-9]{10}" onKeyPress="if(this.value.length==10) return false;" class="form-control" placeholder="enter phone number" value=""></div>
-                    <div class="col-md-12"><label class="labels">Address</label><input type="text" [(ngModel)]="userbyId.aadress" class="form-control" placeholder="enter address" value=""></div>
-                    <div class="col-md-12"><label class="labels">Email ID</label><input type="text" [(ngModel)]="userbyId.email" class="form-control" placeholder="enter email id" value=""></div>
+                    <div class="col-md-12"><label class="labels">PhoneNumber</label><input type="number" [(ngModel)]="userbyId.mobilenumber" required pattern="[7-9][0-9]{9,}" #mobile=ngModel onKeyPress="if(this.value.length==10) return false;" class="form-control" placeholder="enter phone number" value="">
+                        <label style="margin-left: 60px; text-shadow: 2px 2px 8px #FF0000;"  *ngIf = "mobile.dirty && mobile.invalid">Mobile Number starts with 7/8/9 and has 10 digit</label>
+                    </div>
+                    <div class="col-md-12"><label class="labels">Address</label><input type="text" [(ngModel)]="userbyId.aadress" class="form-control" required pattern="[A-Za-z0-9'\.\-\s\,]{8,}" #address=ngModel placeholder="enter address" value="">
+                        <label style="margin-left: 140px; text-shadow: 2px 2px 8px #FF0000;"  *ngIf = "address.dirty && address.invalid">Address must have atleast 8 Character</label>
+                    </div>
+                    <div class="col-md-12"><label class="labels">Email ID</label><input type="text" [(ngModel)]="userbyId.email" class="form-control" required #emailid=ngModel    
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="enter email id" value="">
+                        <label style="margin-left: 265px; text-shadow: 2px 2px 8px #FF0000;" *ngIf = "emailid.dirty && emailid.invalid">Invalid Email Format</label>
+                    </div>
                 
                 </div>
             </div>
@@ -23,17 +32,26 @@
         <div class="col-md-4">
             <div class="p-3 py-5"><br><br>
                 <div class="col-md-12" *ngIf="tempUserbyId.aadhar"><label class="labels">Aadhar Card</label><input type="text" [(ngModel)]="userbyId.aadhar" class="form-control" placeholder="enter Aadhar Card" value="" readonly></div>
-                <div class="col-md-12" *ngIf="!tempUserbyId.aadhar"><label class="labels">Aadhar Card</label><input type="text" [(ngModel)]="userbyId.aadhar" class="form-control" placeholder="enter Aadhar Card" value=""></div>
+                <div class="col-md-12" *ngIf="!tempUserbyId.aadhar"><label class="labels">Aadhar Card</label><input type="text" [(ngModel)]="userbyId.aadhar" class="form-control" required pattern="[1-9][0-9]{11}" onKeyPress="if(this.value.length==12) return false;" #aadhar=ngModel placeholder="enter Aadhar Card" value="">
+                    <label style="text-shadow: 2px 2px 8px #FF0000;"  *ngIf = "aadhar.dirty && aadhar.invalid">Invalid AadharCard(12 Digit required)</label>
+                </div>
                 <div class="col-md-12" *ngIf="tempUserbyId.panCard"><label class="labels">Pan Card</label><input type="text" [(ngModel)]="userbyId.panCard" class="form-control" placeholder="enter Pan Card" style="text-transform:uppercase" value="" readonly></div>
-                <div class="col-md-12" *ngIf="!tempUserbyId.panCard"><label class="labels">Pan Card</label><input type="text" [(ngModel)]="userbyId.panCard" class="form-control" placeholder="enter Pan Card" style="text-transform:uppercase" value=""></div>
-                <div class="row mt-3">
-                    <div class="col-md-7" *ngIf="tempUserbyId.dateofbirth"><label class="labels">Date of Birth</label><input type="date" [(ngModel)]="userbyId.dateofbirth" pattern="\d{1,2}/\d{1,2}/\d{4}" class="form-control" value="" readonly></div>
-                    <div class="col-md-7" *ngIf="!tempUserbyId.dateofbirth"><label class="labels">Date of Birth</label><input type="date" [(ngModel)]="userbyId.dateofbirth" pattern="\d{1,2}/\d{1,2}/\d{4}" class="form-control" max="2002-12-31" value=""></div>
-                    <div class="col-md-5"><label class="labels">Salary</label><input type="text" [(ngModel)]="userbyId.salary" class="form-control" value="" placeholder="enter Salary"></div>
+                <div class="col-md-12" *ngIf="!tempUserbyId.panCard"><label class="labels">Pan Card</label><input type="text" [(ngModel)]="userbyId.panCard" class="form-control" required pattern="[A-Za-z0-9]{6}" onKeyPress="if(this.value.length==6) return false;" #pan=ngModel placeholder="enter PanCard eg-ABC123" value="">
+                    <label style="text-shadow: 2px 2px 8px #FF0000;"  *ngIf = "pan.dirty && pan.invalid">Invalid PanCard (6 Character required) </label>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-7"><label class="labels">State</label><input type="text" [(ngModel)]="userbyId.state" class="form-control" value="" placeholder="state"></div>
-                    <div class="col-md-5"><label class="labels">Country</label><input type="text" [(ngModel)]="userbyId.country" class="form-control" placeholder="country" value=""></div>
+                    <div class="col-md-7" *ngIf="tempUserbyId.dateofbirth"><label class="labels">Date of Birth</label><input type="date" [(ngModel)]="userbyId.dateofbirth" required pattern="\d{1,2}/\d{1,2}/\d{4}" class="form-control" value="" readonly></div>
+                    <div class="col-md-7" *ngIf="!tempUserbyId.dateofbirth"><label class="labels">Date of Birth</label><input type="date" [(ngModel)]="userbyId.dateofbirth" required pattern="\d{1,2}/\d{1,2}/\d{4}" class="form-control" max="2002-12-31" value=""></div>
+                    <div class="col-md-5"><label class="labels">Salary</label><input type="text" [(ngModel)]="userbyId.salary" class="form-control" required pattern="[1-9][0-9]{4,}"
+                        #salary=ngModel value="" placeholder="Enter Salary">   
+                    <label style="text-shadow: 2px 2px 8px #FF0000;"  *ngIf = "salary.dirty && salary.invalid">Invalid Salary</label>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-7"><label class="labels">State</label><input type="text" [(ngModel)]="userbyId.state" class="form-control" required pattern="[a-zA-Z]{2,}" #state=ngModel value="" placeholder="state">
+                        <label style="text-shadow: 2px 2px 8px #FF0000;"  *ngIf = "state.dirty && state.invalid">Invalid State Format</label>
+                    </div>
+                    <div class="col-md-5"><label class="labels">Country</label><input type="text" [(ngModel)]="userbyId.country" class="form-control" placeholder="country" value="" readonly></div>
                 </div>
                 <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit" (click)="updateProfile()">Save Profile</button></div>
             </div>

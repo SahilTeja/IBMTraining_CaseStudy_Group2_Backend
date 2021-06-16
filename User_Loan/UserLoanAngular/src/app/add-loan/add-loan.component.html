@@ -98,7 +98,7 @@
                     <div class="row px-3"> <label class="mb-1"><h6 class="mb-0 text-sm">Enter Loan Amount</h6></label> 
                         <input type="text" name="Amount" required pattern="[1-9][0-9]{4,}"
                             #amnt=ngModel [(ngModel)]="loan.amount" class="form-control" placeholder="Enter Loan Amount" min="10000" max="8000000">
-                        <label style="text-shadow: 2px 2px 8px #FF0000;"  *ngIf = "amnt.dirty && amnt.invalid">Loan Amount Should not start with 0 nor Alphabet & Amount should be greater than 9999</label>
+                        <label style="text-shadow: 2px 2px 8px #FF0000;" *ngIf = "amnt.dirty && amnt.invalid">Loan Amount Should not start with 0 nor Alphabet & Amount should be greater than 9999</label>
                     </div>
                    
                 </div>

@@ -48,7 +48,7 @@ export class UserDashboardComponent implements OnInit {
   }
 
   edit(loanId:number){
-    this.router.navigate(['edit'],{queryParams : {loanId: loanId }});
+    this.router.navigate(['edit'],{queryParams : {loanId: loanId }}).then(()=>location.reload());
   }
 
   EmiChart(loan:LoanModule) {

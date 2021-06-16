@@ -45,8 +45,8 @@
                     </div>
                     <div class="row px-3"> <label class="mb-1"><h6 class="mb-0 text-sm">Password</h6></label> 
                         <input type="password" name="password" [(ngModel)]="password" required #pwd=ngModel
-                                        pattern="[A-Za-z0-9]{4,}" placeholder="Enter password">
-                        <label style="margin-left: 165px; text-shadow: 2px 2px 8px #FF0000;"  *ngIf = "pwd.dirty && pwd.invalid">Password Should be alteast 4 Digit</label>
+                                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" placeholder="Enter password">
+                        <label style="margin-left: 165px; text-shadow: 2px 2px 8px #FF0000;"  *ngIf = "pwd.dirty && pwd.invalid">Password Should be alteast 5 Digit</label>
                     </div>
                     <div class="row px-3 mb-4">
                         <div class="custom-control custom-checkbox custom-control-inline">

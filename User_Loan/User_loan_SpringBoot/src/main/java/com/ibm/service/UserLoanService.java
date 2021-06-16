@@ -45,7 +45,7 @@ public class UserLoanService {
 	
 	
 	public void interestCalculation(Loan loan) {
-		int Cibil = findCibilbyId(loan.getPanCard()).getCibilscore();
+		int Cibil = findCibilbyId(loan.getPanCard());
 		
 		if (Cibil >= 550 && Cibil < 700) {
 			loan.setInterest(13);
@@ -64,30 +64,30 @@ public class UserLoanService {
 		}
 	}
 	public double loanApprovalAmount(Loan loan) {
-		int cibil = findCibilbyId(loan.getPanCard()).getCibilscore();
+		int cibil = findCibilbyId(loan.getPanCard());
 		if(cibil>550 && loan.getAmount()<7000000) {
 			if (loan.getSalary() < 30000) {
-				loan.setComment("40% of Amount Approved");
+				loan.setComment("Only 40% of Amount Applied");
 				return (int) (loan.getAmount() * 0.4);
 			}
 			else if (loan.getSalary() >= 30000 && loan.getSalary() < 60000) {
-				loan.setComment("55% of Amount Approved");
+				loan.setComment("Only 55% of Amount Applied");
 				return (int) (loan.getAmount() * 0.55);
 			}
 			else if (loan.getSalary() >= 60000 && loan.getSalary() < 100000) {
-				loan.setComment("70% of Amount Approved");
+				loan.setComment("Only 70% of Amount Applied");
 				return (int) (loan.getAmount() * 0.7);
 			}
 			else if (loan.getSalary() >= 100000 && loan.getSalary() < 150000) {
-				loan.setComment("80% of Amount Approved");
+				loan.setComment("Only 80% of Amount Applied");
 				return (int) (loan.getAmount() * 0.8);
 			}
 			else if (loan.getSalary() >= 150000 && loan.getSalary() < 200000) {
-				loan.setComment("90% of Amount Approved");
+				loan.setComment("Only 90% of Amount Applied");
 				return (int) (loan.getAmount() * 0.9);
 			}
 			else {
-				loan.setComment("100% of Amount Approved");
+				loan.setComment("100% of Amount Applied");
 				return (int) (loan.getAmount() * 1);
 			}
 		}
@@ -130,8 +130,15 @@ public class UserLoanService {
 	public boolean addCibilScore(Cibil cibil) {
 		return cibilRepo.save(cibil)!=null?true:false;
 	}
-	public Cibil findCibilbyId(String panCard){
-		return cibilRepo.findById(panCard).get();
+	public int findCibilbyId(String panCard){
+		List<Cibil> allpancard = findAllCibil();
+		for(Cibil pan:allpancard) {
+			if(pan.getPanCard().equals(panCard)) {
+				
+				return pan.getCibilscore();
+			}
+		}
+		return 0;
 	}
 	public List<Cibil> findAllCibil(){
 		return cibilRepo.findAll();
@@ -164,7 +171,7 @@ public class UserLoanService {
 			String subject = "Loan Applied Successfully";
 			String body = "Welcome " + Name + "\nYou have successfully applied for the loan. Your loan id is " + loanId
 					+ " and your Approved loan amount is " + amount + " with interest rate "+ loan.getInterest() + "." 
-					+ "\nInterest rate is decided based on your CIBIL Score. Your CIBIL Score is :"+ findCibilbyId(loan.getPanCard()).getCibilscore() + "."
+					+ "\nInterest rate is decided based on your CIBIL Score. Your CIBIL Score is :"+ findCibilbyId(loan.getPanCard()) + "."
 					+ "\nDO NOT share and forward this email with anyone."
 					+ "\nThank you!";
 			SimpleMailMessage message = new SimpleMailMessage();

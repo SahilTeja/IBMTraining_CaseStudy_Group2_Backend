@@ -52,8 +52,8 @@
                     </div>
                     <div class="row px-3"> <label class="mb-1"><h6 class="mb-0 text-sm">Password</h6></label> 
                         <input type="password" name="password" [(ngModel)]="user.password" required #pwd=ngModel
-                                        pattern="[A-Za-z0-9]{4,}" placeholder="Enter password">
-                        <label style="text-shadow: 2px 2px 8px #FF0000;"  *ngIf = "pwd.dirty && pwd.invalid">Password Should be alteast 4 Digit containing both alphabet & number</label>
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" placeholder="Enter password">
+                        <label style="text-shadow: 2px 2px 8px #FF0000;"  *ngIf = "pwd.dirty && pwd.invalid">Password Should be alteast 5 Digit, must contain at least 1 number, 1 uppercase and lowercase letter</label>
                     </div>
                     <div class="row px-3 mb-4"></div>
                     <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center" [disabled]=!frm.valid>Register User</button> </div>

@@ -22,6 +22,8 @@ export class UserProfileComponent implements OnInit {
   statusEmail : Boolean = false;
   tempUserbyId : AddUserModel = new AddUserModel();
 
+  statusProfile : Boolean = true;
+
   constructor(private service:HomeLoanService, private router:Router) { }
 
   ngOnInit(): void {
@@ -75,7 +77,12 @@ export class UserProfileComponent implements OnInit {
 
   updateProfile() {
     this.checkProfile();
-    if(this.statusAadhar==false && this.statusPan==false && this.statusEmail==false){
+    if(this.userbyId.salary==0 || this.userbyId.aadress=='' || this.userbyId.name=='' || this.userbyId.email=='' || this.userbyId.aadhar=='' || this.userbyId.panCard=='' || this.userbyId.state=='' || this.userbyId.dateofbirth==''){
+      alert("You have not completed Profile");
+      this.statusProfile=false;
+      location.reload();
+    }
+    else if(this.statusAadhar==false && this.statusPan==false && this.statusEmail==false && this.statusProfile==true){
       alert("Profile is Updated");
       this.service.upadateProfile(this.userbyId);
       this.router.navigate(['user']);
