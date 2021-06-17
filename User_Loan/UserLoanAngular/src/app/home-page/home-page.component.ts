@@ -17,6 +17,10 @@ export class HomePageComponent implements OnInit {
   duration : number = 0;
   interest : number = 0;
   EMIList : EMIChart[] = [];
+  EMIperMonth : number = 0;
+  totalAmountPaid : number = 0;
+  totalInterest : number = 0;
+  count : boolean = false;
 
   constructor(private service:HomeLoanService) { }
 
@@ -25,6 +29,18 @@ export class HomePageComponent implements OnInit {
 
   generateEMI() {
     this.service.getEmiChart(this.amount, this.duration, this.interest).then(data => this.EMIList = data);
+    
+  }
+  EMIDetails() {
+    if(this.count==false) {
+      this.EMIperMonth = this.EMIList[0].emi;
+      for(var index in this.EMIList){
+        this.totalAmountPaid = this.totalAmountPaid + this.EMIList[index].emi;
+      }
+      this.totalInterest = this.totalAmountPaid - this.amount;
+      this.count = true;
+      console.log("---------->"+this.EMIperMonth+"===="+this.totalAmountPaid+"===="+this.totalInterest);
+    }
   }
 
 }

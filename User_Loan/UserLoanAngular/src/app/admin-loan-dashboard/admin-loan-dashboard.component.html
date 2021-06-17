@@ -1,9 +1,14 @@
 
+<h1 style="text-align: center; color: #84BD5A; padding-top: 10px;font-size: 50px;"><strong><u>Admin Dashboard</u></strong></h1>
+
+<h1 *ngIf="!Loans?.length" style="text-align: center; padding-top: 10px;"><strong>No Loan are Available</strong></h1>
+<div class="container-fluid" *ngIf="Loans?.length">
+
 <form (ngSubmit) = "search()">
     <br>
-    <h2><strong><label>Search By</label></strong></h2> 
+    <strong><label style="font-size: 40px; margin-right: 100px;">Search By :-</label></strong> 
         <label *ngFor="let r of selectType"> &nbsp;&nbsp;&nbsp;&nbsp;
-        <input id type="radio" name="radioButton"  [value]="r" [(ngModel)] = "check"> {{r}}
+        <input id type="radio" name="radioButton"  [value]="r" [(ngModel)] = "check"><strong> {{r}}</strong>
         </label>
    
     <input name="query" [(ngModel)] = "query" class="form-control">
@@ -14,23 +19,24 @@
     <button type="submit" class="btn btn-info">Load All Loan Details</button>
 </form>
 
-<table class="table">
+<table class="table table-striped table-bordered table-hover">
+    <thead class="table-info">
     <tr>
         <th class="alert-info text-center">Loan Id</th>
         <th class="alert-info text-center" (click)="orderByName()">Applicant Name</th>
-        <th class="alert-info text-center">Loan Amount</th>
+        <th class="alert-info text-center">Loan Amount </th>
         <th class="alert-info text-center">Loan Duration(Yr)</th>
         <th class="alert-info text-center">ForClosure Pay</th>
         <th class="alert-info text-center" (click)="orderByApproval()">Approval</th>
         <th class="alert-info text-center">Action</th>
         
-    </tr>
+    </tr></thead>
     <tbody class="table-light text-center">
     <tr *ngFor = "let loan of Loans">
         <td>{{ loan.loanId }}</td>
         <td>{{ loan.name }}</td>
-        <td>{{ loan.amount }}</td>
-        <td>{{ loan.duration }}</td>
+        <td>{{ loan.amount | currency : 'INR' : "symbol" }}</td>
+        <td>{{ loan.duration  }} Year</td>
         <td>{{ loan.emiCompleted }}</td> 
         <td>{{loan.status}}</td>
         <td>
@@ -41,12 +47,13 @@
     </tr>
 </tbody> 
 </table>
+</div>
 
 <div class="portfolio-modal modal fade" id="detailsField" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content" style="background-color: azure;">
         <div class="modal-header">
-            <h1 style="margin-left: 280px;">Loan Details</h1>
+            <h1 style="text-align: center; color: #84BD5A; padding-top: 20px;font-size: 50px;padding-left: 30px;"><strong><u>Loan Details</u></strong></h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body"> 

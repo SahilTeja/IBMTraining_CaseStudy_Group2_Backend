@@ -1,7 +1,12 @@
-<table class="table">
-    <tr *ngIf="!LoansById?.length">
-        <h3>No Loan Details are available</h3>
-    </tr>
+
+<h1 style="text-align: center; color: #84BD5A; padding-top: 20px;font-size: 50px;"><strong><u>User Dashboard</u></strong></h1>
+
+<h1 *ngIf="!LoansById?.length" style="text-align: center; padding-top: 20px;"><strong>You had not Applied any Loan till yet</strong></h1><br>
+<h1 *ngIf="LoansById?.length" style="text-align: center;"><strong>All Loan Applied from your Profile</strong></h1><br> <br>
+
+<div class="container-fluid">
+<table class="table table-striped table-bordered table-hover" style="margin-bottom: 20px;">
+    <thead class="table-info">
     <tr *ngIf="LoansById?.length">
         <th class="alert-info text-center">LoanId</th>
         <th class="alert-info text-center">Loan Amount</th>
@@ -12,11 +17,12 @@
         <th class="alert-info text-center">ForClosure Pay</th>
         <th class="alert-info text-center">Edit Application</th>
     </tr>
+</thead>
     <tbody class="table-light text-center">
     <tr *ngFor = "let loan of LoansById">
         <td>{{ loan.loanId }}</td>
-        <td>{{ loan.amount }}</td>
-        <td>{{ loan.duration }}</td>
+        <td>{{ loan.amount | currency : 'INR' : "symbol"}}</td>
+        <td>{{ loan.duration }} Year</td>
         <td>{{ loan.emiCompleted }}</td>
         <td class="status" *ngIf="loan.status == 'Approved' && loan.emiCompleted == 'No'"><span class="active">{{loan.status}}</span></td>
         <td class="status" *ngIf="loan.status == 'Pending'"><span class="waiting">{{loan.status}}</span></td>
@@ -41,9 +47,9 @@
 </table>
 
 
-
-<table class="table table-info collapse" id="collapseExample">
-    <thead>
+<h1 style="text-align: center; color: #84BD5A; padding-top: 20px;font-size: 50px;" class="collapse" id="collapseExample"><strong><u>EMI Chart</u></strong></h1><br>
+<table class="table table-striped table-bordered table-hover collapse" id="collapseExample">
+    <thead class="table-success">
     <tr>
         <th class="alert-info text-center">Year</th>
         <th class="alert-info text-center">OpeningBal</th>
@@ -57,12 +63,12 @@
 <tbody class="table-light text-center">
     <tr *ngFor = "let f of EMIList">
         <td>{{ f.year }}</td>
-        <td>{{ f.openingBal }}</td>
-        <td>{{ f.emi }}</td>
-        <td>{{ f.interestPaidYearly }}</td>
-        <td>{{ f.principlePaidYearly }}</td>
-        <td>{{ f.closingbal }}</td>
+        <td>{{ f.openingBal  | currency : 'INR' : "symbol" }}</td>
+        <td>{{ f.emi  | currency : 'INR' : "symbol" }}</td>
+        <td>{{ f.interestPaidYearly | currency : 'INR' : "symbol" }}</td>
+        <td>{{ f.principlePaidYearly | currency : 'INR' : "symbol" }}</td>
+        <td>{{ f.closingbal | currency : 'INR' : "symbol" }}</td>
     </tr>
 </tbody>
 
-</table>
+</table></div>

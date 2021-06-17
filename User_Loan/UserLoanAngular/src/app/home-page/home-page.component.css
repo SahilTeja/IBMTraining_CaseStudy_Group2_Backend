@@ -10,7 +10,7 @@
 }
 p.header-subtitle {
     color: #fff;
-    font-size: 16px;
+    font-size: 25px;
     background: #84BD5A;
     display: inline-block;
     padding: 5px 17px;
@@ -23,6 +23,7 @@ p.header-subtitle {
 }
 #emicalculator{
     background-color: rgb(245, 240, 234);
+    padding: 30px;
 }
 button.header-subtitle {
     color: #fff;
@@ -35,3 +36,72 @@ button.header-subtitle {
     letter-spacing: 1px;
     border-radius: 10px;
 }
+
+#keyfeatures p{
+    font-weight: bolder;
+    font-size : 22px;
+    font-family: 'Frank Ruhl Libre', serif;
+
+}
+
+#keyfeatures {
+    padding: 20px;
+}
+#keyfeatures .fa {
+    color: #84BD5A;
+}
+li{
+    list-style: none;
+}
+ul{
+    list-style: none;
+    text-align: justify;
+    text-justify: inter-word;
+
+}
+#table1{
+    background-color: rgb(245, 240, 234);
+    padding: 30px;
+}
+#table1 h2{
+    color: #84BD5A;
+    font-weight: bold;
+}
+#docs_charges{
+    background-color: rgb(250, 249, 249);
+    padding: 30px;
+}
+#docs_charges h2 {
+    color: #84BD5A;
+    font-weight: bold;
+}
+#FAQ{
+    padding: 30px;
+}
+#relatedArticles{
+    background-color: rgb(245, 240, 234);
+    padding: 30px;
+}
+#relatedArticles .card:hover {
+    transform: scale(1.1);
+  }
+#relatedArticles .card {
+    transition: transform 0.2s ease;
+    box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
+    border-radius: 0;
+    border: 0;
+  }  
+#aboutus{
+    background-color: rgb(250, 249, 249);
+    padding: 30px;
+}
+
+#aboutus img{
+    position: relative;
+    left: 50px;
+}
+
+    
+
+
+

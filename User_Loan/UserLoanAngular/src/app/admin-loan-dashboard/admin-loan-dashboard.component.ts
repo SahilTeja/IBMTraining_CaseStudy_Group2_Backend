@@ -10,7 +10,7 @@ import { HomeLoanService } from '../services/home-loan.service';
 export class AdminLoanDashboardComponent implements OnInit {
 
   Loans : LoanModule[] = [];
-  selectType : String[] = ["LoanId","UserId","Name"];
+  selectType : String[] = ["LoanId","Name"];
   check : String = "";
   query : string = '';
   loanbyID : LoanModule = new LoanModule();

@@ -77,12 +77,12 @@ export class UserProfileComponent implements OnInit {
 
   updateProfile() {
     this.checkProfile();
-    if(this.userbyId.salary==0 || this.userbyId.aadress=='' || this.userbyId.name=='' || this.userbyId.email=='' || this.userbyId.aadhar=='' || this.userbyId.panCard=='' || this.userbyId.state=='' || this.userbyId.dateofbirth==''){
-      alert("You have not completed Profile");
-      this.statusProfile=false;
-      location.reload();
-    }
-    else if(this.statusAadhar==false && this.statusPan==false && this.statusEmail==false && this.statusProfile==true){
+    // if(this.userbyId.salary==0 || this.userbyId.aadress=='' || this.userbyId.name=='' || this.userbyId.email=='' || this.userbyId.aadhar=='' || this.userbyId.panCard=='' || this.userbyId.state=='' || this.userbyId.dateofbirth==''){
+    //   alert("You have not completed Profile");
+    //   this.statusProfile=false;
+    //   location.reload();
+    // }
+    if(this.statusAadhar==false && this.statusPan==false && this.statusEmail==false && this.statusProfile==true){
       alert("Profile is Updated");
       this.service.upadateProfile(this.userbyId);
       this.router.navigate(['user']);
