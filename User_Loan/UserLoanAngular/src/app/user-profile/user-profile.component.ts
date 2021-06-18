@@ -62,7 +62,7 @@ export class UserProfileComponent implements OnInit {
       this.statusAadhar=true;
       location.reload();
     }
-    if(this.allPancard.includes(this.userbyId.panCard)){
+    if(this.allPancard.includes(this.userbyId.panCard.toUpperCase())){
       alert("Pan card already registered");
       this.statusPan=true;
       location.reload();

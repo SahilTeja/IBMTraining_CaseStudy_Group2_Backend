@@ -3,11 +3,7 @@ package com.ibm.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-/**
- * 
- * @author Harsh Anand
- *
- */
+
 @Entity
 public class Admin {
 	@Id

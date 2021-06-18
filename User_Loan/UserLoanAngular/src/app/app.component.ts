@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-/**
- * 
- * @author Harsh Anand
- *
- */
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

@@ -7,11 +7,7 @@ import { CibilScoreModule } from 'src/cibilScore.module';
 import { EMIChart } from 'src/emiChart.module';
 import { LoanModule } from 'src/loan.module';
 import { UserLoginModel } from 'src/userlogin.module';
-/**
- * 
- * @author Harsh Anand
- *
- */
+
 @Injectable({
   providedIn: 'root'
 })

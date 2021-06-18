@@ -3,11 +3,7 @@ import { Router } from '@angular/router';
 import { Base64 } from 'js-base64';
 import { AddUserModel } from 'src/adduser.module';
 import { HomeLoanService } from '../services/home-loan.service';
-/**
- * 
- * @author Harsh Anand
- *
- */
+
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',

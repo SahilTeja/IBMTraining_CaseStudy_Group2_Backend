@@ -18,11 +18,6 @@ import com.ibm.entity.EMIChart;
 import com.ibm.entity.Loan;
 import com.ibm.service.UserLoanService;
 
-/**
- * 
- * @author Harsh Anand
- *
- */
 
 @CrossOrigin
 @RestController

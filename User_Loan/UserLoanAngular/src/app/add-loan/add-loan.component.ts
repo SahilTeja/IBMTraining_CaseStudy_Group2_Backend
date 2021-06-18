@@ -4,11 +4,7 @@ import { AddUserModel } from 'src/adduser.module';
 import { CibilScoreModule } from 'src/cibilScore.module';
 import { LoanModule } from 'src/loan.module';
 import { HomeLoanService } from '../services/home-loan.service';
-/**
- * 
- * @author Harsh Anand
- *
- */
+
 @Component({
   selector: 'app-add-loan',
   templateUrl: './add-loan.component.html',

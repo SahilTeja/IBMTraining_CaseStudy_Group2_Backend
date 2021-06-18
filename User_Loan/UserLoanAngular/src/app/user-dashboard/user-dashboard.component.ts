@@ -4,11 +4,7 @@ import { filter } from 'rxjs/operators';
 import { EMIChart } from 'src/emiChart.module';
 import { LoanModule } from 'src/loan.module';
 import { HomeLoanService } from '../services/home-loan.service';
-/**
- * 
- * @author Harsh Anand
- *
- */
+
 @Component({
   selector: 'app-user-dashboard',
   templateUrl: './user-dashboard.component.html',

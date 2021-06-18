@@ -2,11 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminLoginModel } from 'src/adminlogin.module';
 import { HomeLoanService } from '../services/home-loan.service';
-/**
- * 
- * @author Harsh Anand
- *
- */
+
 @Component({
   selector: 'app-login-admin',
   templateUrl: './login-admin.component.html',

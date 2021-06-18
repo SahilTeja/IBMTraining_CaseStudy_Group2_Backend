@@ -1,8 +1,4 @@
-/**
- * 
- * @author Harsh Anand
- *
- */
+
 export class AddUserModel {               
     public password : string = '';
     public name : string = '';

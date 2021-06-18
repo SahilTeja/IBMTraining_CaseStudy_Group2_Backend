@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EMIChart } from 'src/emiChart.module';
 import { HomeLoanService } from '../services/home-loan.service';
-/**
- * 
- * @author Harsh Anand
- *
- */
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',

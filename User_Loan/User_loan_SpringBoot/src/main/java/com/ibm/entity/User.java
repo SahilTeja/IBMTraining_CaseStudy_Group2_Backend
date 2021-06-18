@@ -3,18 +3,13 @@ package com.ibm.entity;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-/**
- * 
- * @author Harsh Anand
- *
- */
+
 @Entity
 public class User {
 	

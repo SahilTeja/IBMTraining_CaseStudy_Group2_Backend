@@ -3,11 +3,7 @@ import { Router } from '@angular/router';
 import { Base64 } from 'js-base64';
 import { UserLoginModel } from 'src/userlogin.module';
 import { HomeLoanService } from '../services/home-loan.service';
-/**
- * 
- * @author Harsh Anand
- *
- */
+
 @Component({
   selector: 'app-login-user',
   templateUrl: './login-user.component.html',

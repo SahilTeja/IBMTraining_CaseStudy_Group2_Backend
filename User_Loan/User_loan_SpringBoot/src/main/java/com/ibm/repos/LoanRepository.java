@@ -10,11 +10,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.ibm.entity.Loan;
-/**
- * 
- * @author Harsh Anand
- *
- */
+
 public interface LoanRepository extends JpaRepository<Loan, Integer> {
 
 	@Query("FROM Loan b where b.user.userId=(?1)")
@@ -47,8 +43,8 @@ public interface LoanRepository extends JpaRepository<Loan, Integer> {
 	
 	@Transactional
 	@Modifying
-	@Query("update Loan b set b.name = (?1),b.aadhar=(?2),b.email = (?3),b.amount =(?4),b.duration = (?5),b.panCard = (?6) where b.loanId = (?7)")
-	void editLoan(@Param("name")String name,@Param("aadhar")String aadhar,@Param("email")String email,@Param("amount")double amount,@Param("duration")double duration,@Param("panCard")String panCard,@Param("loanId") int loanId);
+	@Query("update Loan b set b.amount =(?1),b.duration = (?2),b.comment = (?3),b.status = (?4) where b.loanId = (?5)")
+	void editLoan(@Param("amount")double amount, @Param("duration")double duration, @Param("comment")String comment, @Param("status")String status, @Param("loanId") int loanId);
 
 	
 }

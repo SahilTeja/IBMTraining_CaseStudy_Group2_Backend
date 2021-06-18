@@ -1,8 +1,4 @@
-/**
- * 
- * @author Harsh Anand
- *
- */
+
 export class UserLoginModel {    
     public userId : number = 0;            
     public email : string = '';

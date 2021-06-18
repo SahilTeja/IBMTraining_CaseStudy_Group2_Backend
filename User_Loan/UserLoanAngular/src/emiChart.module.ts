@@ -1,3 +1,4 @@
+
 export class EMIChart {
     public year:number = 0;
 	public openingBal:number = 0;

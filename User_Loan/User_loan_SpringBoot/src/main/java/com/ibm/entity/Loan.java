@@ -9,11 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-/**
- * 
- * @author Harsh Anand
- *
- */
+
 @Entity
 public class Loan {
 	

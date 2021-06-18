@@ -1,8 +1,4 @@
-/**
- * 
- * @author Harsh Anand
- *
- */
+
  export class LoanModule {  
     public loanId : number = 0;             
     public name : string = '';
