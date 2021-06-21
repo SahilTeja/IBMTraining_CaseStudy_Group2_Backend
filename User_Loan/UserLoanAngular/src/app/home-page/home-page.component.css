@@ -22,9 +22,10 @@ p.header-subtitle {
     text-align: justify;
 }
 #emicalculator{
-    background-color: rgb(245, 240, 234);
+    background-color: rgb(250, 249, 249);
     padding: 30px;
 }
+
 button.header-subtitle {
     color: #fff;
     font-size: 20px;
@@ -38,9 +39,8 @@ button.header-subtitle {
 }
 
 #keyfeatures p{
-    font-weight: bolder;
-    font-size : 22px;
-    font-family: 'Frank Ruhl Libre', serif;
+    
+    font-size : 20px;
 
 }
 
@@ -49,6 +49,11 @@ button.header-subtitle {
 }
 #keyfeatures .fa {
     color: #84BD5A;
+}
+#keyfeatures h2 {
+    color: #84BD5A;
+    font-size: 40px;
+    font-weight: bold;
 }
 li{
     list-style: none;
@@ -60,27 +65,35 @@ ul{
 
 }
 #table1{
-    background-color: rgb(245, 240, 234);
+    background-color: rgb(250, 249, 249);
     padding: 30px;
 }
 #table1 h2{
     color: #84BD5A;
+    font-size: 40px;
     font-weight: bold;
 }
+
 #docs_charges{
-    background-color: rgb(250, 249, 249);
     padding: 30px;
 }
 #docs_charges h2 {
     color: #84BD5A;
+    font-size: 40px;
     font-weight: bold;
 }
 #FAQ{
     padding: 30px;
 }
+
 #relatedArticles{
-    background-color: rgb(245, 240, 234);
+    background-color: rgb(250, 249, 249);
     padding: 30px;
+}
+#relatedArticles h2 {
+    color: #84BD5A;
+    font-size: 40px;
+    font-weight: bold;
 }
 #relatedArticles .card:hover {
     transform: scale(1.1);
@@ -95,7 +108,11 @@ ul{
     background-color: rgb(250, 249, 249);
     padding: 30px;
 }
-
+#aboutus h2 {
+    color: #84BD5A;
+    font-size: 40px;
+    font-weight: bold;
+}
 #aboutus img{
     position: relative;
     left: 50px;

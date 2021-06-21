@@ -1,10 +1,10 @@
-
-<h1 style="text-align: center; color: #84BD5A; padding-top: 20px;font-size: 50px;"><strong><u>User Dashboard</u></strong></h1>
-
-<h1 *ngIf="!LoansById?.length" style="text-align: center; padding-top: 20px;"><strong>You had not Applied any Loan till yet</strong></h1><br>
-<h1 *ngIf="LoansById?.length" style="text-align: center;"><strong>All Loan Applied from your Profile</strong></h1><br> <br>
-
 <div class="container-fluid">
+<h1 style="text-align: center; color: #84BD5A; padding-top: 20px;font-size: 40px;"><strong>User Dashboard</strong></h1>
+
+<h3 *ngIf="!LoansById?.length" style="text-align: center; padding-top: 20px;"><strong>You had not Applied any Loan till yet</strong></h3><br>
+<h3 *ngIf="LoansById?.length" style="text-align: center;"><strong>All Loan Applied from your Profile</strong></h3><br> <br>
+
+
 <table class="table table-striped table-bordered table-hover" style="margin-bottom: 20px;">
     <thead class="table-info">
     <tr *ngIf="LoansById?.length">
@@ -14,7 +14,7 @@
         <th class="alert-info text-center">EMI Completed</th>
         <th class="alert-info text-center">Loan Status</th>
         <th class="alert-info text-center">Notification</th>
-        <th class="alert-info text-center">ForClosure Pay</th>
+        <th class="alert-info text-center">Foreclosure Pay</th>
         <th class="alert-info text-center">Edit Application</th>
     </tr>
 </thead>
@@ -47,16 +47,16 @@
 </table>
 
 
-<h1 style="text-align: center; color: #84BD5A; padding-top: 20px;font-size: 50px;" class="collapse" id="collapseExample"><strong><u>EMI Chart</u></strong></h1><br>
+<h1 style="text-align: center; color: #84BD5A; padding-top: 20px;font-size: 40px;" class="collapse" id="collapseExample"><strong>EMI Chart</strong></h1><br>
 <table class="table table-striped table-bordered table-hover collapse" id="collapseExample">
     <thead class="table-success">
     <tr>
-        <th class="alert-info text-center">Year</th>
-        <th class="alert-info text-center">OpeningBal</th>
-        <th class="alert-info text-center">EMI</th>
-        <th class="alert-info text-center">InterestPaidYearly</th>
-        <th class="alert-info text-center">PrinciplePaidYearly</th>
-        <th class="alert-info text-center">Closingbal</th>
+        <th class="alert-info text-center">Year<br></th>
+        <th class="alert-info text-center">Opening<br>Balance</th>
+        <th class="alert-info text-center">Annual<br>EMI</th>
+        <th class="alert-info text-center">Interest<br>(Per Annum)</th>
+        <th class="alert-info text-center">Principle<br>(Per Annum)</th>
+        <th class="alert-info text-center">Closing<br>Balance</th>
       
     </tr>
 </thead>

@@ -43,7 +43,7 @@ export class AddUserComponent implements OnInit {
       this.user.password = Base64.btoa(this.user.password).toString();
       this.service.addUser(this.user);
       alert(this.user.name+" is successfully registered");
-      this.router.navigate(['home']);
+      this.router.navigate(['loginuser']);
       }
   }
 

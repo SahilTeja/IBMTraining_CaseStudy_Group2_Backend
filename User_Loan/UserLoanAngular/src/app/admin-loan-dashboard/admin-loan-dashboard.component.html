@@ -1,7 +1,7 @@
 
-<h1 style="text-align: center; color: #84BD5A; padding-top: 10px;font-size: 50px;"><strong><u>Admin Dashboard</u></strong></h1>
+<h1 style="text-align: center; color: #84BD5A; padding-top: 10px;font-size: 40px;"><strong>Admin Loan Dashboard</strong></h1>
 
-<h1 *ngIf="!Loans?.length" style="text-align: center; padding-top: 10px;"><strong>No Loan are Available</strong></h1>
+<h3 *ngIf="!Loans?.length" style="text-align: center; padding-top: 10px;"><strong>No Loans are Available</strong></h3>
 <div class="container-fluid" *ngIf="Loans?.length">
 
 <form (ngSubmit) = "search()">
@@ -26,7 +26,7 @@
         <th class="alert-info text-center" (click)="orderByName()">Applicant Name</th>
         <th class="alert-info text-center">Loan Amount </th>
         <th class="alert-info text-center">Loan Duration(Yr)</th>
-        <th class="alert-info text-center">ForClosure Pay</th>
+        <th class="alert-info text-center">Foreclosure Pay</th>
         <th class="alert-info text-center" (click)="orderByApproval()">Approval</th>
         <th class="alert-info text-center">Action</th>
         

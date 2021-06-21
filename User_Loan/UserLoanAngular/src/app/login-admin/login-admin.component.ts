@@ -33,7 +33,7 @@ export class LoginAdminComponent implements OnInit {
       }
     }
     if(status==false) {
-      alert("Invalid Creditintials");
+      alert("Invalid Credentials");
       location.reload();
     }
   }

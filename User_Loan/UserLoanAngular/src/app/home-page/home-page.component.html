@@ -15,10 +15,10 @@
 <!---------------------------------------------------------------------------------->
 <div class="container-fluid">
     <div class="row" id="emicalculator">
-        <p class="header-subtitle text-center"><u>Loan EMI Calculator</u></p><br>
+        <p class="header-subtitle text-center">Loan EMI Calculator</p><br>
 
         <div class="col-lg-4">
-            <div class="card" style="background-color: rgb(245, 240, 234);border: none; margin: 20px;">
+            <div class="card" style="background-color: rgb(250, 249, 249);border: none; margin: 20px;">
         <form (ngSubmit)="generateEMI()" #frm=ngForm>
             <div class="form-group">
             <label for="amount">Loan Amount:</label>
@@ -59,7 +59,7 @@
                 <h3>Your EMI Details</h3>
                 </div>
                 <div class="emi-details-box">
-                <p>Loan EMI</p>
+                <p>Monthly Home Loan EMI </p>
                 <h5>{{EMIperMonth | currency : 'INR' : "symbol"}}</h5>
                 </div>
                 <div class="emi-details-box">
@@ -73,6 +73,8 @@
             </div>
         </div>
         <div class="col-lg-3" style="margin-top: 100px;">
+            <p class="header-subtitle text-center" style="font-size: 15px;">Maximum Loan Amount Should be less than 70 Lakh</p><br>
+
             <button style="margin-top: 20px;" *ngIf="EMIList?.length" class="btn btn-primary header-subtitle" type="button" data-bs-toggle="modal" data-bs-target="#detailsField">
                 View EMI Chart
             </button>
@@ -94,12 +96,12 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead class="table-success">
                     <tr>
-                        <th class="alert-info text-center">Year</th>
-                        <th class="alert-info text-center">OpeningBal</th>
-                        <th class="alert-info text-center">EMI</th>
-                        <th class="alert-info text-center">InterestPaidYearly</th>
-                        <th class="alert-info text-center">PrinciplePaidYearly</th>
-                        <th class="alert-info text-center">Closingbal</th>
+                        <th class="alert-info text-center">Year<br></th>
+                        <th class="alert-info text-center">Opening<br>Balance</th>
+                        <th class="alert-info text-center">Annual<br>EMI</th>
+                        <th class="alert-info text-center">Interest<br>(Per Annum)</th>
+                        <th class="alert-info text-center">Principle<br>(Per Annum)</th>
+                        <th class="alert-info text-center">Closing<br>Balance</th>
                       
                     </tr>
                 </thead>
@@ -112,7 +114,9 @@
                         <td>{{ f.principlePaidYearly | currency : 'INR' : "symbol" }}</td>
                         <td>{{ f.closingbal | currency : 'INR' : "symbol" }}</td>
                     </tr>
-                </tbody>
+                </tbody><br>
+                
+                  <button class="btn btn-info" (click)="register()">Apply Loan</button>
                 
                 </table>
                 
@@ -128,39 +132,39 @@
 
 <div class="container">
     <div class="row">
-    <p class="header-subtitle text-center"><u>Home Loan Key Features</u></p><br>
+      <h2 style="text-align: center;">Home Loan Key Features</h2><br> <br>
         
         <div class="col-lg-6 col-md-12 col-sm-12"><br>
             <ul>
                 <li><p><i class="fa fa-check-circle fa-lg"></i> Home Loans for purchase of a flat, 
                     row house, bungalow from private 
-                    developers in approved projects</p></li>
+                    developers in approved projects.</p></li>
                     
 
                 <li><p><i class="fa fa-check-circle fa-lg"></i> Home Loans for purchase of 
                     properties  from Development 
-                    Authorities such as DDA, MHADA etc</p></li>
+                    Authorities such as DDA, MHADA etc.</p></li>
 
                 <li><p><i class="fa fa-check-circle fa-lg"></i> Loans for purchase of properties in 
                     an existing Co-operative Housing 
                     Society or Apartment Owners'
                     Association or Development
                     Authorities settlements or privately 
-                    up homes</p> </li>  
+                    up homes.</p> </li>  
                
                 <li><p> <i class="fa fa-check-circle fa-lg"></i>Loans for construction on a freehold 
                     / lease hold plot or on a plot allotted
-                     by a Development Authority</p> </li>
+                     by a Development Authority.</p> </li>
             </ul> 
         </div>    
         <div class="col-lg-6 col-md-12 col-sm-12"><br>
             <ul>
                 <li><p><i class="fa fa-check-circle fa-lg"></i> Expert legal and technical 
                     counselling to help you make the
-                    right home buying decision</p></li>
+                    right home buying decision.</p></li>
                 <li><p><i class="fa fa-check-circle fa-lg"></i> Integrated branch network for
                      availing and servicing the Home
-                     Loans anywhere in India</p></li> 
+                     Loans anywhere in India.</p></li> 
                 <li><p><i class="fa fa-check-circle fa-lg"></i> Special arrangement with AGIF for
                      Home Loans for those employed in
                      the Indian Army.</p></li>    
@@ -170,7 +174,7 @@
                     by the Government of India with the
                     aim of boosting home ownership. It
                     aimed at achieving ‘Housing for All’
-                    by the year 2022</p></li>     
+                    by the year 2022.</p></li>     
 
             </ul>             
         </div>                
@@ -180,43 +184,43 @@
 
 <!----------------------------------------------------------------------------------->
 <div class="container-fluid" id="table1">
-    <h2 style="text-align: center;"><u>HOME LOAN INTEREST RATE</u></h2> <br>
-<h4 style="text-align: center;">Based on Salary</h4><br>
+    <h2 style="text-align: center;">Home Loan Eligibility Criteria</h2> <br>
+<h3 style="text-align: center;">Based on Salary</h3><br>
 
 <div class="container"> 
     <table class="table table-bordered">
         <thead class="thead-dark">
           <tr>
             
-            <th style="text-align: center; width: 50%;" >Loan Slab</th>
+            <th style="text-align: center; width: 50%;" >Monthly Income</th>
             
-            <th style="text-align: center; ">Home Loan Interest Rates (% p.a.)</th>
+            <th style="text-align: center; ">Amount Eligible</th>
           </tr>
         </thead>
         <tbody>
             <tr>
-                <td style="text-align: center;"><30000₹</td>
-                <td style="text-align: center;">40%</td>
+                <td style="text-align: center;">Less than ₹30,000</td>
+                <td style="text-align: center;">40% of Amount Applied</td>
             </tr>
             <tr>
-                <td style="text-align: center;">30,000-60,000₹</td>
-                <td style="text-align: center;">55%</td>
+                <td style="text-align: center;">Between ₹30,000 to ₹60,000</td>
+                <td style="text-align: center;">55% of Amount Applied</td>
             </tr>
             <tr>
-                <td style="text-align: center;">60,000-1L₹</td>
-                <td style="text-align: center;">70%</td>
+                <td style="text-align: center;">Between ₹60,000 to ₹1 Lakh</td>
+                <td style="text-align: center;">70% of Amount Applied</td>
             </tr>
             <tr>
-                <td style="text-align: center;">1L - 1.5L₹</td>
-                <td style="text-align: center;">80%</td>
+                <td style="text-align: center;">Between ₹1Lakh to ₹1.5Lakh</td>
+                <td style="text-align: center;">80% of Amount Applied</td>
             </tr>
             <tr>
-                <td style="text-align: center;">1.5L - 2L₹</td>
-                <td style="text-align: center;">90%</td>
+                <td style="text-align: center;">Between ₹1.5Lakh to ₹2Lakh</td>
+                <td style="text-align: center;">90% of Amount Applied</td>
             </tr>
             <tr>
-                <td style="text-align: center;">2L₹ +</td>
-                <td style="text-align: center;">100%</td>
+                <td style="text-align: center;">Greater than ₹2Lakh </td>
+                <td style="text-align: center;">100% of Amount Applied</td>
             </tr>
 
         </tbody>
@@ -231,26 +235,26 @@
         <thead  class="thead-dark">
           <tr>
             
-            <th style="text-align: center; width: 50%;" scope="col">Loan Slab</th>
+            <th style="text-align: center; width: 50%;" scope="col">CIBIL Score</th>
             
             <th style="text-align: center;" scope="col">Home Loan Interest Rates (% p.a.)</th>
           </tr>
         </thead>
         <tbody>
             <tr>
-                <td style="text-align: center;"><550</td>
-                <td style="text-align: center;">REJECT</td>
+                <td style="text-align: center;">Less than 550</td>
+                <td style="text-align: center;">Not Eligible</td>
             </tr>
             <tr>
-                <td style="text-align: center;">550-700</td>
+                <td style="text-align: center;">Between 550 to 700</td>
                 <td style="text-align: center;">13%</td>
             </tr>
             <tr>
-                <td style="text-align: center;">700-750</td>
+                <td style="text-align: center;">Between 700 to 750</td>
                 <td style="text-align: center;">10%</td>
             </tr>
             <tr>
-                <td style="text-align: center;">750-900</td>
+                <td style="text-align: center;">Between 750 to 900</td>
                 <td style="text-align: center;">7%</td>
             </tr>
         </tbody>
@@ -261,7 +265,7 @@
 
 <!----------------------------------------------------------------------------------->
 <div class="container-fluid" id="docs_charges">
-    <h2 style="text-align: center;"><u>Home Loan Documents and Charges</u></h2><br> <br>
+    <h2 style="text-align: center;">Home Loan Documents and Charges</h2><br> <br>
 <div class="accordion" id="accordionPanelsStayOpenExample">
     <div class="accordion-item">
       <h2 class="accordion-header" id="panelsStayOpen-headingOne">
@@ -292,9 +296,9 @@
         <div class="accordion-body">
             <p><strong>Here is an indicative list of the home loan fees and charges/ outgoings that are payable depending on the nature of the loan availed (*):.</strong></p>
           <ul>
-              <li>Home Loan Processing and Fees Charges</li>
-              <li>Home Loan Prepayment Charges</li>
-              <li>Home Loan Conversion Fees</li>
+              <li>Home Loan Processing and Fees Charges (0.25% of Loan Amount)</li>
+              <li>Home Loan Prepayment Charges (0.14% of Loan Amount)</li>
+              <li>Home Loan Conversion Fees (0.18% of Loan Amount)</li>
           </ul> 
           
         </div>
@@ -321,10 +325,50 @@
 </div>
 
 <!-------------------------------------------------------------------------------->
+<div class="container-fluid" id="relatedArticles">
+  <h2 style="text-align: center;">Articles</h2> <br><br>
+<div class="container">
+    <div class="row">
+    
+        <div class="col-xl-4 col-lg-5 col-sm-6" style="padding-left: 60px;">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://media.istockphoto.com/photos/happy-couple-smiling-in-their-new-home-picture-id1188220349?k=6&m=1188220349&s=170667a&w=0&h=dC5wa50Ep2dP8IxswcZElstopmUmUxy2zJQW_kEEUT0=" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title"><small class="text-muted">Home Finance</small></h5>
+                    <p class="card-text">How to Apply Loan Online</p>
+                    <a href="#" class="btn btn-primary">See more</a>
+                </div>
+            </div>    
+        </div>
+        <div class="col-xl-4 col-lg-5 col-sm-6" style="padding-left: 60px;">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://s-i.huffpost.com/gen/1349209/images/o-CAREER-WOMEN-facebook.jpg" alt="Card image cap" height="222px">
+                <div class="card-body">
+                    <h5 class="card-title"><small class="text-muted">Home Finance</small></h5>
+                    <p class="card-text">Loan Benefits for Women</p>
+                    <a href="#" class="btn btn-primary">See more</a>
+                </div>
+            </div>    
+        </div>
+        <div class="col-xl-4 col-lg-5 col-sm-6" style="padding-left: 60px;">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/qmraJpx/videoblocks-portrait-of-family-holding-keys-to-new-home-on-moving-in-day_rj0mszscf_thumbnail-1080_01.png" alt="Card image cap" height="222px">
+                <div class="card-body">
+                    <h5 class="card-title"><small class="text-muted">Home Finance</small></h5>
+                    <p class="card-text">Basics of Pre-Approved Loans</p>
+                    <a href="#" class="btn btn-primary">See more</a>
+                </div>
+            </div>    
+        </div>
+        
+    </div>
+</div>
+</div>
+<!------------------------------------------------------------------------------>
 <div class="container-fluid" id="FAQ">
     <div class="panel panel-primary" >
-        <div class="panel-heading" style="height:40px; padding:0; background-color: rgb(62, 14, 117); color: white; max-height: 10;">
-            <h4 class="panel-title text-center" style="padding: 6px;"><strong>FAQ</strong></h4>
+        <div class="panel-heading" style="padding:0; background-color: #84BD5A;font-size: 30px; font-weight: bold; color: white;">
+            <h2 class="panel-title text-center" style="padding: 6px;"><strong>FAQ</strong></h2>
         </div>
         <div class="panel panel-default">
           <!--------------------        FAQ     --------------------------------->
@@ -438,49 +482,11 @@
         <hr> 
 </div></div></div>
 <!------------------------------------------------------------------------------>
-<div class="container-fluid" id="relatedArticles">
-<div class="container">
-    <div class="row">
-    <p class="header-subtitle text-center" style="margin-bottom: 30px;"><u>Related Articles</u></p><br>
-        <div class="col-xl-4 col-lg-5 col-sm-6" style="padding-left: 60px;">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://media.istockphoto.com/photos/happy-couple-smiling-in-their-new-home-picture-id1188220349?k=6&m=1188220349&s=170667a&w=0&h=dC5wa50Ep2dP8IxswcZElstopmUmUxy2zJQW_kEEUT0=" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title"><small class="text-muted">Home Finance</small></h5>
-                    <p class="card-text">How to Apply Loan Online</p>
-                    <a href="#" class="btn btn-primary">See more</a>
-                </div>
-            </div>    
-        </div>
-        <div class="col-xl-4 col-lg-5 col-sm-6" style="padding-left: 60px;">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://s-i.huffpost.com/gen/1349209/images/o-CAREER-WOMEN-facebook.jpg" alt="Card image cap" height="222px">
-                <div class="card-body">
-                    <h5 class="card-title"><small class="text-muted">Home Finance</small></h5>
-                    <p class="card-text">Loan Benefits for Women</p>
-                    <a href="#" class="btn btn-primary">See more</a>
-                </div>
-            </div>    
-        </div>
-        <div class="col-xl-4 col-lg-5 col-sm-6" style="padding-left: 60px;">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/qmraJpx/videoblocks-portrait-of-family-holding-keys-to-new-home-on-moving-in-day_rj0mszscf_thumbnail-1080_01.png" alt="Card image cap" height="222px">
-                <div class="card-body">
-                    <h5 class="card-title"><small class="text-muted">Home Finance</small></h5>
-                    <p class="card-text">Basics of Pre-Approved Loans</p>
-                    <a href="#" class="btn btn-primary">See more</a>
-                </div>
-            </div>    
-        </div>
-        
-    </div>
-</div>
-</div>
-<!------------------------------------------------------------------------------>
+
 <div class="container-fluid" id="aboutus">
+  <h2 style="text-align: center;">About Us</h2> 
 <div class="container">
     <div class="row">
-    <p class="header-subtitle text-center"><u>About us</u></p><br>
         <div class="col-lg-6 col-md-12 col-sm-12">
             <br><br>
             <img src="/assets/Home_Loan_Things.jpg" width="350px" height="200px">

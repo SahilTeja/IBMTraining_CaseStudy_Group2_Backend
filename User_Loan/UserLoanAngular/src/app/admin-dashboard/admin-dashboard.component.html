@@ -1,8 +1,8 @@
 
-<h1 style="text-align: center; color: #84BD5A; padding-top: 20px;font-size: 50px;"><strong><u>Admin Approval Dashboard</u></strong></h1><br>
+<h1 style="text-align: center; color: #84BD5A; padding-top: 20px;font-size: 40px;"><strong>Admin Approval Dashboard</strong></h1><br>
 
-<h1 *ngIf="!LoanApproval?.length" style="text-align: center; padding-top: 20px;"><strong>No Loan are Pending for approval</strong></h1>
-<h1 *ngIf="LoanApproval?.length" style="text-align: center;"><strong>Pending Loan for Approval</strong></h1><br> <br>
+<h3 *ngIf="!LoanApproval?.length" style="text-align: center; padding-top: 20px;"><strong>No Loans are Pending for approval</strong></h3>
+<h3 *ngIf="LoanApproval?.length" style="text-align: center;"><strong>Loans Pending for Approval</strong></h3><br> <br>
 <div class="container-fluid">
 <table class="table table-striped table-bordered table-hover" style="margin-bottom: 20px;">
     <thead class="table-info">
@@ -11,7 +11,7 @@
         <th class="alert-info text-center">Applicant Name</th>
         <th class="alert-info text-center">Loan Amount</th>
         <th class="alert-info text-center">Loan Duration(Yr)</th>
-        <th class="alert-info text-center">ForClosure Pay</th>
+        <th class="alert-info text-center">Foreclosure Pay</th>
         <th class="alert-info text-center">Approval Status</th>
         <th class="alert-info text-center">Loan Details</th>
         <th style="padding-left: 75px"  class="alert-info" colspan="2">Action</th> 

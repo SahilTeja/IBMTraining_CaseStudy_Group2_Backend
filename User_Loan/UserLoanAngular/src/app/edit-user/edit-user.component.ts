@@ -45,7 +45,7 @@ export class EditUserComponent implements OnInit {
     if (this.loan.status!="Approved"){
       if((this.AgeTillRetairment-this.loan.duration)>=0) {
         this.service.editLoan(this.loan);
-        alert("you data have been updated ");
+        alert("Your Loan Details have been Updated");
         this.router.navigate(['user']).then(()=>location.reload());
       }
       else {
@@ -53,7 +53,7 @@ export class EditUserComponent implements OnInit {
       }
     }
     else{
-      alert("You cant update now");
+      alert("You can not update now");
       this.router.navigate(['user']).then(()=>location.reload());
     }
   }
