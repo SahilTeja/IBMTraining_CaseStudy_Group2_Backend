@@ -26,10 +26,10 @@ public class UserLoanController {
 	@Autowired
 	private UserLoanService Service;
 	
-//	@PostMapping(path = "/admin/save",consumes = "application/json")
-//	public boolean saveAdmin(@RequestBody Admin admin) {
-//		return Service.addAdmin(admin);
-//	}
+	@PostMapping(path = "/admin/save",consumes = "application/json")
+	public boolean saveAdmin(@RequestBody Admin admin) {
+		return Service.addAdmin(admin);
+	}
 	@GetMapping(path = "/admin/find", produces = "application/json")
 	public List<Admin> findAllAdmin(){
 		return Service.findAllAdmin();

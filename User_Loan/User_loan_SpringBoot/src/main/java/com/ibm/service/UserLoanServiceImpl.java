@@ -120,9 +120,9 @@ public class UserLoanServiceImpl implements UserLoanService {
 	}
 		
 	/*	Register Admin  */
-	//	public boolean addAdmin(Admin admin) {
-	//	return adminRepo.save(admin)!=null?true:false;
-	//}
+	public boolean addAdmin(Admin admin) {
+		return adminRepo.save(admin)!=null?true:false;
+	}
 	
 	/*	Find All Admin  */
 	public List<Admin> findAllAdmin(){

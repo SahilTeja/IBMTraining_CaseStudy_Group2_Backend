@@ -11,7 +11,7 @@ import com.ibm.entity.Loan;
 
 public interface UserLoanService {
 		
-	//	boolean addAdmin(Admin admin);
+	boolean addAdmin(Admin admin);
 	
 	List<Admin> findAllAdmin(); 
 	
