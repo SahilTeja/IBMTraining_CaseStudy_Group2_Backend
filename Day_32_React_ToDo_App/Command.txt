@@ -1,7 +1,0 @@
-1.  npx create-react-app hello-app  (hello-app--> is project name)
-
-	(this command is used to create react app)
-
-2. npm start    (start react app)
-
-3. npm install react-router-dom --save   (Installing Router)
