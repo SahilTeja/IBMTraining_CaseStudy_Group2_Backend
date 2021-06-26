@@ -119,7 +119,7 @@ public class UserLoanServiceImpl implements UserLoanService {
 		
 	}
 		
-	/*	Register Admin  */
+	//	Register Admin  
 	public boolean addAdmin(Admin admin) {
 		return adminRepo.save(admin)!=null?true:false;
 	}
@@ -321,7 +321,7 @@ public class UserLoanServiceImpl implements UserLoanService {
 		}
 		else {
 			ApprovedAmount = loan.getAmount();
-			loan.setComment("100% bz Amnt<previous Amnt");
+			loan.setComment("100% bz Amnt<=previous Amnt");
 		}
 		
 		loan.setAmount(ApprovedAmount);
@@ -339,8 +339,8 @@ public class UserLoanServiceImpl implements UserLoanService {
 		int OTP = otp;
 		Loan loan = getLoanbyID(loanId);
 		String to = loan.getEmail();
-		String subject = "ForClosure Payment OTP";
-		String body = "Your One Time Password for ForClosure Payment is "+ OTP
+		String subject = "Foreclosure Payment OTP";
+		String body = "Your One Time Password for Foreclosure Payment is "+ OTP
 				+ "\nDO NOT share your OTP with anyone.";
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setTo(to);
