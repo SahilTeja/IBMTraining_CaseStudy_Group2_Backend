@@ -21,7 +21,7 @@ export class AdminDashboardComponent implements OnInit {
     }
   }
   yes(loanId: number) {
-    var ans = confirm("Are u sure to Approve Loan?"); 
+    var ans = confirm("Are you sure to Approve Loan?"); 
     if (ans) {
       this.AdminComment = "Loan Accepted";
       console.log(this.AdminComment);
@@ -32,7 +32,7 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   no(loanId: number) {
-    var ans = confirm("Are u sure to Reject?");
+    var ans = confirm("Are you sure to Reject Loan?");
     if (ans) {
       this.AdminComment = String(prompt('Enter Comments', ''));
       console.log(this.AdminComment);

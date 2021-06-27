@@ -1,7 +1,7 @@
 <div class="container-fluid">
 <h1 style="text-align: center; color: #84BD5A; padding-top: 20px;font-size: 40px;"><strong>User Dashboard</strong></h1>
 
-<h3 *ngIf="!LoansById?.length" style="text-align: center; padding-top: 20px;"><strong>You had not Applied any Loan till yet</strong></h3><br>
+<h3 *ngIf="!LoansById?.length" style="text-align: center; padding-top: 20px;"><strong>You have not Applied any Loan till yet</strong></h3><br>
 <h3 *ngIf="LoansById?.length" style="text-align: center;"><strong>All Loan Applied from your Profile</strong></h3><br> <br>
 
 
@@ -30,7 +30,7 @@
         <td class="status" *ngIf="loan.status == 'Approved' && loan.emiCompleted == 'Yes'"><span class="complete">Completed</span></td>
         <td>{{loan.comment}}</td>
         <td>
-            <span *ngIf="loan.emiCompleted == 'Yes'" style="font-weight: bold;text-shadow: 2px 2px 8px #FF0000;">Completed</span>
+            <span *ngIf="loan.emiCompleted == 'Yes'" style="font-weight: bold;text-shadow: 2px 2px 8px #FF0000;">Loan Completed</span>
             <button *ngIf="loan.emiCompleted == 'No' && loan.status=='Approved'" class="btn btn-info" (click)="payment(loan.loanId,loan.name,loan.amount)">Pay</button>
             <span *ngIf="loan.emiCompleted == 'No' && loan.status=='Rejected'" style="font-weight: bold;text-shadow: 2px 2px 8px #FF0000;">Loan Rejected</span>
             <span *ngIf="loan.emiCompleted == 'No' && loan.status=='Pending'" style="font-weight: bold;text-shadow: 2px 2px 8px #FF0000;">Loan Approval Pending</span>

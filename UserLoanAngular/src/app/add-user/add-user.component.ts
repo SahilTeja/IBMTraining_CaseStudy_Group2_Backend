@@ -40,10 +40,10 @@ export class AddUserComponent implements OnInit {
   addUser(){
     this.checkProfileEmail();
     if(this.statusEmail==false){
-      this.user.password = Base64.btoa(this.user.password).toString();
-      this.service.addUser(this.user);
-      alert(this.user.name+" is successfully registered");
-      this.router.navigate(['loginuser']);
+        this.user.password = Base64.btoa(this.user.password).toString();
+        this.service.addUser(this.user);
+        alert(this.user.name+" is successfully registered");
+        this.router.navigate(['loginuser']);
       }
   }
 

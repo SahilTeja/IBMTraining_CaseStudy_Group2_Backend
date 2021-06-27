@@ -48,6 +48,9 @@ export class EditUserComponent implements OnInit {
         alert("Your Loan Details have been Updated");
         this.router.navigate(['user']).then(()=>location.reload());
       }
+      else if((this.AgeTillRetairment-this.loan.duration)<0) {
+        alert("You are already above 60 Years of Age. So, You are not eligible to apply for Loan. ");
+      }
       else {
         alert("According to Your Age you can apply Loan for maximum : "+this.AgeTillRetairment + " Years");
       }

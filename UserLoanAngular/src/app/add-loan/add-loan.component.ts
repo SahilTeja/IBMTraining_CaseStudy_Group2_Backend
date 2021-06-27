@@ -41,6 +41,7 @@ export class AddLoanComponent implements OnInit {
       alert("Please Complete Profile first, then apply the Loan");
       this.router.navigate(['profile']);
     }
+    // console.log(this.userbyId.dateofbirth);
     var yearDOB = +this.userbyId.dateofbirth.split("-",1);
     this.AgeTillRetairment = yearDOB+60-(new Date()).getFullYear();
     
@@ -73,6 +74,9 @@ export class AddLoanComponent implements OnInit {
         this.service.addloan(this.loan,this.userid);
         alert("Loan Applied");
         this.router.navigate(['user']).then(()=>location.reload());
+      }
+      else if((this.AgeTillRetairment-this.loan.duration)<0) {
+        alert("You are already above 60 Years of Age. So, You are not eligible to apply for Loan. ");
       }
       else {
         alert("According to Your Age you can apply Loan for maximum : "+this.AgeTillRetairment + " Years");

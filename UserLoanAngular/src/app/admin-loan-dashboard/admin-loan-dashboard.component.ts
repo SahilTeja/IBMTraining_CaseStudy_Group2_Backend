@@ -10,7 +10,7 @@ import { HomeLoanService } from '../services/home-loan.service';
 export class AdminLoanDashboardComponent implements OnInit {
 
   Loans : LoanModule[] = [];
-  selectType : String[] = ["LoanId","Name"];
+  selectType : String[] = ["Loan Id","Name"];
   check : String = "";
   query : string = '';
   loanbyID : LoanModule = new LoanModule();
@@ -30,12 +30,11 @@ export class AdminLoanDashboardComponent implements OnInit {
   }
 
   search() {
-    if(this.check=="LoanId")
+    if(this.check=="Loan Id")
       this.service.findLoanById(parseInt(this.query)).then(data => this.Loans = data);
     else if(this.check=="Name")
       this.service.findLoanByName(this.query).then(data => this.Loans = data);
-    else if(this.check=="UserId")
-      this.service.getAllLoanbyUserId(parseInt(this.query)).then(data => this.Loans = data);
+    
     
   }
   reload() {

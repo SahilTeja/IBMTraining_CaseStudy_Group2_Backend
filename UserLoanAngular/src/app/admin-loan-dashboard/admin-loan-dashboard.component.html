@@ -6,7 +6,7 @@
 
 <form (ngSubmit) = "search()">
     <br>
-    <strong><label style="font-size: 40px; margin-right: 100px;">Search By :-</label></strong> 
+    <strong><label style="font-size: 35px; margin-right: 50px;">Search By :-</label></strong> 
         <label *ngFor="let r of selectType"> &nbsp;&nbsp;&nbsp;&nbsp;
         <input id type="radio" name="radioButton"  [value]="r" [(ngModel)] = "check"><strong> {{r}}</strong>
         </label>
@@ -23,11 +23,11 @@
     <thead class="table-info">
     <tr>
         <th class="alert-info text-center">Loan Id</th>
-        <th class="alert-info text-center" (click)="orderByName()">Applicant Name</th>
+        <th class="alert-info text-center" (click)="orderByName()" style="cursor: pointer;">Applicant Name</th>
         <th class="alert-info text-center">Loan Amount </th>
         <th class="alert-info text-center">Loan Duration(Yr)</th>
         <th class="alert-info text-center">Foreclosure Pay</th>
-        <th class="alert-info text-center" (click)="orderByApproval()">Approval</th>
+        <th class="alert-info text-center" (click)="orderByApproval()" style="cursor: pointer;">Approval</th>
         <th class="alert-info text-center">Action</th>
         
     </tr></thead>

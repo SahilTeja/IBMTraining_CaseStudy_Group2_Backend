@@ -49,6 +49,7 @@ export class UserProfileComponent implements OnInit {
       this.allPancard.push(this.allUser[index].panCard);
       this.allEmail.push(this.allUser[index].email);
     }
+    //if value is null in database then it not store in allAadhar......etc
     this.allAadhar = this.allAadhar.filter(function (e) {return e != null;});
     this.allPancard = this.allPancard.filter(function (e) {return e != null;});
     this.allEmail = this.allEmail.filter(function (e) {return e != null;});
