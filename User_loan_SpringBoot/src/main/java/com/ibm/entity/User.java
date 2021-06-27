@@ -42,6 +42,18 @@ public class User {
 	@JsonManagedReference
 	@OneToMany(mappedBy = "user")
 	private List<Loan> loans;
+	
+	
+
+	public User() {
+		super();
+	}
+
+	public User(String name, String email, String password) {
+		this.name = name;
+		this.email = email;
+		this.password = password;
+	}
 
 	public int getUserId() {
 		return userId;

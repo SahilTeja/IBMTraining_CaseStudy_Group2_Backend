@@ -12,6 +12,16 @@ public class Admin {
 	@Column(length = 20)
 	private String password;
 	
+	
+	public Admin() {
+		super();
+	}
+	
+	public Admin(String username, String password) {
+		this.userName = username;
+		this.password = password;
+	}
+	
 	public String getUserName() {
 		return userName;
 	}

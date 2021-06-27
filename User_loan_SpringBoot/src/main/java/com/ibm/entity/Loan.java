@@ -35,6 +35,21 @@ public class Loan {
 	@JoinColumn(name = "user_id")  //foreign key
 	private User user;
 
+	
+
+	public Loan() {
+		super();
+	}
+	
+	public Loan(String name, String aadhar, String panCard, double salary, double amount, double duration) {
+		this.name = name;
+		this.aadhar = aadhar;
+		this.panCard = panCard;
+		this.salary = salary;
+		this.amount = amount;
+		this.duration = duration;
+	}
+
 	public int getLoanId() {
 		return loanId;
 	}

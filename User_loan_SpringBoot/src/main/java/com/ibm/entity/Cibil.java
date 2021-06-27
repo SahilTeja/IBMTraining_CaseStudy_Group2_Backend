@@ -11,6 +11,15 @@ public class Cibil {
 	
 	private int cibilscore;
 
+	public Cibil() {
+		super();
+	}
+
+	public Cibil(String pancard, int cibilscore) {
+		this.panCard = pancard;
+		this.cibilscore = cibilscore;
+	}
+
 	public String getPanCard() {
 		return panCard;
 	}
