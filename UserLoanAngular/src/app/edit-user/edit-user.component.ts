@@ -33,7 +33,7 @@ export class EditUserComponent implements OnInit {
   formValidate() {
     var yearDOB = +this.loan.dateofbirth.split("-",1);
     this.AgeTillRetairment = yearDOB+60-(new Date()).getFullYear();
-    
+    console.log(this.AgeTillRetairment);
     for(var index in this.allcibilScore) {
       if(this.loan.panCard==this.allcibilScore[index].panCard) {
         this.cibilScore = this.allcibilScore[index].cibilscore;
@@ -48,7 +48,7 @@ export class EditUserComponent implements OnInit {
         alert("Your Loan Details have been Updated");
         this.router.navigate(['user']).then(()=>location.reload());
       }
-      else if((this.AgeTillRetairment-this.loan.duration)<0) {
+      else if((this.AgeTillRetairment)<0) {
         alert("You are already above 60 Years of Age. So, You are not eligible to apply for Loan. ");
       }
       else {

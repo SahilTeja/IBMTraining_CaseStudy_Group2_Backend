@@ -75,7 +75,7 @@ export class AddLoanComponent implements OnInit {
         alert("Loan Applied");
         this.router.navigate(['user']).then(()=>location.reload());
       }
-      else if((this.AgeTillRetairment-this.loan.duration)<0) {
+      else if((this.AgeTillRetairment)<0) {
         alert("You are already above 60 Years of Age. So, You are not eligible to apply for Loan. ");
       }
       else {
